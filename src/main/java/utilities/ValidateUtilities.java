@@ -3,9 +3,9 @@ package utilities;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class validateUtilities {
+public class ValidateUtilities {
 
-    public validateUtilities() {
+    public ValidateUtilities() {
     }
 
     public boolean compareRegisterPasswd(PasswordField first, PasswordField repeat){

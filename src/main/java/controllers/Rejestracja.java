@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import utilities.ValidateUtilities;
 
 
 public class Rejestracja {
@@ -38,6 +39,7 @@ public class Rejestracja {
     @FXML
     public void onActionZarejestrujButton(){
 
+        ValidateUtilities validate = new ValidateUtilities();
 
     }
 
