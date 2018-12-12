@@ -14,7 +14,7 @@ class LogowanieTest {
         Logowanie l = new Logowanie();
         l.loginFromField="dsadas";
         //
-        boolean result = Logowanie.validateLogin(l.loginFromField="dsadas");
+        boolean result = Logowanie.validateLogin(l.loginFromField);
         //
 
 
