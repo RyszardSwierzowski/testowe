@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Logowanie">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <HBox prefHeight="120.0" prefWidth="570.0">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <children>
+                  <VBox prefHeight="169.0" prefWidth="183.0" spacing="25.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="285.0" text="Login">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="285.0" text="Hasło">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="130.0" prefWidth="285.0" spacing="25.0">
+                     <children>
+                        <TextField fx:id="loginField" alignment="CENTER" prefHeight="35.0" promptText="login ">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <PasswordField fx:id="passwordField" alignment="CENTER" prefHeight="35.0" promptText="hasło">
+                           <font>
+                              <Font size="15.0" />
+                           </font></PasswordField>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="99.0" prefWidth="570.0">
+               <children>
+                  <Button fx:id="buttonZaloguj" mnemonicParsing="false" onAction="#onActionButtonZaloguj" prefHeight="35.0" prefWidth="285.0" text="Zaloguj ">
+                     <HBox.margin>
+                        <Insets left="180.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
