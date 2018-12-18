@@ -4,16 +4,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import utilities.WindowInitial;
+
 public class Main extends Application {
 
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("viewsFxml/rejestracja.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("viewsFxml/hello.fxml"));
         primaryStage.setTitle("Twój Trening");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 468, 155));
         primaryStage.show();
-
+        System.out.println("INICJACJA START");
     }
 
 

@@ -41,6 +41,20 @@ public class Rejestracja {
     @FXML
     public void onActionZarejestrujButton(){
         System.out.println("klikniecie");
+        boolean wynik = validateFIELDS();
+
+        if(wynik){
+        //todo dodac uzytkownika do bazy danych
+
+        //todo przeniesc do logowania
+
+        }
+    }
+
+    private boolean validateFIELDS() {
+
+        boolean request = false;
+
         try{ //TODO: poprawic to bo wyglada marnie
             if(validate.compareRegisterPasswd(hasloField.getText(), powtorzhasloField.getText())){
                 if (validate.validateTextField(imieField.getText())){ //imie
@@ -48,11 +62,8 @@ public class Rejestracja {
                         if(validate.validateTextField(loginField.getText())){ //login
                             if(validate.validateNumberField(telefonField.getText())){//telefon
                                 if(validate.validateEmail(emailField.getText())){//email
-
+                                     request = true;
                                     System.out.println("UDALO SIE PREJSC WERIFIKACJE JEEEEJ");
-                                    //todo: stworzyc obiekt uzytkownika w sumie xD
-                                    //TODO: w przyszłości dodac tutaj jakies polacznie z baza danych i wyslac polecenie dodania uzytkownika
-                                    //todo: aha no i jak kliknie to tam przeneiesc do jakiegos nwm strony logowania albo wyswietlic glowna strone aplikacji
                                 }
                             }
                         }
@@ -63,9 +74,8 @@ public class Rejestracja {
         }catch (Exception ex){
             System.out.println("BUUUU");
         }
-
+        return request;
     }
-
 
 
 }
