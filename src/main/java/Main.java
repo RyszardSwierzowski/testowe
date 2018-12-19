@@ -130,7 +130,7 @@ public class Main extends Application {
         /*
             STARTOWA SCENA
          */
-        window.setScene(rejestracjaWidok);
+        window.setScene(wyborWidok);
         window.show();
         window.setResizable(false);
 
