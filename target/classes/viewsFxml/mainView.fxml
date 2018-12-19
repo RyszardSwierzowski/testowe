@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -7,13 +9,13 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewsFxml.MainView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="25.0" prefWidth="590.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <VBox prefHeight="700.0" prefWidth="1200.0">
          <children>
             <MenuBar>
               <menus>
-                <Menu mnemonicParsing="false" text="Treningi">
+                <Menu mnemonicParsing="false" text="File">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Close" />
                   </items>
@@ -30,20 +32,163 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab text="Untitled Tab 1">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </Tab>
-                <Tab text="Untitled Tab 2">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </Tab>
-              </tabs>
+            <TabPane prefHeight="588.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Użytkownik">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="199.0" prefWidth="1200.0">
+                           <children>
+                              <HBox layoutX="7.0" layoutY="6.0" prefHeight="507.0" prefWidth="1139.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <AnchorPane prefHeight="533.0" prefWidth="371.0" style="-fx-background-color: #669999;">
+                                       <children>
+                                          <VBox layoutX="42.0" layoutY="67.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="352.0" text="Informacje o użytkowniku">
+                                                   <font>
+                                                      <Font size="25.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="352.0" text="Imie : ">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="46.0" prefHeight="17.0" prefWidth="352.0" text="Nazwisko: ">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="73.0" prefHeight="17.0" prefWidth="352.0" text="Login : ">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="100.0" prefHeight="17.0" prefWidth="352.0" text="Adres e-mail: ">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="100.0" prefHeight="17.0" prefWidth="352.0" text="Numer kontaktowy : ">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="127.0" prefHeight="17.0" prefWidth="352.0" text="Status : klient / admin/ trener">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="154.0" prefHeight="17.0" prefWidth="352.0" text="Label">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="208.0" prefHeight="17.0" prefWidth="352.0" text="Label">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="235.0" prefHeight="17.0" prefWidth="352.0" text="Label">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="10.0" layoutY="262.0" prefHeight="17.0" prefWidth="352.0" text="Label">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="527.0" prefWidth="352.0" style="-fx-background-color: #669999;">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="535.0" prefWidth="353.0" spacing="10.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="352.0" text="Edycja danych">
+                                                   <font>
+                                                      <Font size="25.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="userEdycjaNoweImie" alignment="CENTER" promptText="Nowe imię">
+                                                   <VBox.margin>
+                                                      <Insets left="25.0" right="25.0" />
+                                                   </VBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="userEdycjaNoweNazwisko" alignment="CENTER" layoutX="10.0" layoutY="46.0" promptText="Nowe nazwisko">
+                                                   <VBox.margin>
+                                                      <Insets left="25.0" right="25.0" />
+                                                   </VBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="userEdycjaNowyNumerKontaktowy" alignment="CENTER" layoutX="10.0" layoutY="71.0" promptText="Nowy numer kontaktowy">
+                                                   <VBox.margin>
+                                                      <Insets left="25.0" right="25.0" />
+                                                   </VBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="userEdycjaNoweAdresEmail" alignment="CENTER" layoutX="10.0" layoutY="96.0" promptText="Nowy adres e-mail">
+                                                   <VBox.margin>
+                                                      <Insets left="25.0" right="25.0" />
+                                                   </VBox.margin>
+                                                </TextField>
+                                                <Button fx:id="userEdycjaButtonZmienDane" mnemonicParsing="false" prefHeight="25.0" prefWidth="241.0" text="Zmień Dane" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="381.0" layoutY="10.0" prefHeight="527.0" prefWidth="352.0" style="-fx-background-color: #669999;">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="535.0" prefWidth="353.0" spacing="10.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="352.0" text="Zarządzanie kontem">
+                                                   <font>
+                                                      <Font size="25.0" />
+                                                   </font>
+                                                </Label>
+                                                <VBox alignment="CENTER" prefHeight="81.0" prefWidth="332.0">
+                                                   <children>
+                                                      <Label prefHeight="17.0" prefWidth="334.0" text="Tymczasowe zawieszenie konta ">
+                                                         <padding>
+                                                            <Insets left="20.0" right="20.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <ChoiceBox prefHeight="25.0" prefWidth="237.0" />
+                                                      <ComboBox prefWidth="150.0" />
+                                                      <Button mnemonicParsing="false" text="Button" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Twoje treningi">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Dostępne zajęcia">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="322.0" layoutY="179.0" prefHeight="200.0" prefWidth="100.0">
+                                 <padding>
+                                    <Insets top="50.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
             </TabPane>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
          </children>
       </VBox>
    </children>
