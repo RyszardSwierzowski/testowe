@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,6 +10,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 
@@ -29,36 +32,49 @@ public class Main extends Application {
                 DECYZJA LOGOWANIE CZY REJESTRACJA
          */
         Label label1 = new Label("Wybierz opcje logowania");
+        Label labelPrzywitanie = new Label("Witaj w naszym klubie dla aktywnych :)");
         Button buttonWyborLogowanie = new Button("Logowanie");
         Button buttonWyborRejestracja = new Button("Rejestracja");
         buttonWyborLogowanie.setOnAction(e->window.setScene(logowanieWidok));
         buttonWyborRejestracja.setOnAction(e->window.setScene(rejestracjaWidok));
 
-            VBox vboxWybor = new VBox(20);
-            HBox hboxWybor = new HBox(10);
-            hboxWybor.getChildren().setAll(buttonWyborLogowanie,buttonWyborRejestracja);
-            vboxWybor.setPadding(new Insets(50,10,10,50));
+            labelPrzywitanie.setFont(new Font("Arial",25));
+            labelPrzywitanie.setTextAlignment(TextAlignment.CENTER);
 
-        vboxWybor.getChildren().setAll(label1,hboxWybor);
-        wyborWidok = new Scene(vboxWybor,500,300);
+             VBox vboxWybor = new VBox(30);
+            HBox hboxWybor = new HBox(25);
+                vboxWybor.setAlignment(Pos.CENTER);
+                hboxWybor.setAlignment(Pos.CENTER);
+            hboxWybor.getChildren().setAll(buttonWyborLogowanie,buttonWyborRejestracja);
+            //vboxWybor.setPadding(new Insets(50,10,10,50));
+            //hboxWybor.setPadding(new Insets(5,10,10,50));
+
+        vboxWybor.getChildren().setAll(labelPrzywitanie,label1,hboxWybor);
+        wyborWidok = new Scene(vboxWybor,550,300);
 
         /*
                 WYBRANO OPCJE LOGOWANIA
          */
-        Button buttonZaloguj = new Button("Zaloguj");
-        Button buttonWroc = new Button("Powrot");
+        Button buttonZaloguj = new Button("Zaloguj się");
+        Button buttonWroc = new Button("Powrót");
         buttonZaloguj.setOnAction(e->window.setScene(zalogowanoWidok));
         buttonWroc.setOnAction(e->window.setScene(wyborWidok));
+        Label labelLogowanie = new Label("Podaj swoje dane do logowania");
 
         VBox vboxLogowanie = new VBox(20);
+        HBox hboxLogowanie = new HBox(25);
         TextField loginLogowanie = new TextField();
         loginLogowanie.setPromptText("Login");
         PasswordField passwordLogowanie = new PasswordField();
-        passwordLogowanie.setPromptText("Haslo");
+
+            passwordLogowanie.setPromptText("Haslo");
+            vboxLogowanie.setPadding(new Insets(75,50,75,50));
+            hboxLogowanie.getChildren().setAll(buttonZaloguj,buttonWroc);
+            labelLogowanie.setFont(new Font("Arial",25));
 
 
-        vboxLogowanie.getChildren().setAll(loginLogowanie,passwordLogowanie,buttonZaloguj,buttonWroc);
-        logowanieWidok = new Scene(vboxLogowanie,500,500);
+        vboxLogowanie.getChildren().setAll(labelLogowanie,loginLogowanie,passwordLogowanie,hboxLogowanie);
+        logowanieWidok = new Scene(vboxLogowanie,500,300);
 
         /*
                 WYBOR OPCJI REJESTRACJI
@@ -106,7 +122,7 @@ public class Main extends Application {
         /*
             STARTOWA SCENA
          */
-        window.setScene(wyborWidok);
+        window.setScene(rejestracjaWidok);
         window.show();
         window.setResizable(false);
 
