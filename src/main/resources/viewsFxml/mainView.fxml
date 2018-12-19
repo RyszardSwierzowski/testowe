@@ -212,6 +212,7 @@
                                     <Font name="System Bold" size="23.0" />
                                  </font>
                               </Label>
+                              <Button layoutX="915.0" layoutY="214.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="Wypisz się z zajęć " />
                            </children>
                         </AnchorPane>
                      </content>
@@ -220,12 +221,29 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <VBox layoutX="170.0" layoutY="101.0" prefHeight="307.0" prefWidth="446.0">
+                              <VBox alignment="TOP_CENTER" layoutX="170.0" layoutY="101.0" prefHeight="307.0" prefWidth="446.0" spacing="15.0">
                                  <children>
-                                    <ComboBox prefHeight="25.0" prefWidth="445.0" promptText="Wybierz typ zajęć" />
-                                    <ComboBox layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="445.0" promptText="Wybierz trenera" />
-                                    <ComboBox layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="445.0" promptText="Wybierz termin" />
-                                    <ComboBox layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="445.0" promptText="Wybierz zajęcia" />
+                                    <ComboBox prefHeight="25.0" prefWidth="445.0" promptText="Wybierz typ zajęć">
+                                       <VBox.margin>
+                                          <Insets left="15.0" right="15.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <ComboBox layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="445.0" promptText="Wybierz trenera">
+                                       <VBox.margin>
+                                          <Insets left="15.0" right="15.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <ComboBox layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="445.0" promptText="Wybierz termin">
+                                       <VBox.margin>
+                                          <Insets left="15.0" right="15.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <ComboBox layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="445.0" promptText="Wybierz zajęcia">
+                                       <VBox.margin>
+                                          <Insets left="15.0" right="15.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="254.0" text="Dodaj zajęcia do swojej listy" />
                                  </children>
                               </VBox>
                            </children>
