@@ -151,7 +151,7 @@
                                                          </padding>
                                                       </Label>
                                                       <ComboBox prefHeight="25.0" prefWidth="246.0" promptText="Wybierz okres zawieszenia" />
-                                                      <Button mnemonicParsing="false" text="Zawieś członkostwo" />
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Zawieś członkostwo" />
                                                    </children>
                                                    <padding>
                                                       <Insets bottom="5.0" top="5.0" />
@@ -164,7 +164,7 @@
                                                             <Insets left="20.0" right="20.0" />
                                                          </padding>
                                                       </Label>
-                                                      <Button mnemonicParsing="false" text="Zrezygnuj" />
+                                                      <Button mnemonicParsing="false" prefWidth="130.0" text="Zrezygnuj" />
                                                    </children>
                                                    <padding>
                                                       <Insets bottom="5.0" top="5.0" />
@@ -177,7 +177,7 @@
                                                             <Insets left="20.0" right="20.0" />
                                                          </padding>
                                                       </Label>
-                                                      <Button mnemonicParsing="false" text="Usuń" />
+                                                      <Button mnemonicParsing="false" prefWidth="130.0" text="Usuń" />
                                                    </children>
                                                    <padding>
                                                       <Insets bottom="5.0" top="5.0" />
@@ -195,17 +195,55 @@
                   </Tab>
                   <Tab text="Twoje treningi">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView layoutX="110.0" layoutY="77.0" prefHeight="435.0" prefWidth="770.0" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="75.0">
+                                <columns>
+                                    <TableColumn prefWidth="75.0" text="Lp." />
+                                    <TableColumn prefWidth="150.0" text="Nazwa" />
+                                    <TableColumn prefWidth="130.0" text="Termin" />
+                                    <TableColumn prefWidth="100.0" text="Trener" />
+                                    <TableColumn prefWidth="130.0" text="Typ zajęć " />
+                                </columns>
+                              </TableView>
+                              <Label alignment="CENTER" layoutX="44.0" layoutY="24.0" prefHeight="17.0" prefWidth="771.0" text="Lista Twoich zajęć">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="915.0" layoutY="214.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="Wypisz się z zajęć " />
+                           </children>
+                        </AnchorPane>
                      </content>
                   </Tab>
                   <Tab text="Dostępne zajęcia">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <VBox layoutX="322.0" layoutY="179.0" prefHeight="200.0" prefWidth="100.0">
-                                 <padding>
-                                    <Insets top="50.0" />
-                                 </padding>
+                              <VBox alignment="TOP_CENTER" layoutX="170.0" layoutY="101.0" prefHeight="307.0" prefWidth="446.0" spacing="15.0">
+                                 <children>
+                                    <ComboBox prefHeight="25.0" prefWidth="445.0" promptText="Wybierz typ zajęć">
+                                       <VBox.margin>
+                                          <Insets left="15.0" right="15.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <ComboBox layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="445.0" promptText="Wybierz trenera">
+                                       <VBox.margin>
+                                          <Insets left="15.0" right="15.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <ComboBox layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="445.0" promptText="Wybierz termin">
+                                       <VBox.margin>
+                                          <Insets left="15.0" right="15.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <ComboBox layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="445.0" promptText="Wybierz zajęcia">
+                                       <VBox.margin>
+                                          <Insets left="15.0" right="15.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="254.0" text="Dodaj zajęcia do swojej listy" />
+                                 </children>
                               </VBox>
                            </children>
                         </AnchorPane>
