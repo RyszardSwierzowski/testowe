@@ -80,6 +80,7 @@ public class Main extends Application {
                 WYBOR OPCJI REJESTRACJI
           */
         VBox vboxRejsetracja = new VBox(20);
+        HBox hboxRejestracja = new HBox(20);
         TextField imieRejestracja = new TextField();
         TextField nazwiskorejestracja = new TextField();
         TextField adresEmailRejestracja = new TextField();
@@ -89,18 +90,26 @@ public class Main extends Application {
         PasswordField repetPasswordRejestracja = new PasswordField();
         Button buttonZarejestrujRejestracja = new Button("Zarejestruj się");
         Button buttonWrocRejestracja = new Button("Powrót");
+        Label labelPodajDaneDorejestracji = new Label("Podaj swoje dane w celu utworzeneia konta");
 
-        imieRejestracja.setPromptText("Imie");
-        nazwiskorejestracja.setPromptText("Nazwisko");
-        adresEmailRejestracja.setPromptText("Adres e-mail");
-        telefonRejestracja.setPromptText("Numer kontaktowy");
-        loginRejestracja.setPromptText("Login");
-        passwordRejestracja.setPromptText("Hasło");
-        repetPasswordRejestracja.setPromptText("Powtórz hasło");
+            buttonWrocRejestracja.setOnAction(e->window.setScene(wyborWidok));
+              
+            imieRejestracja.setPromptText("Imie");
+            nazwiskorejestracja.setPromptText("Nazwisko");
+            adresEmailRejestracja.setPromptText("Adres e-mail");
+            telefonRejestracja.setPromptText("Numer kontaktowy");
+            loginRejestracja.setPromptText("Login");
+            passwordRejestracja.setPromptText("Hasło");
+            repetPasswordRejestracja.setPromptText("Powtórz hasło");
 
-        buttonWrocRejestracja.setOnAction(e->window.setScene(wyborWidok));
+            labelPodajDaneDorejestracji.setFont(new Font("Arial",24));
+            labelPodajDaneDorejestracji.setTextAlignment(TextAlignment.CENTER);
 
+            vboxRejsetracja.setPadding(new Insets(20,25,30,25));
+
+        hboxRejestracja.getChildren().addAll( buttonZarejestrujRejestracja, buttonWrocRejestracja);
         vboxRejsetracja.getChildren().setAll(
+                labelPodajDaneDorejestracji,
                 imieRejestracja,
                 nazwiskorejestracja,
                 adresEmailRejestracja,
@@ -108,10 +117,9 @@ public class Main extends Application {
                 loginRejestracja,
                 passwordRejestracja,
                 repetPasswordRejestracja,
-                buttonZarejestrujRejestracja,
-                buttonWrocRejestracja
+                hboxRejestracja
         );
-        rejestracjaWidok = new Scene(vboxRejsetracja,500,500);
+        rejestracjaWidok = new Scene(vboxRejsetracja,520,450);
 
         /*
                     POPRAWNE LOGOWANIE / REJESTRACJA
