@@ -5,10 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -36,7 +33,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
 
-        
+
 
         /*
                 DECYZJA LOGOWANIE CZY REJESTRACJA
@@ -98,7 +95,19 @@ public class Main extends Application {
                     //MainView.setView();
                     window.setScene(zalogowanoWidok);
                 } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Błąd logowania");
+                    alert.setHeaderText(null);
+
                     System.out.println("Blad");
+                    if (loginLogowanie.getText().length() < 1  || passwordLogowanie.getText().length()<1 )
+                        alert.setContentText("Pola nie mogą być puste");
+                    else {
+                        alert.setContentText("Błędny login lub hasło");
+                    }
+
+
+                    alert.showAndWait();
                 }
             } catch (SQLException e1) {
                 e1.printStackTrace();
