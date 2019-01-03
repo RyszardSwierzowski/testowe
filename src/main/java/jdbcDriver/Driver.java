@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import user.Klient;
 
 public class Driver {
 
@@ -137,7 +137,7 @@ public class Driver {
     }
 
     //  ZARZADZANIE KONTEM
-    public static user.Klient getInfoAboutUser() throws SQLException {
+    public static Klient getInfoAboutUser() throws SQLException {
         Map<String,String> info = new HashMap <>();
 
         Connection myConn = null;
@@ -164,10 +164,10 @@ public class Driver {
 
             }
             if(currentID==-1)
-                return new user.Klient(-1L,"","",-1L,"","");
+                return new Klient(-1L,"","",-1L,"","");
 
 
-            return new user.Klient(Long.parseLong(info.get("id")),info.get("imie"),info.get("nazwisko"),Long.parseLong(info.get("telefon")),info.get("email"), info.get("login"));
+            return new Klient(Long.parseLong(info.get("id")),info.get("imie"),info.get("nazwisko"),Long.parseLong(info.get("telefon")),info.get("email"), info.get("login"));
 
 
         } catch (Exception exc) {
