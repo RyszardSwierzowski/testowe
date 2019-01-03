@@ -3,16 +3,47 @@ package user;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-public class Klient extends User {
+public class Klient {
     private Map<LocalDateTime,String> zarezerwowaneZajecia;
+    long id;
+    long numerKontaktowy;
+    String imie, nazwisko ,adresEmail, login;
 
-    public Klient(long id, String imie, String nazwisko, long numerKontaktowy, String adresEmail, String login) {
-        super(id, imie, nazwisko, numerKontaktowy, adresEmail, login);
+    public Klient(long id, String imie, String nazwisko, long numerKontaktowy,  String adresEmail, String login) {
+        this.id = id;
+        this.numerKontaktowy = numerKontaktowy;
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.adresEmail = adresEmail;
+        this.login=login;
     }
 
-
-    public Klient(long id, String imie, String nazwisko, long numerKontaktowy, String adresEmail, String login, Map<LocalDateTime, String> zarezerwowaneZajecia) {
-        super(id, imie, nazwisko, numerKontaktowy, adresEmail, login);
-        this.zarezerwowaneZajecia = zarezerwowaneZajecia;
+    public long getId() {
+        return id;
     }
+
+    public long getNumerKontaktowy() {
+        return numerKontaktowy;
+    }
+
+    public String getImie() {
+        return imie;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
+    public String getAdresEmail() {
+        return adresEmail;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    
+
+
+
 }
