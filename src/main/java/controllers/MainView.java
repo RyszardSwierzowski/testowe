@@ -61,10 +61,10 @@ public class MainView {
 
     // todo zrobic na klasie klient
 
-    //    @FXML public void initialize() throws SQLException {
-//        //userImie.setText(Driver.getInfoAboutUser().getImie());
-//        System.out.println("SSSSSSSSSSSSSSSS");
-//    }
+        @FXML public void initialize() throws SQLException {
+            Driver.getImfoAboutAvailableTrainings();
+            
+    }
 //    public static  void setView() throws SQLException {
 //        userImie.setText(Driver.getInfoAboutUser().getImie());
 //    }

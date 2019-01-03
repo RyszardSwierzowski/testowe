@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import user.Klient;
 
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+
 public class Driver {
 
 
@@ -192,6 +194,43 @@ public class Driver {
     }
 
 
+    //  ZARZADZANIE TRENINGAMI
+    public static List<String> getImfoAboutAvailableTrainings() throws SQLException {
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+        ArrayList<String> listaTreningow = new ArrayList<>();
+
+
+        try
+        {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+            myRs = myStmt.executeQuery("select * from dostepnetreningi ");
+            while (myRs.next()) {
+                listaTreningow.add(myRs.getString("idTreningu") +" "+ myRs.getString("nazwa" ) + " "+ myRs.getString("czasTrwania" ) +" "+ myRs.getString("data" ) );
+                //System.out.println(myRs.getString("idTreningu") +" "+ myRs.getString("nazwa" ) + " "+ myRs.getString("czasTrwania" ) +" "+ myRs.getString("data" ));
+
+            }
+            return listaTreningow;
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+        }
+        return new ArrayList<>();
+    }
 
 
     /*
