@@ -1,6 +1,6 @@
 package jdbcDriver;
 
-import user.Klient;
+
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -137,7 +137,7 @@ public class Driver {
     }
 
     //  ZARZADZANIE KONTEM
-    public static Klient getInfoAboutUser() throws SQLException {
+    public static user.Klient getInfoAboutUser() throws SQLException {
         Map<String,String> info = new HashMap <>();
 
         Connection myConn = null;
@@ -164,10 +164,10 @@ public class Driver {
 
             }
             if(currentID==-1)
-                return new Klient(-1L,"","",-1L,"","");
+                return new user.Klient(-1L,"","",-1L,"","");
 
 
-            return new Klient(Long.parseLong(info.get("id")),info.get("imie"),info.get("nazwisko"),Long.parseLong(info.get("telefon")),info.get("email"), info.get("login"));
+            return new user.Klient(Long.parseLong(info.get("id")),info.get("imie"),info.get("nazwisko"),Long.parseLong(info.get("telefon")),info.get("email"), info.get("login"));
 
 
         } catch (Exception exc) {
