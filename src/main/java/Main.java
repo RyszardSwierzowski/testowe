@@ -20,6 +20,7 @@ import jdbcDriver.Driver;
 import utilities.ValidateUtilities;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 
 public class Main extends Application {
@@ -35,7 +36,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
 
-
+        
 
         /*
                 DECYZJA LOGOWANIE CZY REJESTRACJA
