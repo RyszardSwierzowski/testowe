@@ -63,7 +63,7 @@ public class MainView {
 
         @FXML public void initialize() throws SQLException {
             Driver.getImfoAboutAvailableTrainings();
-            
+
     }
 //    public static  void setView() throws SQLException {
 //        userImie.setText(Driver.getInfoAboutUser().getImie());
