@@ -1,3 +1,4 @@
+import controllers.MainView;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -15,6 +16,11 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 
+import jdbcDriver.Driver;
+import utilities.ValidateUtilities;
+
+import java.sql.SQLException;
+
 
 public class Main extends Application {
 
@@ -23,8 +29,11 @@ public class Main extends Application {
     Scene wyborWidok, logowanieWidok, rejestracjaWidok, zalogowanoWidok;
 
 
+    static long currentUserID;
+
+
     public void start(Stage primaryStage) throws Exception {
-        window=primaryStage;
+        window = primaryStage;
 
 
 
@@ -35,30 +44,30 @@ public class Main extends Application {
         Label labelPrzywitanie = new Label("Witaj w naszym klubie dla aktywnych :)");
         Button buttonWyborLogowanie = new Button("Logowanie");
         Button buttonWyborRejestracja = new Button("Rejestracja");
-        buttonWyborLogowanie.setOnAction(e->window.setScene(logowanieWidok));
-        buttonWyborRejestracja.setOnAction(e->window.setScene(rejestracjaWidok));
+        buttonWyborLogowanie.setOnAction(e -> window.setScene(logowanieWidok));
+        buttonWyborRejestracja.setOnAction(e -> window.setScene(rejestracjaWidok));
 
-            labelPrzywitanie.setFont(new Font("Arial",25));
-            labelPrzywitanie.setTextAlignment(TextAlignment.CENTER);
+        labelPrzywitanie.setFont(new Font("Arial", 25));
+        labelPrzywitanie.setTextAlignment(TextAlignment.CENTER);
 
-             VBox vboxWybor = new VBox(30);
-            HBox hboxWybor = new HBox(25);
-                vboxWybor.setAlignment(Pos.CENTER);
-                hboxWybor.setAlignment(Pos.CENTER);
-            hboxWybor.getChildren().setAll(buttonWyborLogowanie,buttonWyborRejestracja);
-            //vboxWybor.setPadding(new Insets(50,10,10,50));
-            //hboxWybor.setPadding(new Insets(5,10,10,50));
+        VBox vboxWybor = new VBox(30);
+        HBox hboxWybor = new HBox(25);
+        vboxWybor.setAlignment(Pos.CENTER);
+        hboxWybor.setAlignment(Pos.CENTER);
+        hboxWybor.getChildren().setAll(buttonWyborLogowanie, buttonWyborRejestracja);
+        //vboxWybor.setPadding(new Insets(50,10,10,50));
+        //hboxWybor.setPadding(new Insets(5,10,10,50));
 
-        vboxWybor.getChildren().setAll(labelPrzywitanie,label1,hboxWybor);
-        wyborWidok = new Scene(vboxWybor,550,300);
+        vboxWybor.getChildren().setAll(labelPrzywitanie, label1, hboxWybor);
+        wyborWidok = new Scene(vboxWybor, 550, 300);
 
         /*
                 WYBRANO OPCJE LOGOWANIA
          */
         Button buttonZaloguj = new Button("Zaloguj się");
         Button buttonWroc = new Button("Powrót");
-        buttonZaloguj.setOnAction(e->window.setScene(zalogowanoWidok));
-        buttonWroc.setOnAction(e->window.setScene(wyborWidok));
+
+        buttonWroc.setOnAction(e -> window.setScene(wyborWidok));
         Label labelLogowanie = new Label("Podaj swoje dane do logowania");
 
         VBox vboxLogowanie = new VBox(20);
@@ -67,14 +76,35 @@ public class Main extends Application {
         loginLogowanie.setPromptText("Login");
         PasswordField passwordLogowanie = new PasswordField();
 
-            passwordLogowanie.setPromptText("Haslo");
-            vboxLogowanie.setPadding(new Insets(75,50,75,50));
-            hboxLogowanie.getChildren().setAll(buttonZaloguj,buttonWroc);
-            labelLogowanie.setFont(new Font("Arial",25));
+        passwordLogowanie.setPromptText("Haslo");
+        vboxLogowanie.setPadding(new Insets(75, 50, 75, 50));
+        hboxLogowanie.getChildren().setAll(buttonZaloguj, buttonWroc);
+        labelLogowanie.setFont(new Font("Arial", 25));
+
+        vboxLogowanie.getChildren().setAll(labelLogowanie, loginLogowanie, passwordLogowanie, hboxLogowanie);
+        logowanieWidok = new Scene(vboxLogowanie, 500, 300);
+
+        buttonZaloguj.setOnAction(e ->
+        {
+
+            {
+
+            }
+            try {
+                if (Driver.tryToLogIn(loginLogowanie.getText(), passwordLogowanie.getText()) == true) {
+                    System.out.println("Logowanie ok");
+                    //currentUserID=Driver.getCurrentId(loginLogowanie.getText());
+                    //MainView.setView();
+                    window.setScene(zalogowanoWidok);
+                } else {
+                    System.out.println("Blad");
+                }
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        });
 
 
-        vboxLogowanie.getChildren().setAll(labelLogowanie,loginLogowanie,passwordLogowanie,hboxLogowanie);
-        logowanieWidok = new Scene(vboxLogowanie,500,300);
 
         /*
                 WYBOR OPCJI REJESTRACJI
@@ -92,22 +122,55 @@ public class Main extends Application {
         Button buttonWrocRejestracja = new Button("Powrót");
         Label labelPodajDaneDorejestracji = new Label("Podaj swoje dane w celu utworzeneia konta");
 
-            buttonWrocRejestracja.setOnAction(e->window.setScene(wyborWidok));
-              
-            imieRejestracja.setPromptText("Imie");
-            nazwiskorejestracja.setPromptText("Nazwisko");
-            adresEmailRejestracja.setPromptText("Adres e-mail");
-            telefonRejestracja.setPromptText("Numer kontaktowy");
-            loginRejestracja.setPromptText("Login");
-            passwordRejestracja.setPromptText("Hasło");
-            repetPasswordRejestracja.setPromptText("Powtórz hasło");
+        buttonWrocRejestracja.setOnAction(e -> window.setScene(wyborWidok));
+        buttonZarejestrujRejestracja.setOnAction(e ->
+        {
+            //todo walidacja pól i czy są uzupełnione
+            if (0==0
+//                    imieRejestracja.getText().length() > 3 &&
+//                            ValidateUtilities.isItFromLettersOnly(imieRejestracja.getText()) &&
+//                    nazwiskorejestracja.getText().length() > 3 &&
+//                            ValidateUtilities.isItFromLettersOnly(nazwiskorejestracja.getText()) &&
+//                    adresEmailRejestracja.getText().length() > 0 &&
+//                            ValidateUtilities.validateEmail(adresEmailRejestracja.getText())==true &&
+//                    telefonRejestracja.getText().length() > 0 &&
+//                            ValidateUtilities.validateNumberField(telefonRejestracja.getText())==true &&
+//                    loginRejestracja.getText().length() > 0 &&
+//                            ValidateUtilities.isItFromLettersOnly(loginRejestracja.getText()) &&
+//                    passwordRejestracja.getText().length() > 0 &&
+//                    repetPasswordRejestracja.getText().length() > 0 &&
+//                    passwordRejestracja.getText().equals(repetPasswordRejestracja.getText())
+                    ) {
 
-            labelPodajDaneDorejestracji.setFont(new Font("Arial",24));
-            labelPodajDaneDorejestracji.setTextAlignment(TextAlignment.CENTER);
+                try {
+                    if (Driver.tryToAddANewUser(loginRejestracja.getText(), adresEmailRejestracja.getText()) == true) {
+                        System.out.println("Rejestracjaok ok");
+                        Driver.addNewUserToDataBase(imieRejestracja.getText(),nazwiskorejestracja.getText(),loginRejestracja.getText(),passwordRejestracja.getText(),telefonRejestracja.getText(),adresEmailRejestracja.getText());
+                        window.setScene(zalogowanoWidok);
+                    } else {
+                        System.out.println("Blad");
+                    }
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
 
-            vboxRejsetracja.setPadding(new Insets(20,25,30,25));
+        });
 
-        hboxRejestracja.getChildren().addAll( buttonZarejestrujRejestracja, buttonWrocRejestracja);
+        imieRejestracja.setPromptText("Imie");
+        nazwiskorejestracja.setPromptText("Nazwisko");
+        adresEmailRejestracja.setPromptText("Adres e-mail");
+        telefonRejestracja.setPromptText("Numer kontaktowy");
+        loginRejestracja.setPromptText("Login");
+        passwordRejestracja.setPromptText("Hasło");
+        repetPasswordRejestracja.setPromptText("Powtórz hasło");
+
+        labelPodajDaneDorejestracji.setFont(new Font("Arial", 24));
+        labelPodajDaneDorejestracji.setTextAlignment(TextAlignment.CENTER);
+
+        vboxRejsetracja.setPadding(new Insets(20, 25, 30, 25));
+
+        hboxRejestracja.getChildren().addAll(buttonZarejestrujRejestracja, buttonWrocRejestracja);
         vboxRejsetracja.getChildren().setAll(
                 labelPodajDaneDorejestracji,
                 imieRejestracja,
@@ -119,7 +182,7 @@ public class Main extends Application {
                 repetPasswordRejestracja,
                 hboxRejestracja
         );
-        rejestracjaWidok = new Scene(vboxRejsetracja,520,450);
+        rejestracjaWidok = new Scene(vboxRejsetracja, 520, 450);
 
         /*
                     POPRAWNE LOGOWANIE / REJESTRACJA
@@ -143,4 +206,9 @@ public class Main extends Application {
         launch(args);
 
     }
+
+    private boolean sprawdzDaneLogowania(String login, String password) {
+        return false;
+    }
+
 }

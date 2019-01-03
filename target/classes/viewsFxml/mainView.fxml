@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#setView" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainView">
    <children>
       <VBox prefHeight="700.0" prefWidth="1200.0">
          <children>
@@ -34,7 +33,7 @@
             </MenuBar>
             <TabPane prefHeight="588.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
-                  <Tab text="Użytkownik">
+                  <Tab onSelectionChanged="#setView" text="Użytkownik">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="199.0" prefWidth="1200.0">
                            <children>
@@ -49,7 +48,7 @@
                                                       <Font size="25.0" />
                                                    </font>
                                                 </Label>
-                                                <Label prefHeight="17.0" prefWidth="352.0" text="Imie : ">
+                                                <Label fx:id="userImie" prefHeight="17.0" prefWidth="352.0" text="Imie : ">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -57,7 +56,7 @@
                                                       <Insets left="25.0" right="25.0" />
                                                    </VBox.margin>
                                                 </Label>
-                                                <Label layoutX="10.0" layoutY="46.0" prefHeight="17.0" prefWidth="352.0" text="Nazwisko: ">
+                                                <Label fx:id="userNazwisko" layoutX="10.0" layoutY="46.0" prefHeight="17.0" prefWidth="352.0" text="Nazwisko: ">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -65,7 +64,7 @@
                                                       <Insets left="25.0" right="25.0" />
                                                    </VBox.margin>
                                                 </Label>
-                                                <Label layoutX="10.0" layoutY="73.0" prefHeight="17.0" prefWidth="352.0" text="Login : ">
+                                                <Label fx:id="userLogin" layoutX="10.0" layoutY="73.0" prefHeight="17.0" prefWidth="352.0" text="Login : ">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -73,7 +72,7 @@
                                                       <Insets left="25.0" right="25.0" />
                                                    </VBox.margin>
                                                 </Label>
-                                                <Label layoutX="10.0" layoutY="100.0" prefHeight="17.0" prefWidth="352.0" text="Adres e-mail: ">
+                                                <Label fx:id="userEmail" layoutX="10.0" layoutY="100.0" prefHeight="17.0" prefWidth="352.0" text="Adres e-mail: ">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -81,7 +80,7 @@
                                                       <Insets left="25.0" right="25.0" />
                                                    </VBox.margin>
                                                 </Label>
-                                                <Label layoutX="10.0" layoutY="100.0" prefHeight="17.0" prefWidth="352.0" text="Numer kontaktowy : ">
+                                                <Label fx:id="userTelefon" layoutX="10.0" layoutY="100.0" prefHeight="17.0" prefWidth="352.0" text="Numer kontaktowy : ">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -89,7 +88,7 @@
                                                       <Insets left="25.0" right="25.0" />
                                                    </VBox.margin>
                                                 </Label>
-                                                <Label layoutX="10.0" layoutY="127.0" prefHeight="17.0" prefWidth="352.0" text="Status : klient / admin/ trener">
+                                                <Label fx:id="userStatus" layoutX="10.0" layoutY="127.0" prefHeight="17.0" prefWidth="352.0" text="Status : klient / admin/ trener">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -151,8 +150,8 @@
                                                             <Insets left="20.0" right="20.0" />
                                                          </padding>
                                                       </Label>
-                                                      <ComboBox prefHeight="25.0" prefWidth="246.0" promptText="Wybierz okres zawieszenia" />
-                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Zawieś członkostwo" />
+                                                      <ComboBox fx:id="userWybierzOkresZawieszeniaKonta" prefHeight="25.0" prefWidth="246.0" promptText="Wybierz okres zawieszenia" />
+                                                      <Button fx:id="userButtonOkresZawieszeniaKonta" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Zawieś członkostwo" />
                                                    </children>
                                                    <padding>
                                                       <Insets bottom="5.0" top="5.0" />
@@ -165,7 +164,7 @@
                                                             <Insets left="20.0" right="20.0" />
                                                          </padding>
                                                       </Label>
-                                                      <Button mnemonicParsing="false" prefWidth="130.0" text="Zrezygnuj" />
+                                                      <Button fx:id="userButtonRezygnacjaZCzlonkostwa" mnemonicParsing="false" prefWidth="130.0" text="Zrezygnuj" />
                                                    </children>
                                                    <padding>
                                                       <Insets bottom="5.0" top="5.0" />
@@ -178,7 +177,7 @@
                                                             <Insets left="20.0" right="20.0" />
                                                          </padding>
                                                       </Label>
-                                                      <Button mnemonicParsing="false" prefWidth="130.0" text="Usuń" />
+                                                      <Button fx:id="userUsunKonto" mnemonicParsing="false" prefWidth="130.0" text="Usuń" />
                                                    </children>
                                                    <padding>
                                                       <Insets bottom="5.0" top="5.0" />
@@ -252,7 +251,30 @@
                   </Tab>
                   <Tab text="Płatności">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="22.0" layoutY="19.0" prefHeight="117.0" prefWidth="465.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="103.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="132.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="163.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="134.0" text="Status" />
+                                    <Label prefHeight="17.0" prefWidth="134.0" text="Numer karty" GridPane.rowIndex="1" />
+                                    <Label prefHeight="17.0" prefWidth="134.0" text="Termin płatności" GridPane.rowIndex="2" />
+                                    <Label fx:id="platnoscStatus" prefHeight="17.0" prefWidth="88.0" text="brak danych" GridPane.columnIndex="1" />
+                                    <Label fx:id="platnoscKarta" prefHeight="17.0" prefWidth="88.0" text="brak danych" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label fx:id="platnoscTerminPlatnosci" prefHeight="17.0" prefWidth="88.0" text="brak danych" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Button fx:id="platnoscZmienNrKarty" mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Zmień karte" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children></AnchorPane>
                     </content>
                   </Tab>
                </tabs>

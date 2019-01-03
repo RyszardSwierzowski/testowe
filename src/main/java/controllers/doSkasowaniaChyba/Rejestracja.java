@@ -1,4 +1,4 @@
-package controllers;
+package controllers.doSkasowaniaChyba;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

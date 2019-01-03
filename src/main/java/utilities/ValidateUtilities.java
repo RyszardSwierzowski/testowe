@@ -44,11 +44,24 @@ public class ValidateUtilities {
         }
     }
 
-    public boolean validateEmail(String email){
+    public static boolean validateEmail(String email){
     boolean result = true;
 
     if(!email.contains("@")) result = false; //prosta walidacja czy nie zawira @
     return result;
+    }
+
+    public static boolean isItFromLettersOnly(String string){
+        boolean result = true;
+
+        if(string.contains(" ")) result = false;
+        char[] Array=string.toCharArray();
+        for (char x:Array)
+        {
+            if( !( (x<=95&&x>=65) || (x<=122&&x>=97) ) )
+                result = false;
+        }
+        return result;
     }
 
     public boolean validateTextField(String string){ //funkcja walidujaca zwykly ciag znakowy czy zawiera niedozwolone znaki
@@ -64,7 +77,7 @@ public class ValidateUtilities {
         return result;
     }
 
-    public boolean validateNumberField(String str){
+    public static boolean validateNumberField(String str){
         boolean result = true;
 
         if(str.contains(" ")) result = false;
