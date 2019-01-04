@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e2218f0-51ee-4ae8-a916-9df30eb1f026" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/doSkasowaniaChyba/Rejestracja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/doSkasowaniaChyba/Rejestracja.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/ValidateUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/ValidateUtilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/WindowInitial.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/~WRL0005.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/MainView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,13 +26,13 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="2" />
-          <entry key="java" value="38" />
+          <entry key="java" value="39" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="38" />
+          <entry key="JAVA" value="39" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
@@ -46,13 +40,13 @@
         <counts>
           <entry key="dummy" value="6" />
           <entry key="fxml" value="8" />
-          <entry key="java" value="9098" />
+          <entry key="java" value="9797" />
           <entry key="xml" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9094" />
+          <entry key="JAVA" value="9793" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SQL" value="4" />
           <entry key="XML" value="22" />
@@ -65,11 +59,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1070">
-              <caret line="198" column="62" selection-start-line="198" selection-start-column="62" selection-end-line="198" selection-end-column="62" />
+            <state relative-caret-position="34">
+              <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2943#4057#0" />
+                <element signature="e#4903#9619#0" />
                 <element signature="method#main#0;class#Main#0" />
                 <element signature="e#11308#11309#0" expanded="true" />
                 <element signature="e#11336#11337#0" expanded="true" />
@@ -79,9 +74,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="87" column="36" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#setView#0;class#MainView#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="391">
               <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="e#378#1468#0" />
@@ -95,23 +103,6 @@
                 <element signature="e#5684#6998#0" />
                 <element signature="e#0#30#0" />
                 <element signature="e#7920#7986#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/utilities/ValidateUtilities.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
-              <folding>
-                <element signature="method#validateNewLogin#0;class#ValidateUtilities#0" />
-                <element signature="method#validateNewPassword#0;class#ValidateUtilities#0" />
-                <element signature="method#isText#0;class#ValidateUtilities#0" />
-                <element signature="method#isNumber#0;class#ValidateUtilities#0" />
-                <element signature="e#2502#2605#0" />
-                <element signature="method#isMobilePhoneNumber#0;class#ValidateUtilities#0" />
               </folding>
             </state>
           </provider>
@@ -166,11 +157,11 @@
         <option value="$PROJECT_DIR$/src/main/java/Klient.java" />
         <option value="$PROJECT_DIR$/src/main/java/user/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/user/Klient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/MainView.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/doSkasowaniaChyba/Rejestracja.java" />
         <option value="$PROJECT_DIR$/src/main/java/utilities/ValidateUtilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/MainView.java" />
       </list>
     </option>
   </component>
@@ -269,7 +260,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546612271412" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546615363523" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -385,7 +376,7 @@
       <workItem from="1546419707109" duration="6000" />
       <workItem from="1546446046095" duration="24087000" />
       <workItem from="1546495540951" duration="1851000" />
-      <workItem from="1546595749600" duration="14106000" />
+      <workItem from="1546595749600" duration="16368000" />
     </task>
     <servers />
   </component>
@@ -416,13 +407,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67138000" />
+    <option name="totallyTimeSpent" value="69400000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25389948" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17585446" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -431,7 +422,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42307693" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42307693" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -626,16 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/utilities/WindowInitial.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -652,7 +633,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/utilities/ValidateUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="289">
           <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
           <folding>
             <element signature="method#validateNewLogin#0;class#ValidateUtilities#0" />
@@ -665,23 +646,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1070">
-          <caret line="198" column="62" selection-start-line="198" selection-start-column="62" selection-end-line="198" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2943#4057#0" />
-            <element signature="method#main#0;class#Main#0" />
-            <element signature="e#11308#11309#0" expanded="true" />
-            <element signature="e#11336#11337#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="391">
           <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
           <folding>
             <element signature="e#378#1468#0" />
@@ -695,6 +662,32 @@
             <element signature="e#5684#6998#0" />
             <element signature="e#0#30#0" />
             <element signature="e#7920#7986#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2943#4057#0" />
+            <element signature="e#4903#9619#0" />
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="e#11308#11309#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="87" column="36" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setView#0;class#MainView#0" />
           </folding>
         </state>
       </provider>

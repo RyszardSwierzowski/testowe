@@ -7,9 +7,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import jdbcDriver.Driver;
 import user.Klient;
+import utilities.ValidateUtilities;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -81,6 +84,50 @@ public class MainView {
         //System.out.println(klient.getLogin());
 
         //System.out.println("|"+klient.getImie()+"|");
+    }
+    public void zmienDaneUzytkownika(){
+            Map<String,String> noweDane = new HashMap<>();
+            List<String> listaBledow= new ArrayList<>();
+        // POBIERZ DANE Z FORMULARZA
+            String noweImie= userEdycjaNoweImie.getText().trim();
+            String noweNazwisko= userEdycjaNoweNazwisko.getText().trim();
+            String nowyEmail= userEdycjaNoweAdresEmail.getText().trim();
+            String nowyNumerKontaktowy= userEdycjaNowyNumerKontaktowy.getText().trim();
+        // DODAJ DO MAPY JEŚLI WPROWADZONE
+            if(noweImie.length()>0) {
+                if (ValidateUtilities.isText(noweImie) == true)
+                    noweDane.put("imie", noweImie);
+                else
+                    listaBledow.add("Niepoprawne nowe imię");
+            }
+
+            if(noweNazwisko.length()>0) {
+                if (ValidateUtilities.isText(noweNazwisko)==true)
+                    noweDane.put("nazwisko", noweNazwisko);
+                else
+                    listaBledow.add("Niepoprawne nowe nazwisko");
+            }
+
+            if(nowyEmail.length()>0) {
+                if (ValidateUtilities.validateEmail(nowyEmail) == true)
+                    noweDane.put("email", nowyEmail);
+                else
+                    listaBledow.add("Niepoprawne nowy email");
+            }
+            if(nowyNumerKontaktowy.length()>0) {
+                if (ValidateUtilities.isMobilePhoneNumber(nowyNumerKontaktowy) == true)
+                    noweDane.put("tel", nowyNumerKontaktowy);
+                else
+                    listaBledow.add("Niepoprawne nowy numer");
+            }
+
+
+        listaBledow.stream().forEach(x->System.out.println(x));
+
+
+
+
+
     }
 
 

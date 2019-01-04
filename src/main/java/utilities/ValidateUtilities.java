@@ -42,17 +42,17 @@ public class ValidateUtilities {
         // ZAWIERA CONAJMNIEJ JEDNĄ CYFRE , LITERE , ZNAK SPECJALNY
         for (int i = 0; i < tab.length; i++) {
             if (tab[i] >= 48 && tab[i] <= 57){
-                System.out.println("cyfra");
+                //System.out.println("cyfra");
                 isNumber = true;}
             else if (tab[i] >= 65 && tab[i] <= 90){
-                System.out.println("L");
+                //System.out.println("L");
                 isDuzaLitera = true;
             }
             else if (tab[i] >= 97 && tab[i] <= 122){
-                System.out.println("l");
+                //System.out.println("l");
                 isMalaLitera = true;
             }else{
-                System.out.println("spec");
+                //System.out.println("spec");
                 isSpecialChar = true;
             }
 
@@ -61,7 +61,7 @@ public class ValidateUtilities {
         if (isDuzaLitera == true && isDuzaLitera == true && isNumber == true && isSpecialChar == true && isMalaLitera == true)
             return true;
 
-            System.out.println("pass");
+            //System.out.println("pass");
             return false;
 
     }
@@ -70,7 +70,7 @@ public class ValidateUtilities {
 
         for (int i = 0; i < tab.length; i++) {
             if(tab[i]<65 || tab[i]>122 || (tab[i]>90 && tab[i]<65)){
-                System.out.println("tekst");
+                //System.out.println("tekst");
                 return false;
             }
            //
@@ -83,7 +83,7 @@ public class ValidateUtilities {
 
         for (int i = 0; i < tab.length; i++) {
             if (!(tab[i] >= 48 && tab[i] <= 57) ){
-                System.out.println("cyfra");
+                //System.out.println("cyfra");
                 return false;
             }
         }
@@ -125,7 +125,7 @@ public class ValidateUtilities {
     }
     public static boolean isMobilePhoneNumber(String phoneNumber){
         if(!isNumber(phoneNumber) || phoneNumber.length()!=9){
-            System.out.println("tel");
+            //System.out.println("tel");
             return false;
         }
         return true;

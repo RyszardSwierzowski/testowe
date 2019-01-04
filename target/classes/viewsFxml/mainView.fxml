@@ -129,7 +129,7 @@
                                                       <Insets left="25.0" right="25.0" />
                                                    </VBox.margin>
                                                 </TextField>
-                                                <Button fx:id="userEdycjaButtonZmienDane" mnemonicParsing="false" prefHeight="25.0" prefWidth="241.0" text="Zmień Dane" />
+                                                <Button fx:id="userEdycjaButtonZmienDane" mnemonicParsing="false" onAction="#zmienDaneUzytkownika" prefHeight="25.0" prefWidth="241.0" text="Zmień Dane" />
                                              </children>
                                           </VBox>
                                        </children>
