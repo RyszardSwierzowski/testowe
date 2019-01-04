@@ -66,8 +66,10 @@ public class Driver {
 
 
 
-            myRs = myStmt.executeQuery("select * from users where login='"+log+"' and email='"+email+"'   ");
+            //myRs = myStmt.executeQuery("select * from users where login='"+log+"' and email='"+email+"'   ");
+            myRs = myStmt.executeQuery("select * from users where login='"+log+"'    ");
             while (myRs.next()) {
+                //todo nie działa sprawdzanie czy login jest w bazie
                 //System.out.println(myRs.getString("idUser"));
                 return false;
             }

@@ -6,89 +6,131 @@ import javafx.scene.control.TextField;
 
 public class ValidateUtilities {
 
-    Alert alert = new Alert(Alert.AlertType.WARNING);
 
-    public ValidateUtilities() {
-    }
+    public static boolean validateNewLogin(String login) {
+        char[] tab = login.toCharArray();
 
-    public boolean compareRegisterPasswd(String first, String repeat){
-        System.out.println("walidacja");
+        // DŁUGOŚĆ LOGINU POWYŻEJ 5 ZNAKÓW
+        if (login.length() < 5){
+            System.out.println("login");
+            return false;
+        }
 
-        alert.setTitle("Błąd rejestracji");
-        alert.setHeaderText(null);
 
-        if(!(first.equals("") || repeat.equals(""))){ //sprawdzam czy hasla nie sa puste
-            System.out.println("validate not null");
-
-            if(!first.contains(" ")){ //sprawdzenie czy zawiera znaki ktoych nie chcemy
-
-                if(first.equals(repeat)){ //sprawdzenie czy sa takie same
-                    return true;
-                }
-                else{
-                    return false;
-                }
-
-            }else{
-                alert.setContentText("podane hasło zawiera niedozwolone znaki");
-                alert.showAndWait();  //--
+        // ZAWIERA TYLKO CYFRY I LITERY
+        for (int i = 0; i < tab.length; i++) {
+            if (!(tab[i] >= 48 && tab[i] <= 57) && !(tab[i] >= 65 && tab[i] <= 90) && !(tab[i] >= 97 && tab[i] <= 122)) {
+                System.out.println("login");
                 return false;
+            }
+        }
+        return true;
+    }
+    public static boolean validateNewPassword(String password) {
+        char[] tab = password.toCharArray();
+        boolean isDuzaLitera = false;
+        boolean isMalaLitera = false;
+        boolean isNumber = false;
+        boolean isSpecialChar = false;
+
+        // DŁUGOŚĆ HASŁA POWYŻEJ 8 ZNAKÓW
+        if (password.length() < 5){
+            System.out.println("haslo");
+            return false;
+        }
+
+        // ZAWIERA CONAJMNIEJ JEDNĄ CYFRE , LITERE , ZNAK SPECJALNY
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] >= 48 && tab[i] <= 57){
+                System.out.println("cyfra");
+                isNumber = true;}
+            else if (tab[i] >= 65 && tab[i] <= 90){
+                System.out.println("L");
+                isDuzaLitera = true;
+            }
+            else if (tab[i] >= 97 && tab[i] <= 122){
+                System.out.println("l");
+                isMalaLitera = true;
+            }else{
+                System.out.println("spec");
+                isSpecialChar = true;
             }
 
 
-        }else{
+        }
+        if (isDuzaLitera == true && isDuzaLitera == true && isNumber == true && isSpecialChar == true && isMalaLitera == true)
+            return true;
 
-            alert.setContentText("podane hasło jest puste");
-            alert.showAndWait();
+            System.out.println("pass");
+            return false;
+
+    }
+    public static boolean isText(String str) {
+        char[] tab = str.toCharArray();
+
+        for (int i = 0; i < tab.length; i++) {
+            if(tab[i]<65 || tab[i]>122 || (tab[i]>90 && tab[i]<65)){
+                System.out.println("tekst");
+                return false;
+            }
+           //
+
+        }
+        return true;
+    }
+    public static boolean isNumber(String str) {
+        char[] tab = str.toCharArray();
+
+        for (int i = 0; i < tab.length; i++) {
+            if (!(tab[i] >= 48 && tab[i] <= 57) ){
+                System.out.println("cyfra");
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean validateEmail(String email){
+        String[] tab1, tab2;
+        int ileMalp=0;
+        int malpaPozycja=0;
+        int ostaniaKropka=-1;
+
+        // todo walidacja email
+
+        tab1=email.split("@");
+        tab2=email.split(".");
+
+//        if(tab1[tab1.length-1].equals("@") || tab2[tab2.length-1].equals(".") || tab2[0].equals("."))
+//            return false;
+//
+//        for(int i=1;i<tab1.length;i++){
+//            if(tab1[i].equals("@"))
+//                ileMalp++;
+//            malpaPozycja=i;
+//        }
+//
+//        if(ileMalp!=1)
+//            return false;
+//
+//        for(int i=malpaPozycja;i<tab2.length;i++){
+//            if(tab2[i].equals("."))
+//                ostaniaKropka=i;
+//        }
+//
+//        if(ostaniaKropka<malpaPozycja)
+//            return false;
+
+
+        return true;
+    }
+    public static boolean isMobilePhoneNumber(String phoneNumber){
+        if(!isNumber(phoneNumber) || phoneNumber.length()!=9){
+            System.out.println("tel");
             return false;
         }
+        return true;
     }
 
-    public static boolean validateEmail(String email){
-    boolean result = true;
-
-    if(!email.contains("@")) result = false; //prosta walidacja czy nie zawira @
-    return result;
-    }
-
-    public static boolean isItFromLettersOnly(String string){
-        boolean result = true;
-
-        if(string.contains(" ")) result = false;
-        char[] Array=string.toCharArray();
-        for (char x:Array)
-        {
-            if( !( (x<=95&&x>=65) || (x<=122&&x>=97) ) )
-                result = false;
-        }
-        return result;
-    }
-
-    public boolean validateTextField(String string){ //funkcja walidujaca zwykly ciag znakowy czy zawiera niedozwolone znaki
-        boolean result = true;
-
-        if(string.contains(" ")) result = false;
-        char[] Array=string.toCharArray();
-        for (char x:Array)
-        {
-            if( !( (x<=95&&x>=65) || (x<=122&&x>=97) || (x<=57&&x>=48) ) )
-                result = false;
-        }
-        return result;
-    }
-
-    public static boolean validateNumberField(String str){
-        boolean result = true;
-
-        if(str.contains(" ")) result = false;
-        char[] Array = str.toCharArray();
-        for(char x:Array){
-            if(!(x>=48 && x<=57))
-                result = false;
-        } //48 - > 57 ascii dla liczb
-
-        return result;
-    }
 
 
 

@@ -18,6 +18,8 @@ import utilities.ValidateUtilities;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -32,8 +34,6 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
-
-
 
         /*
                 DECYZJA LOGOWANIE CZY REJESTRACJA
@@ -53,8 +53,7 @@ public class Main extends Application {
         vboxWybor.setAlignment(Pos.CENTER);
         hboxWybor.setAlignment(Pos.CENTER);
         hboxWybor.getChildren().setAll(buttonWyborLogowanie, buttonWyborRejestracja);
-        //vboxWybor.setPadding(new Insets(50,10,10,50));
-        //hboxWybor.setPadding(new Insets(5,10,10,50));
+
 
         vboxWybor.getChildren().setAll(labelPrzywitanie, label1, hboxWybor);
         wyborWidok = new Scene(vboxWybor, 550, 300);
@@ -84,10 +83,6 @@ public class Main extends Application {
 
         buttonZaloguj.setOnAction(e ->
         {
-
-            {
-
-            }
             try {
                 if (Driver.tryToLogIn(loginLogowanie.getText(), passwordLogowanie.getText()) == true) {
                     System.out.println("Logowanie ok");
@@ -122,7 +117,7 @@ public class Main extends Application {
         VBox vboxRejsetracja = new VBox(20);
         HBox hboxRejestracja = new HBox(20);
         TextField imieRejestracja = new TextField();
-        TextField nazwiskorejestracja = new TextField();
+        TextField nazwiskoRejestracja = new TextField();
         TextField adresEmailRejestracja = new TextField();
         TextField telefonRejestracja = new TextField();
         TextField loginRejestracja = new TextField();
@@ -135,27 +130,78 @@ public class Main extends Application {
         buttonWrocRejestracja.setOnAction(e -> window.setScene(wyborWidok));
         buttonZarejestrujRejestracja.setOnAction(e ->
         {
+            List<String> listaBledowWFormularzuRejestracji= new ArrayList<>();
+            String imie     = imieRejestracja.getText();
+            String nazwisko = nazwiskoRejestracja.getText();
+            String email    = adresEmailRejestracja.getText();
+            String telefon  = telefonRejestracja.getText();
+            String login    = loginRejestracja.getText();
+            String haslo    = passwordRejestracja.getText();
+            String haslo2   = repetPasswordRejestracja.getText();
             //todo walidacja pól i czy są uzupełnione
-            if (0==0
-//                    imieRejestracja.getText().length() > 3 &&
-//                            ValidateUtilities.isItFromLettersOnly(imieRejestracja.getText()) &&
-//                    nazwiskorejestracja.getText().length() > 3 &&
-//                            ValidateUtilities.isItFromLettersOnly(nazwiskorejestracja.getText()) &&
-//                    adresEmailRejestracja.getText().length() > 0 &&
-//                            ValidateUtilities.validateEmail(adresEmailRejestracja.getText())==true &&
-//                    telefonRejestracja.getText().length() > 0 &&
-//                            ValidateUtilities.validateNumberField(telefonRejestracja.getText())==true &&
-//                    loginRejestracja.getText().length() > 0 &&
-//                            ValidateUtilities.isItFromLettersOnly(loginRejestracja.getText()) &&
-//                    passwordRejestracja.getText().length() > 0 &&
-//                    repetPasswordRejestracja.getText().length() > 0 &&
-//                    passwordRejestracja.getText().equals(repetPasswordRejestracja.getText())
-                    ) {
+            boolean isCorrectImie=false;
+            boolean isCorrectNazwisko=false;
+            boolean isCorrectEmail=false;
+            boolean isCorrectTelefon=false;
+            boolean isCorrectLogin=false;
+            boolean isCorrectPass=false;
+            boolean isCorrectPass2=false;
+        // IMIE
+            if(imie.length()>2 && ValidateUtilities.isText(imie) ){
+                isCorrectImie=true;
+            }
+            else {
+                if(imie.length()<4)
+                    listaBledowWFormularzuRejestracji.add("Imie powinno mieć więcej jak 3 znaki, a posiada : " + imie.length());
+                if(ValidateUtilities.isText(imie)==false)
+                    listaBledowWFormularzuRejestracji.add("Imie może się składać tylko ze znaków a-Z bez polskich znaków");
+            }
+        // NAZWISKO
+            if(nazwisko.length()>2 && ValidateUtilities.isText(nazwisko) ){
+                isCorrectNazwisko=true;
+            }
+            else {
+                if(imie.length()<3)
+                    listaBledowWFormularzuRejestracji.add("Imie powinno mieć więcej jak 2 znaki, a posiada : " + imie.length());
+                if(ValidateUtilities.isText(nazwisko)==false)
+                    listaBledowWFormularzuRejestracji.add("Nazwisko może się składać tylko ze znaków a-Z bez polskich znaków");
+            }
+        //EMAIL
+            if(email.length()<=7){
+                listaBledowWFormularzuRejestracji.add("email powinien posiadać min. 7 znaków");
+            }else if(ValidateUtilities.validateEmail(login)==false){
+                listaBledowWFormularzuRejestracji.add("Email zawiera niedowzowlne znaki - stosuj cyfry i litery");
+            }else {
+                isCorrectEmail=true;
+            }
+        //TELEFON
+            if(telefon.length()!=9 || ValidateUtilities.isMobilePhoneNumber(telefon) == false ){
+                listaBledowWFormularzuRejestracji.add("Telefon powinien zawierać dokładnie 9 cyfr");
+            }
+            else {
+                isCorrectTelefon=true;
+            }
+        //LOGIN
+            if(login.length()<=7 || ValidateUtilities.validateNewLogin(login) == false ){
+                listaBledowWFormularzuRejestracji.add("Login powinien zawierać min. 7 oraz skałdadać się tylko z cyfr i liter");
+            }else {
+                isCorrectLogin=true;
+            }
+        // HASLA
+            if(haslo.length()<=8 ){
+                listaBledowWFormularzuRejestracji.add("Hasło powinno posiadać min. 8 znaków , jedną : znak specjalny małą i dużą literę");
+            }else if(!haslo.equals(haslo2)){
+                listaBledowWFormularzuRejestracji.add("Podane hasła się różnią od siebie ");
+            }else {
+                isCorrectPass=true;
+            }
 
+            if( listaBledowWFormularzuRejestracji.size()==0 ){
+                    // JEŚLI WALIDACJA JEST OK
                 try {
                     if (Driver.tryToAddANewUser(loginRejestracja.getText(), adresEmailRejestracja.getText()) == true) {
                         System.out.println("Rejestracjaok ok");
-                        Driver.addNewUserToDataBase(imieRejestracja.getText(),nazwiskorejestracja.getText(),loginRejestracja.getText(),passwordRejestracja.getText(),telefonRejestracja.getText(),adresEmailRejestracja.getText());
+                        Driver.addNewUserToDataBase(imieRejestracja.getText(),nazwiskoRejestracja.getText(),loginRejestracja.getText(),passwordRejestracja.getText(),telefonRejestracja.getText(),adresEmailRejestracja.getText());
                         window.setScene(zalogowanoWidok);
                     } else {
                         System.out.println("Blad");
@@ -163,12 +209,25 @@ public class Main extends Application {
                 } catch (SQLException e1) {
                     e1.printStackTrace();
                 }
-            }
+                }
+                else
+                {
+                    // BŁĄD W WALIDACJI
+                    String resultWarrning="";
+                    for(String i:listaBledowWFormularzuRejestracji){
+                        resultWarrning+=i+"\n";
+                    }
+                    System.out.println(resultWarrning);
+
+                }
+
+
+
 
         });
 
         imieRejestracja.setPromptText("Imie");
-        nazwiskorejestracja.setPromptText("Nazwisko");
+        nazwiskoRejestracja.setPromptText("Nazwisko");
         adresEmailRejestracja.setPromptText("Adres e-mail");
         telefonRejestracja.setPromptText("Numer kontaktowy");
         loginRejestracja.setPromptText("Login");
@@ -184,7 +243,7 @@ public class Main extends Application {
         vboxRejsetracja.getChildren().setAll(
                 labelPodajDaneDorejestracji,
                 imieRejestracja,
-                nazwiskorejestracja,
+                nazwiskoRejestracja,
                 adresEmailRejestracja,
                 telefonRejestracja,
                 loginRejestracja,
