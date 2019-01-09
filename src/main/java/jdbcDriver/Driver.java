@@ -1,12 +1,13 @@
 package jdbcDriver;
 
 
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import treningi.ListaTreningow;
+import treningi.Terminarz;
+import treningi.Trenerzy;
+import treningi.Zapisy;
 import user.Klient;
 
 import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
@@ -14,27 +15,26 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 public class Driver {
 
 
-    private static long currentID=-1;
+    private static long currentID = -1;
 
     public static long getCurrentID() {
-        return currentID=-1;
+        return currentID = -1;
     }
 
 
-        // LOGOWANIE REJESTRACJA
+    // LOGOWANIE REJESTRACJA
     public static boolean tryToLogIn(String log, String pass) throws SQLException {
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
 
-        try
-        {
+        try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
             myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery("select * from logindata where password='"+pass+"' and login='"+log+"'");
+            myRs = myStmt.executeQuery("select * from logindata where password='" + pass + "' and login='" + log + "'");
             while (myRs.next()) {
                 //System.out.println(myRs.getString("idUser"));
-                currentID=Long.parseLong(myRs.getString("idUser"));
+                currentID = Long.parseLong(myRs.getString("idUser"));
                 return true;
             }
             return false;
@@ -55,19 +55,18 @@ public class Driver {
         }
         return false;
     }
-    public static boolean tryToAddANewUser(String log, String email) throws SQLException{
+
+    public static boolean tryToAddANewUser(String log, String email) throws SQLException {
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
-        try
-        {
+        try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
             myStmt = myConn.createStatement();
 
 
-
             //myRs = myStmt.executeQuery("select * from users where login='"+log+"' and email='"+email+"'   ");
-            myRs = myStmt.executeQuery("select * from users where login='"+log+"'    ");
+            myRs = myStmt.executeQuery("select * from users where login='" + log + "'    ");
             while (myRs.next()) {
                 //todo nie działa sprawdzanie czy login jest w bazie
                 //System.out.println(myRs.getString("idUser"));
@@ -92,12 +91,13 @@ public class Driver {
         }
         return false;
     }
-    public static void addNewUserToDataBase(String imie,String nazwisko, String login,String haslo, String telefon, String email) throws SQLException {
+
+    public static void addNewUserToDataBase(String imie, String nazwisko, String login, String haslo, String telefon, String email) throws SQLException {
 
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
-        long nextID=-1;
+        long nextID = -1;
         long currentId;
         try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
@@ -106,19 +106,19 @@ public class Driver {
             myRs = myStmt.executeQuery("SELECT iduser FROM users ");
             while (myRs.next()) {
                 currentId = Long.parseLong(myRs.getString("idUser"));
-                if(currentId>nextID)
-                    nextID=currentId;
+                if (currentId > nextID)
+                    nextID = currentId;
             }
-            if(nextID==-1){
-                nextID=0;
+            if (nextID == -1) {
+                nextID = 0;
             }
 
-            myStmt.executeUpdate("INSERT INTO `logindata`(`IDuser`, `login`, `password`) VALUES ("+(++nextID)+",'"+login+"','"+haslo+"')");
-            myStmt.executeUpdate("INSERT INTO `users`(`IDuser`, `login`, `imie`, `nazwisko`, `email`, `telefon`) VALUES ("+(nextID)+",'"+login+"','"+imie+"','"+nazwisko+"','"+email+"','"+telefon+"')");
-           // myStmt.executeUpdate("INSERT INTO `test`(`t`) VALUES (2)");
+            myStmt.executeUpdate("INSERT INTO `logindata`(`IDuser`, `login`, `password`) VALUES (" + (++nextID) + ",'" + login + "','" + haslo + "')");
+            myStmt.executeUpdate("INSERT INTO `users`(`IDuser`, `login`, `imie`, `nazwisko`, `email`, `telefon`) VALUES (" + (nextID) + ",'" + login + "','" + imie + "','" + nazwisko + "','" + email + "','" + telefon + "')");
+            // myStmt.executeUpdate("INSERT INTO `test`(`t`) VALUES (2)");
 
 
-            currentId=++nextID;
+            currentId = ++nextID;
 
 
         } catch (Exception exc) {
@@ -142,36 +142,33 @@ public class Driver {
 
     //  ZARZADZANIE KONTEM
     public static Klient getInfoAboutUser() throws SQLException {
-        Map<String,String> info = new HashMap <>();
+        Map<String, String> info = new HashMap<>();
 
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
-        try
-        {
+        try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
             myStmt = myConn.createStatement();
 
 
-
-
-            myRs = myStmt.executeQuery("select * from users where idUser='"+currentID+"' ");
+            myRs = myStmt.executeQuery("select * from users where idUser='" + currentID + "' ");
             while (myRs.next()) {
-                info.put("id",String.valueOf(currentID));
-                info.put("imie",myRs.getString("imie"));
-                info.put("nazwisko",myRs.getString("nazwisko"));
+                info.put("id", String.valueOf(currentID));
+                info.put("imie", myRs.getString("imie"));
+                info.put("nazwisko", myRs.getString("nazwisko"));
                 //info.put("login",myRs.getString("login"));
-                info.put("telefon",myRs.getString("telefon"));
-                info.put("email",myRs.getString("email"));
-                info.put("login",myRs.getString("login"));
+                info.put("telefon", myRs.getString("telefon"));
+                info.put("email", myRs.getString("email"));
+                info.put("login", myRs.getString("login"));
 
 
             }
-            if(currentID==-1)
-                return new Klient(-1L,"","",-1L,"","");
+            if (currentID == -1)
+                return new Klient(-1L, "", "", -1L, "", "");
 
 
-            return new Klient(Long.parseLong(info.get("id")),info.get("imie"),info.get("nazwisko"),Long.parseLong(info.get("telefon")),info.get("email"), info.get("login"));
+            return new Klient(Long.parseLong(info.get("id")), info.get("imie"), info.get("nazwisko"), Long.parseLong(info.get("telefon")), info.get("email"), info.get("login"));
 
 
         } catch (Exception exc) {
@@ -189,7 +186,6 @@ public class Driver {
                 myConn.close();
             }
         }
-
 
 
         return null;
@@ -197,24 +193,29 @@ public class Driver {
 
 
     //  ZARZADZANIE TRENINGAMI
-    public static List<String> getImfoAboutAvailableTrainings() throws SQLException {
+    public static Map<Integer, List<Integer>> getZapisy() throws SQLException {
+        Map<Integer, List<Integer>> resultMap = new HashMap<>();
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
-        ArrayList<String> listaTreningow = new ArrayList<>();
 
 
-        try
-        {
+        try {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
             myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery("select * from dostepnetreningi ");
+            myRs = myStmt.executeQuery("select * from zapisy ");
             while (myRs.next()) {
-                listaTreningow.add(myRs.getString("idTreningu") +" "+ myRs.getString("nazwa" ) + " "+ myRs.getString("czasTrwania" ) +" "+ myRs.getString("data" ) );
-                //System.out.println(myRs.getString("idTreningu") +" "+ myRs.getString("nazwa" ) + " "+ myRs.getString("czasTrwania" ) +" "+ myRs.getString("data" ));
+                if (resultMap.containsKey(Integer.parseInt(myRs.getString("idUser")))) {
+                    List<Integer> lista;
+                    lista = resultMap.get(Integer.parseInt(myRs.getString("idUser")));
+                    lista.add(Integer.parseInt(myRs.getString("idTerminu")));
+                    resultMap.put(Integer.parseInt(myRs.getString("idUser")), lista);
+                } else {
+                    List<Integer> lista = Arrays.asList(Integer.parseInt(myRs.getString("nazwa")));
+                    resultMap.put(Integer.parseInt(myRs.getString("idUser")), lista);
+                }
 
             }
-            return listaTreningow;
 
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -231,8 +232,157 @@ public class Driver {
                 myConn.close();
             }
         }
-        return new ArrayList<>();
+        return resultMap;
     }
+    public static List<Zapisy> getMojeZapisy(int idUser) throws SQLException {
+        List<Zapisy> listResult = new ArrayList<>();
+
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+
+
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+            myRs = myStmt.executeQuery("select * from zapisy where idUser='" + idUser + "'");
+            while (myRs.next()) {
+                listResult.add(new Zapisy(Integer.parseInt(myRs.getString("idUser")),Integer.parseInt(myRs.getString("idTerminu"))));
+
+            }
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+        }
+        return listResult;
+    }
+    public static List<Trenerzy> getTrenerzy() throws SQLException {
+        List<Trenerzy> resultList = new ArrayList<>();
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+
+
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+            myRs = myStmt.executeQuery("select * from trenerzy ");
+            while (myRs.next()) {
+                resultList.add(new Trenerzy(
+                        Integer.parseInt(myRs.getString("idTrenera")),
+                        myRs.getString("imie"),
+                        myRs.getString("nazwisko")
+                ));
+
+            }
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+        }
+        return resultList;
+    }
+    public static List<Terminarz> getTerminarz() throws SQLException {
+        List<Terminarz> resultList = new ArrayList<>();
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+
+
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+            myRs = myStmt.executeQuery("select * from terminarz ");
+            while (myRs.next()) {
+                resultList.add(new Terminarz(
+                        Integer.parseInt(myRs.getString("idTerminu")),
+                        Integer.parseInt(myRs.getString("idTrenera")),
+                        Integer.parseInt(myRs.getString("idTreningu")),
+                        myRs.getString("DATA"),
+                        Integer.parseInt(myRs.getString("LimitMiejsc")),
+                        Integer.parseInt(myRs.getString("czasTrwania"))
+                ));
+
+            }
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+        }
+        return resultList;
+    }
+    public static List<ListaTreningow> getListaTreningow() throws SQLException {
+        List<ListaTreningow> resultList = new ArrayList<>();
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+
+
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+            myRs = myStmt.executeQuery("select * from listatreningow ");
+            while (myRs.next()) {
+                resultList.add(new ListaTreningow(
+                    Integer.parseInt(myRs.getString("idTreningu")),
+                        myRs.getString("nazwa")
+                ));
+
+            }
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+        }
+        return resultList;
+    }
+
+}
 
 
     /*
@@ -313,4 +463,3 @@ public class Driver {
 //        }
 //    }
 
-    }
