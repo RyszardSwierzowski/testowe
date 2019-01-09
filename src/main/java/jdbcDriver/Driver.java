@@ -4,11 +4,13 @@ package jdbcDriver;
 import java.sql.*;
 import java.util.*;
 
+import javafx.scene.control.Alert;
 import treningi.ListaTreningow;
 import treningi.Terminarz;
 import treningi.Trenerzy;
 import treningi.Zapisy;
 import user.Klient;
+import utilities.ValidateUtilities;
 
 import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
@@ -18,7 +20,7 @@ public class Driver {
     private static int currentID = -1;
 
     public static int getCurrentID() {
-        return currentID ;
+        return currentID;
     }
 
 
@@ -191,6 +193,99 @@ public class Driver {
         return null;
     }
 
+    public static void editUser(String imie, String nazwisko, String telefon, String email) throws SQLException {
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+
+        boolean isImie = false;
+        boolean isNazwisko = false;
+        boolean isTelefon = false;
+        boolean isEmail = false;
+
+        String errorMessage = "";
+        int errorNumber = 0;
+
+
+        if (imie.trim().length() > 0)
+            isImie = true;
+        if (nazwisko.trim().length() > 0)
+            isNazwisko = true;
+        if (telefon.trim().length() > 0)
+            isTelefon = true;
+        if (email.trim().length() > 0)
+            isEmail = true;
+
+        if (isImie) {
+            if (imie.trim().length() < 3)
+                errorMessage += (++errorNumber) + ". za krótkie imię!\n";
+            if (!ValidateUtilities.isText(imie.trim())) {
+                errorMessage += (++errorNumber) + ". imię może zawierać tylko litery!\n";
+            }
+        }
+        if (isNazwisko) {
+            if (nazwisko.trim().length() < 3)
+                errorMessage += (++errorNumber) + ". za krótkie nazwisko!\n";
+            if (!ValidateUtilities.isText(nazwisko.trim())) {
+                errorMessage += (++errorNumber) + ". nazwisko może zawierać tylko litery!\n";
+            }
+            if (isTelefon) {
+                if (!ValidateUtilities.isMobilePhoneNumber(telefon.trim()))
+                    errorMessage += (++errorNumber) + ". nr tel ma zawierać tylko 9 cyfr!\n";
+            }
+            if (isEmail) {
+                if (!ValidateUtilities.validateEmail(email.trim())) {
+                    errorMessage += (++errorNumber) + ". nieprawidłowy email!\n";
+                }
+            }
+
+            if (errorNumber > 0)
+            {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Błąd aktualizacji danych");
+                alert.setHeaderText("Błąd aktualizacji danych");
+                alert.setContentText(errorMessage);
+
+                alert.showAndWait();
+            } else {
+
+                try {
+                    myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+                    myStmt = myConn.createStatement();
+
+                    if (isImie)
+                        myStmt.executeUpdate("UPDATE `users` SET `imie`='" + imie + "' WHERE `IDuser`='" + Driver.getCurrentID() + "' Limit 1");
+                    if (isNazwisko)
+                        myStmt.executeUpdate("UPDATE `users` SET `nazwisko`='" + nazwisko + "' WHERE `IDuser`='" + Driver.getCurrentID() + "' Limit 1");
+                    if (isTelefon)
+                        myStmt.executeUpdate("UPDATE `users` SET `telefon`='" + telefon + "' WHERE `IDuser`='" + Driver.getCurrentID() + "' Limit 1");
+                    if (isEmail)
+                        myStmt.executeUpdate("UPDATE `users` SET `email`='" + email + "' WHERE `IDuser`='" + Driver.getCurrentID() + "' Limit 1");
+
+
+                } catch (Exception exc) {
+                    exc.printStackTrace();
+                } finally {
+                    if (myRs != null) {
+                        myRs.close();
+                    }
+
+                    if (myStmt != null) {
+                        myStmt.close();
+                    }
+
+                    if (myConn != null) {
+                        myConn.close();
+                    }
+
+
+                }
+            }
+
+
+        }
+    }
+
 
     //  ZARZADZANIE TRENINGAMI
     public static Map<Integer, List<Integer>> getZapisy() throws SQLException {
@@ -234,6 +329,7 @@ public class Driver {
         }
         return resultMap;
     }
+
     public static List<Zapisy> getMojeZapisy(int idUser) throws SQLException {
         List<Zapisy> listResult = new ArrayList<>();
 
@@ -247,7 +343,7 @@ public class Driver {
             myStmt = myConn.createStatement();
             myRs = myStmt.executeQuery("select * from zapisy where idUser='" + idUser + "'");
             while (myRs.next()) {
-                listResult.add(new Zapisy(Integer.parseInt(myRs.getString("idUser")),Integer.parseInt(myRs.getString("idTerminu"))));
+                listResult.add(new Zapisy(Integer.parseInt(myRs.getString("idUser")), Integer.parseInt(myRs.getString("idTerminu"))));
 
             }
 
@@ -268,6 +364,7 @@ public class Driver {
         }
         return listResult;
     }
+
     public static List<Trenerzy> getTrenerzy() throws SQLException {
         List<Trenerzy> resultList = new ArrayList<>();
         Connection myConn = null;
@@ -305,6 +402,7 @@ public class Driver {
         }
         return resultList;
     }
+
     public static List<Terminarz> getTerminarz() throws SQLException {
         List<Terminarz> resultList = new ArrayList<>();
         Connection myConn = null;
@@ -345,6 +443,7 @@ public class Driver {
         }
         return resultList;
     }
+
     public static List<ListaTreningow> getListaTreningow() throws SQLException {
         List<ListaTreningow> resultList = new ArrayList<>();
         Connection myConn = null;
@@ -358,7 +457,7 @@ public class Driver {
             myRs = myStmt.executeQuery("select * from listatreningow ");
             while (myRs.next()) {
                 resultList.add(new ListaTreningow(
-                    Integer.parseInt(myRs.getString("idTreningu")),
+                        Integer.parseInt(myRs.getString("idTreningu")),
                         myRs.getString("nazwa")
                 ));
 
@@ -385,81 +484,5 @@ public class Driver {
 }
 
 
-    /*
-    public static long getCurrentId(String login) throws SQLException {
 
-        Connection myConn = null;
-        Statement myStmt = null;
-        ResultSet myRs = null;
-
-        try
-        {
-            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
-            myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery("select * from logindata where login='"+login+"'");
-            while (myRs.next()) {
-                //System.out.println(myRs.getString("idUser"));
-
-            }
-
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        } finally {
-            if (myRs != null) {
-                myRs.close();
-            }
-
-            if (myStmt != null) {
-                myStmt.close();
-            }
-
-            if (myConn != null) {
-                myConn.close();
-            }
-        }
-        return 0L;
-    }
-*/
-//    public static void main(String[] args) throws SQLException {
-//
-//        Connection myConn = null;
-//        Statement myStmt = null;
-//        ResultSet myRs = null;
-//
-//        //String sqlQueryy="";
-//
-//
-//
-//        try {
-//            // 1. Get a connection to database
-//            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root" , "");
-//
-//            // 2. Create a statement
-//            myStmt = myConn.createStatement();
-//
-//            // 3. Execute SQL query
-//            myRs = myStmt.executeQuery("select * from logindata");
-//
-//            // 4. Process the result set
-//            while (myRs.next()) {
-//                System.out.println(myRs.getString("id") );
-//            }
-//        }
-//        catch (Exception exc) {
-//            exc.printStackTrace();
-//        }
-//        finally {
-//            if (myRs != null) {
-//                myRs.close();
-//            }
-//
-//            if (myStmt != null) {
-//                myStmt.close();
-//            }
-//
-//            if (myConn != null) {
-//                myConn.close();
-//            }
-//        }
-//    }
 
