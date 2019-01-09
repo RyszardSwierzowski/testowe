@@ -15,10 +15,10 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 public class Driver {
 
 
-    private static long currentID = -1;
+    private static int currentID = -1;
 
-    public static long getCurrentID() {
-        return currentID = -1;
+    public static int getCurrentID() {
+        return currentID ;
     }
 
 
@@ -34,7 +34,7 @@ public class Driver {
             myRs = myStmt.executeQuery("select * from logindata where password='" + pass + "' and login='" + log + "'");
             while (myRs.next()) {
                 //System.out.println(myRs.getString("idUser"));
-                currentID = Long.parseLong(myRs.getString("idUser"));
+                currentID = Integer.parseInt(myRs.getString("idUser"));
                 return true;
             }
             return false;

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 public class Klient {
-    private Map<LocalDateTime,String> zarezerwowaneZajecia;
+
     long id;
     long numerKontaktowy;
     String imie, nazwisko ,adresEmail, login;

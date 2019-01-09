@@ -88,14 +88,6 @@
                                                       <Insets left="25.0" right="25.0" />
                                                    </VBox.margin>
                                                 </Label>
-                                                <Label fx:id="userStatus" layoutX="10.0" layoutY="127.0" prefHeight="17.0" prefWidth="352.0" text="Status : klient / admin/ trener">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                   <VBox.margin>
-                                                      <Insets left="25.0" right="25.0" />
-                                                   </VBox.margin>
-                                                </Label>
                                              </children>
                                           </VBox>
                                        </children>
@@ -216,7 +208,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Dostępne zajęcia">
+                  <Tab onSelectionChanged="#setTableDostepneTreningi" text="Dostępne zajęcia">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -227,7 +219,6 @@
                                     <TableColumn fx:id="Termin2" prefWidth="130.0" text="Termin" />
                                     <TableColumn fx:id="Trener2" prefWidth="100.0" text="Trener" />
                                     <TableColumn fx:id="Czas2" prefWidth="130.0" text="Czas zajęć" />
-                                    <TableColumn fx:id="LimitMiejsc" prefWidth="130.0" text="Limit miejsc" />
                                  </columns>
                               </TableView>
                               <Label alignment="CENTER" layoutX="44.0" layoutY="24.0" prefHeight="17.0" prefWidth="771.0" text="Lista wszystkich zajęć">

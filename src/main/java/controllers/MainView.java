@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 
-public class MainView implements Initializable {
+public class MainView  {
 
     public boolean isLoged = false;
 
@@ -29,8 +29,7 @@ public class MainView implements Initializable {
     private Label platnoscKarta;
     @FXML
     private Button userUsunKonto;
-    @FXML
-    private Label userStatus;
+
     @FXML
     private Button platnoscZmienNrKarty;
     @FXML
@@ -75,6 +74,21 @@ public class MainView implements Initializable {
     @FXML
     private TableColumn<DostępneTreningiTabele, Integer> Czas;
 
+    @FXML
+    private TableView<DostępneTreningiTabele> tableDostepne2;
+    @FXML
+    private TableColumn<DostępneTreningiTabele, Integer> Lp2;
+    @FXML
+    private TableColumn<DostępneTreningiTabele, String> Nazwa2;
+    @FXML
+    private TableColumn<DostępneTreningiTabele, String> Termin2;
+    @FXML
+    private TableColumn<DostępneTreningiTabele, String> Trener2;
+    @FXML
+    private TableColumn<DostępneTreningiTabele, Integer> Czas2;
+//    @FXML
+//    private TableColumn<DostępneTreningiTabele, Integer> Limit;
+
 
     Klient klient;
 
@@ -93,7 +107,7 @@ public class MainView implements Initializable {
         userTelefon.setText("Numer kontaktowy : " + String.valueOf(klient.getNumerKontaktowy()));
         userLogin.setText("Login : " + klient.getLogin());
 
-        userStatus.setTextFill(Color.GRAY);
+
         //System.out.println(klient.getLogin());
 
         //System.out.println("|"+klient.getImie()+"|");
@@ -141,31 +155,36 @@ public class MainView implements Initializable {
 
     }
 
-    // TABLICA DOSTĘPNYCH TRENINGOW
-    public ObservableList<DostępneTreningiTabele> list = FXCollections.observableArrayList(
-            DostępneTreningiTabele.generujMojeTreningi(Driver.getMojeZapisy(4),4)
-//            new DostępneTreningiTabele(1, "sd", "dsa", "dsa", 32),
-//            new DostępneTreningiTabele(2, "sd", "dsa", "dsa", 45)
-    );
-
-
-
-    public void setTableMojeTreningi(){
+    // TABLICA MOICH TRENINGOW
+    public void setTableMojeTreningi() throws SQLException {
+        ObservableList<DostępneTreningiTabele> listaMoichTreningow = FXCollections.observableArrayList(
+                DostępneTreningiTabele.generujMojeTreningi(Driver.getMojeZapisy(Driver.getCurrentID()), Driver.getCurrentID()));
         Lp.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
         Nazwa.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Nazwa"));
         Termin.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Termin"));
         Trener.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Trener"));
         Czas.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Czas"));
 
-        tableDostepne.setItems(list);
+        tableDostepne.setItems(listaMoichTreningow);
     }
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+
+    // TABLICA DOSTEPNYCH TRENINGOW
+    public void setTableDostepneTreningi() throws SQLException {
+        ObservableList<DostępneTreningiTabele> listaDostepnychTreningow = FXCollections.observableArrayList(DostępneTreningiTabele.generujWszystkieTreningi() );
+        Lp2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
+        Nazwa2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Nazwa"));
+        Termin2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Termin"));
+        Trener2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Trener"));
+        Czas2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Czas"));
+       // Limit.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Limit"));
 
 
-
-
+        tableDostepne2.setItems(listaDostepnychTreningow);
     }
+
+
+
+
 }
 
 

@@ -28,4 +28,7 @@ public class Trenerzy {
         return " Brak danych";
     }
 
+    public int getIdTrenera() {
+        return idTrenera;
+    }
 }

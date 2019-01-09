@@ -74,6 +74,33 @@ public class DostępneTreningiTabele {
         }
         return resultList;
     }
+    public static List<DostępneTreningiTabele> generujWszystkieTreningi() throws SQLException {
+        List<DostępneTreningiTabele> resultList= new ArrayList<>();
+        int currentLP=0;
+
+        List<Terminarz> terminarz = Driver.getTerminarz();
+
+        List<ListaTreningow> listaTreningow = Driver.getListaTreningow();
+        List<Trenerzy> listaTrenerow = Driver.getTrenerzy();
+        String nazwa="";
+        String terminZajec="";
+        String trener="";
+        int czas=-1;
+
+        for(Terminarz  ter : terminarz )
+        {
+            for(ListaTreningow l : listaTreningow){
+                if(ter.getIdTreningu()==l.getIdTreningu());
+                nazwa=l.getNazwa();
+                trener=Trenerzy.getTrenerNameAndSurname(ter.getIdTrenera());
+                czas=ter.getCzas();
+                terminZajec=ter.getData();
+            }
+        }
+            resultList.add( new DostępneTreningiTabele(++currentLP,nazwa,terminZajec,trener,czas));
+        return resultList;
+
+    }
 
     public int getLp() {
         return Lp;
