@@ -88,6 +88,11 @@
                                                       <Insets left="25.0" right="25.0" />
                                                    </VBox.margin>
                                                 </Label>
+                                                <Label fx:id="userStatus" prefHeight="27.0" prefWidth="313.0" text="     Status :">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                           </VBox>
                                        </children>

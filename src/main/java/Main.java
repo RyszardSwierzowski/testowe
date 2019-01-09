@@ -69,9 +69,10 @@ public class Main extends Application {
 
         VBox vboxLogowanie = new VBox(20);
         HBox hboxLogowanie = new HBox(25);
-        TextField loginLogowanie = new TextField();
+        TextField loginLogowanie = new TextField("admin");
         loginLogowanie.setPromptText("Login");
         PasswordField passwordLogowanie = new PasswordField();
+        passwordLogowanie.setText("admin");
 
         passwordLogowanie.setPromptText("Haslo");
         vboxLogowanie.setPadding(new Insets(75, 50, 75, 50));

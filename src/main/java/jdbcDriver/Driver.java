@@ -192,7 +192,6 @@ public class Driver {
 
         return null;
     }
-
     public static void editUser(String imie, String nazwisko, String telefon, String email) throws SQLException {
         Connection myConn = null;
         Statement myStmt = null;
@@ -262,6 +261,12 @@ public class Driver {
                     if (isEmail)
                         myStmt.executeUpdate("UPDATE `users` SET `email`='" + email + "' WHERE `IDuser`='" + Driver.getCurrentID() + "' Limit 1");
 
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Info");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Aktualizacja danych zakończona SUKCESEM");
+
+                    alert.showAndWait();
 
                 } catch (Exception exc) {
                     exc.printStackTrace();
@@ -284,6 +289,44 @@ public class Driver {
 
 
         }
+    }
+    public static String getStatus() throws SQLException {
+
+
+
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+
+
+            myRs = myStmt.executeQuery("select * from status where idUser='" + currentID + "' ");
+            while (myRs.next()) {
+                return "     Status : "+myRs.getString("Status");
+            }
+
+
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+        }
+
+
+        return "     Status : Brak Danych";
     }
 
 

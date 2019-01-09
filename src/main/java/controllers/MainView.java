@@ -57,9 +57,11 @@ public class MainView  {
     @FXML
     private TextField userEdycjaNoweImie;
     @FXML
-    private ComboBox<?> userWybierzOkresZawieszeniaKonta;
+    private ComboBox<String> userWybierzOkresZawieszeniaKonta;
     @FXML
     private Label userTelefon;
+    @FXML
+    private Label userStatus;
 
     @FXML
     private TableView<DostępneTreningiTabele> tableDostepne;
@@ -95,9 +97,7 @@ public class MainView  {
     public MainView() throws SQLException {
     }
 
-    // todo zrobic na klasie klient
-
-
+//  URZYTKOWNICY
     public void setView() throws SQLException {
         klient = Driver.getInfoAboutUser();
         userImie.setText("Imię : " + klient.getImie());
@@ -106,13 +106,10 @@ public class MainView  {
         userEmail.setText("Email : " + klient.getAdresEmail());
         userTelefon.setText("Numer kontaktowy : " + String.valueOf(klient.getNumerKontaktowy()));
         userLogin.setText("Login : " + klient.getLogin());
+        userStatus.setText(Driver.getStatus());
+        setComboBoxyDlaKonta();
 
-
-        //System.out.println(klient.getLogin());
-
-        //System.out.println("|"+klient.getImie()+"|");
     }
-
     public void zmienDaneUzytkownika() throws SQLException {
 
         // POBIERZ DANE Z FORMULARZA
@@ -123,8 +120,14 @@ public class MainView  {
 
         Driver.editUser(noweImie,noweNazwisko,nowyNumerKontaktowy,nowyEmail);
     }
+    public void setComboBoxyDlaKonta(){
+        ObservableList<String> zawieszanieKonta = FXCollections.observableArrayList(Arrays.asList("Zawieś na 1 miesiąc","Zawieś na 2 miesiące","Zawieś na 3 miesiące","Zawieś na 6 miesiący","Zawieś na 1 rok"));
+        //ObservableList<String> zawieszanieKonta = FXCollections.observableArrayList(new String("dsada"));
+        userWybierzOkresZawieszeniaKonta.setItems(zawieszanieKonta);
 
-    // TABLICA MOICH TRENINGOW
+    }
+
+// TABLICA MOICH TRENINGOW
     public void setTableMojeTreningi() throws SQLException {
         ObservableList<DostępneTreningiTabele> listaMoichTreningow = FXCollections.observableArrayList(
                 DostępneTreningiTabele.generujMojeTreningi(Driver.getMojeZapisy(Driver.getCurrentID()), Driver.getCurrentID()));
@@ -137,7 +140,7 @@ public class MainView  {
         tableDostepne.setItems(listaMoichTreningow);
     }
 
-    // TABLICA DOSTEPNYCH TRENINGOW
+// TABLICA DOSTEPNYCH TRENINGOW
     public void setTableDostepneTreningi() throws SQLException {
         ObservableList<DostępneTreningiTabele> listaDostepnychTreningow = FXCollections.observableArrayList(DostępneTreningiTabele.generujWszystkieTreningi() );
         Lp2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
