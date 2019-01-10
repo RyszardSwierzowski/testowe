@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e2218f0-51ee-4ae8-a916-9df30eb1f026" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/platnosci/PlatnoscStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/platnosci/Platnosci.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,13 +31,13 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="2" />
-          <entry key="java" value="60" />
+          <entry key="java" value="63" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="60" />
+          <entry key="JAVA" value="63" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
@@ -41,13 +45,13 @@
         <counts>
           <entry key="dummy" value="29" />
           <entry key="fxml" value="8" />
-          <entry key="java" value="16412" />
+          <entry key="java" value="16975" />
           <entry key="xml" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="16407" />
+          <entry key="JAVA" value="16970" />
           <entry key="PLAIN_TEXT" value="29" />
           <entry key="SQL" value="5" />
           <entry key="XML" value="22" />
@@ -57,17 +61,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="161" column="35" lean-forward="true" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
+            <state relative-caret-position="650">
+              <caret line="226" column="7" lean-forward="true" selection-start-line="221" selection-start-column="5" selection-end-line="226" selection-end-column="7" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#2400#2411#0" />
                 <element signature="method#MainView#0;class#MainView#0" />
-                <element signature="e#2743#3593#0" />
                 <element signature="method#zmienDaneUzytkownika#0;class#MainView#0" />
                 <element signature="e#4071#4520#0" />
+                <element signature="e#4680#6065#0" />
                 <element signature="method#setTableDostepneTreningi#0;class#MainView#0" />
               </folding>
             </state>
@@ -75,10 +80,47 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/platnosci/Platnosci.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+              <folding>
+                <element signature="e#428#429#0" expanded="true" />
+                <element signature="e#457#458#0" expanded="true" />
+                <element signature="e#498#499#0" expanded="true" />
+                <element signature="e#527#528#0" expanded="true" />
+                <element signature="e#557#558#0" expanded="true" />
+                <element signature="e#585#586#0" expanded="true" />
+                <element signature="e#621#622#0" expanded="true" />
+                <element signature="e#650#651#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/user/StatusKonta.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/platnosci/PlatnoscStatus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="399" column="14" selection-start-line="399" selection-start-column="8" selection-end-line="405" selection-end-column="42" />
+            <state relative-caret-position="253">
+              <caret line="415" column="101" selection-start-line="415" selection-start-column="101" selection-end-line="415" selection-end-column="101" />
               <folding>
                 <element signature="method#tryToLogIn#0;class#Driver#0" />
                 <element signature="e#0#78#1" />
@@ -137,6 +179,7 @@
       <find>zmienDa</find>
       <find>login</find>
       <find>userButtonOkresZawieszeniaKonta</find>
+      <find>platnoscStatus</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,8 +223,10 @@
         <option value="$PROJECT_DIR$/src/main/java/user/Klient.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/user/StatusKonta.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/platnosci/Platnosci.java" />
+        <option value="$PROJECT_DIR$/src/main/java/platnosci/PlatnoscStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/MainView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java" />
       </list>
     </option>
   </component>
@@ -252,7 +297,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="treningi" type="462c0819:PsiDirectoryNode" />
+              <item name="platnosci" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testowe" type="b2602c69:ProjectViewProjectNode" />
@@ -288,7 +333,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547085034238" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547087683477" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -408,7 +453,7 @@
       <workItem from="1546446046095" duration="24087000" />
       <workItem from="1546495540951" duration="1851000" />
       <workItem from="1546595749600" duration="16368000" />
-      <workItem from="1547056948785" duration="27305000" />
+      <workItem from="1547056948785" duration="29818000" />
     </task>
     <servers />
   </component>
@@ -439,7 +484,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96705000" />
+    <option name="totallyTimeSpent" value="99218000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -783,10 +828,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/platnosci/PlatnoscStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/platnosci/Platnosci.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="e#428#429#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#527#528#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="226" column="7" lean-forward="true" selection-start-line="221" selection-start-column="5" selection-end-line="226" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2400#2411#0" />
+            <element signature="method#MainView#0;class#MainView#0" />
+            <element signature="method#zmienDaneUzytkownika#0;class#MainView#0" />
+            <element signature="e#4071#4520#0" />
+            <element signature="e#4680#6065#0" />
+            <element signature="method#setTableDostepneTreningi#0;class#MainView#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="399" column="14" selection-start-line="399" selection-start-column="8" selection-end-line="405" selection-end-column="42" />
+        <state relative-caret-position="253">
+          <caret line="415" column="101" selection-start-line="415" selection-start-column="101" selection-end-line="415" selection-end-column="101" />
           <folding>
             <element signature="method#tryToLogIn#0;class#Driver#0" />
             <element signature="e#0#78#1" />
@@ -816,21 +901,6 @@
             <element signature="e#0#23#0" />
             <element signature="method#getListaTreningow#0;class#Driver#0" />
             <element signature="e#0#28#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="161" column="35" lean-forward="true" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
-          <folding>
-            <element signature="e#2400#2411#0" />
-            <element signature="method#MainView#0;class#MainView#0" />
-            <element signature="e#2743#3593#0" />
-            <element signature="method#zmienDaneUzytkownika#0;class#MainView#0" />
-            <element signature="e#4071#4520#0" />
-            <element signature="method#setTableDostepneTreningi#0;class#MainView#0" />
           </folding>
         </state>
       </provider>

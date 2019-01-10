@@ -2,11 +2,14 @@ package jdbcDriver;
 
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.*;
 
 import controllers.MainView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import platnosci.PlatnoscStatus;
+import platnosci.Platnosci;
 import treningi.ListaTreningow;
 import treningi.Terminarz;
 import treningi.Trenerzy;
@@ -295,8 +298,6 @@ public class Driver {
     }
     public static String getStatus() throws SQLException {
 
-
-
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
@@ -404,31 +405,33 @@ public class Driver {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
-//            Connection myConn = null;
-//            Statement myStmt = null;
-//            ResultSet myRs = null;
-//            try {
-//                myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
-//                myStmt = myConn.createStatement();
-//
-//                //myStmt.executeUpdate("UPDATE `status` SET `Status`='"+status+"',`Termin`='"+termin+"' Limit 1");
-                System.out.println("okodoać usuwanie !!!");
-//
-//            } catch (Exception exc) {
-//                exc.printStackTrace();
-//            } finally {
-//                if (myRs != null) {
-//                    myRs.close();
-//                }
-//
-//                if (myStmt != null) {
-//                    myStmt.close();
-//                }
-//
-//                if (myConn != null) {
-//                    myConn.close();
-//                }
-//            }
+            Connection myConn = null;
+            Statement myStmt = null;
+            ResultSet myRs = null;
+            try {
+                myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+                myStmt = myConn.createStatement();
+
+                myStmt.executeUpdate("DELETE FROM `users` WHERE idUser='"+Driver.getCurrentID()+"'");
+                myStmt.executeUpdate("DELETE FROM `logindata` WHERE idUser='"+Driver.getCurrentID()+"'");
+
+                Driver.currentID=-1;
+
+            } catch (Exception exc) {
+                exc.printStackTrace();
+            } finally {
+                if (myRs != null) {
+                    myRs.close();
+                }
+
+                if (myStmt != null) {
+                    myStmt.close();
+                }
+
+                if (myConn != null) {
+                    myConn.close();
+                }
+            }
         } else {
             System.out.println("wycowfano usuniecie konta");
         }
@@ -438,6 +441,44 @@ public class Driver {
 
 
 
+    }
+    public static Platnosci getStatusPlatnosci() throws SQLException {
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+
+
+            myRs = myStmt.executeQuery("select * from platnosci where idUser='" + currentID + "' ");
+            while (myRs.next()) {
+                return new Platnosci(
+                        Integer.parseInt(myRs.getString("idUser")),
+                        myRs.getString("status"),
+                        Long.parseLong(myRs.getString("karta")),
+                        myRs.getString("termin")
+                );
+            }
+
+
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+        }
+        return new Platnosci(Driver.getCurrentID(), PlatnoscStatus.BRAK_DANYCH.toString(),0L,PlatnoscStatus.BRAK_DANYCH.toString());
     }
 
 

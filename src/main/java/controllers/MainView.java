@@ -10,6 +10,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 
 import jdbcDriver.Driver;
+
+import platnosci.Platnosci;
 import treningi.DostępneTreningiTabele;
 import user.Klient;
 import user.StatusKonta;
@@ -124,6 +126,12 @@ public class MainView {
         userStatus.setText("     Status : " + statusKonta.toString());
         setComboBoxyDlaKonta();
 
+        // platnosci
+//        Platnosci platnosci = Driver.getStatusPlatnosci();
+//
+//        platnoscStatus.setText("");
+//        platnoscKarta.setText(String.valueOf(platnosci.getKarta()));
+//        platnoscTerminPlatnosci.setText(platnosci.getTermin());
     }
 
     public void zmienDaneUzytkownika() throws SQLException {
@@ -182,7 +190,7 @@ public class MainView {
         Driver.usunKonto();
     }
 
-    // TABLICA MOICH TRENINGOW
+// TABLICA MOICH TRENINGOW
     public void setTableMojeTreningi() throws SQLException {
         ObservableList<DostępneTreningiTabele> listaMoichTreningow = FXCollections.observableArrayList(
                 DostępneTreningiTabele.generujMojeTreningi(Driver.getMojeZapisy(Driver.getCurrentID()), Driver.getCurrentID()));
@@ -195,7 +203,7 @@ public class MainView {
         tableDostepne.setItems(listaMoichTreningow);
     }
 
-    // TABLICA DOSTEPNYCH TRENINGOW
+// TABLICA DOSTEPNYCH TRENINGOW
     public void setTableDostepneTreningi() throws SQLException {
         ObservableList<DostępneTreningiTabele> listaDostepnychTreningow = FXCollections.observableArrayList(DostępneTreningiTabele.generujWszystkieTreningi());
         Lp2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
@@ -209,6 +217,14 @@ public class MainView {
         tableDostepne2.setItems(listaDostepnychTreningow);
     }
 
+
+// PLATNOSCI
+//    public void setPlatnosci() throws SQLException {
+//        Platnosci platnosci = Driver.getStatusPlatnosci();
+//        platnoscStatus.setText(platnosci.getStatus());
+//        platnoscKarta.setText(String.valueOf(platnosci.getKarta()));
+//        platnoscTerminPlatnosci.setText(platnosci.getTermin());
+//    }
 
 }
 
