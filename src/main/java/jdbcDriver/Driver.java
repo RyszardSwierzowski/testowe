@@ -4,12 +4,15 @@ package jdbcDriver;
 import java.sql.*;
 import java.util.*;
 
+import controllers.MainView;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import treningi.ListaTreningow;
 import treningi.Terminarz;
 import treningi.Trenerzy;
 import treningi.Zapisy;
 import user.Klient;
+import user.StatusKonta;
 import utilities.ValidateUtilities;
 
 import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
@@ -304,6 +307,14 @@ public class Driver {
 
             myRs = myStmt.executeQuery("select * from status where idUser='" + currentID + "' ");
             while (myRs.next()) {
+                if(myRs.getString("Status").equals("NIE_DODANO_KARTY"))
+                    MainView.statusKonta=StatusKonta.NIE_DODANO_KARTY;
+                if(myRs.getString("Status").equals("ZAWIESZONE"))
+                    MainView.statusKonta=StatusKonta.ZAWIESZONE;
+                if(myRs.getString("Status").equals("AKTYWNE"))
+                    MainView.statusKonta=StatusKonta.AKTYWNE;
+                if(myRs.getString("Status").equals("ZADLUZONE"))
+                    MainView.statusKonta=StatusKonta.ZADLUZONE;
                 return "     Status : "+myRs.getString("Status");
             }
 
@@ -326,7 +337,107 @@ public class Driver {
         }
 
 
-        return "     Status : Brak Danych";
+        return "     Status : " + StatusKonta.BRAK_DANYCH;
+    }
+    public static void zmienStatusKonta(StatusKonta status, String termin) throws SQLException {
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+        String info="";
+
+        if(termin.equals(""))
+            termin="-";
+
+
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+
+            myStmt.executeUpdate("UPDATE `status` SET `Status`='"+status+"',`Termin`='"+termin+"' Limit 1");
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Zmieniono status konta");
+                alert.setHeaderText(null);
+                //alert.setContentText("I have a great message for you!");
+                if(status==StatusKonta.AKTYWNE){
+                    MainView.statusKonta=StatusKonta.AKTYWNE;
+                    info=" AKTYWNE ";
+                }
+                if(status==StatusKonta.NIE_DODANO_KARTY){
+                    MainView.statusKonta=StatusKonta.NIE_DODANO_KARTY;
+                    info=" NIE_DODANO_KARTY ";
+                }
+                if(status==StatusKonta.ZADLUZONE){
+                    MainView.statusKonta=StatusKonta.ZADLUZONE;
+                    info=" ZADLUZONE ";
+                }
+                if(status==StatusKonta.ZAWIESZONE){
+                    MainView.statusKonta=StatusKonta.ZAWIESZONE;
+                    info=" ZAWIESZONE ";
+                }
+                 alert.setContentText("Twoje konto ma status : "+info);
+
+                alert.showAndWait();
+
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+        }
+    }
+    public static void usunKonto() throws SQLException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Usuwanie konta");
+        alert.setHeaderText(null);
+        alert.setContentText("Czy na pewno chcesz usunąć konto z naszego serwisu ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+//            Connection myConn = null;
+//            Statement myStmt = null;
+//            ResultSet myRs = null;
+//            try {
+//                myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+//                myStmt = myConn.createStatement();
+//
+//                //myStmt.executeUpdate("UPDATE `status` SET `Status`='"+status+"',`Termin`='"+termin+"' Limit 1");
+                System.out.println("okodoać usuwanie !!!");
+//
+//            } catch (Exception exc) {
+//                exc.printStackTrace();
+//            } finally {
+//                if (myRs != null) {
+//                    myRs.close();
+//                }
+//
+//                if (myStmt != null) {
+//                    myStmt.close();
+//                }
+//
+//                if (myConn != null) {
+//                    myConn.close();
+//                }
+//            }
+        } else {
+            System.out.println("wycowfano usuniecie konta");
+        }
+
+
+
+
+
+
     }
 
 
