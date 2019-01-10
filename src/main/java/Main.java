@@ -11,13 +11,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-
-
 import jdbcDriver.Driver;
 import utilities.ValidateUtilities;
-
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +25,7 @@ public class Main extends Application {
     Scene wyborWidok, logowanieWidok, rejestracjaWidok, zalogowanoWidok;
 
 
-    static long currentUserID;
+
 
 
     public void start(Stage primaryStage) throws Exception {
