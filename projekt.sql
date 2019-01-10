@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 03 Sty 2019, 08:55
+-- Czas generowania: 10 Sty 2019, 04:11
 -- Wersja serwera: 10.1.37-MariaDB
 -- Wersja PHP: 7.3.0
 
@@ -25,24 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `dostepnetreningi`
+-- Struktura tabeli dla tabeli `listatreningow`
 --
 
-CREATE TABLE `dostepnetreningi` (
+CREATE TABLE `listatreningow` (
   `idTreningu` int(11) NOT NULL,
-  `nazwa` varchar(50) COLLATE utf8_polish_ci NOT NULL,
-  `idTreneraProwadzacego` varchar(50) COLLATE utf8_polish_ci NOT NULL,
-  `data` varchar(50) COLLATE utf8_polish_ci NOT NULL,
-  `czasTrwania` varchar(50) COLLATE utf8_polish_ci NOT NULL
+  `nazwa` varchar(50) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `dostepnetreningi`
+-- Zrzut danych tabeli `listatreningow`
 --
 
-INSERT INTO `dostepnetreningi` (`idTreningu`, `nazwa`, `idTreneraProwadzacego`, `data`, `czasTrwania`) VALUES
-(1, 'Aerobik', '1', '2019-01-03T08:00', '45'),
-(2, 'Zumba', '2', '2019-01-03T10:00', '65');
+INSERT INTO `listatreningow` (`idTreningu`, `nazwa`) VALUES
+(1, 'Aerobik'),
+(2, 'Redukcja Wagi'),
+(3, 'Rowerki'),
+(4, 'Zajęcia Siłowe'),
+(5, 'Zumba');
 
 -- --------------------------------------------------------
 
@@ -62,8 +62,75 @@ CREATE TABLE `logindata` (
 
 INSERT INTO `logindata` (`login`, `password`, `idUser`) VALUES
 ('JN54', 'q', '1'),
-('izaIza', 'q', '2'),
-('jacus', 'q', '3');
+('jacus', 'q', '3'),
+('admin', 'admin', '4'),
+('ewqeqwe', 'Qwerty123!', '5'),
+('dasdassda', 'dasdassda', '6'),
+('dasdassda', '123456789', '7'),
+('dasdassda', 'dasdassda', '8'),
+('dasdassda', 'ewqeqweaa', '9');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `platnosci`
+--
+
+CREATE TABLE `platnosci` (
+  `idUser` int(11) NOT NULL,
+  `status` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `karta` int(11) NOT NULL,
+  `termin` varchar(50) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `platnosci`
+--
+
+INSERT INTO `platnosci` (`idUser`, `status`, `karta`, `termin`) VALUES
+(4, 'NIE_DODANO_KARTY', 0, '-');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `status`
+--
+
+CREATE TABLE `status` (
+  `idUser` int(11) NOT NULL,
+  `Status` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `Termin` varchar(50) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `status`
+--
+
+INSERT INTO `status` (`idUser`, `Status`, `Termin`) VALUES
+(4, 'ZAWIESZONE', '2019-05-10');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `terminarz`
+--
+
+CREATE TABLE `terminarz` (
+  `idTerminu` int(11) NOT NULL,
+  `idTrenera` int(11) NOT NULL,
+  `czasTrwania` int(11) NOT NULL,
+  `LimitMiejsc` int(11) NOT NULL,
+  `DATA` varchar(100) COLLATE utf8_polish_ci DEFAULT NULL,
+  `idTreningu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `terminarz`
+--
+
+INSERT INTO `terminarz` (`idTerminu`, `idTrenera`, `czasTrwania`, `LimitMiejsc`, `DATA`, `idTreningu`) VALUES
+(1, 2, 45, 20, '25.03.2019', 1),
+(2, 1, 90, 15, '11.01.2019', 3);
 
 -- --------------------------------------------------------
 
@@ -83,7 +150,9 @@ CREATE TABLE `trenerzy` (
 
 INSERT INTO `trenerzy` (`idTrenera`, `imie`, `nazwisko`) VALUES
 (1, 'Adam', 'Nowak'),
-(2, 'Michał', 'Motyka');
+(2, 'Michał', 'Motyka'),
+(3, 'Anna', 'Mucha'),
+(4, 'Wiktor', 'Karp');
 
 -- --------------------------------------------------------
 
@@ -106,8 +175,38 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`IDuser`, `login`, `imie`, `nazwisko`, `email`, `telefon`) VALUES
 (1, 'JN54', 'Jacek', 'Nowak', 'Nowak@cos.com', '123456789'),
-(2, 'izaIza', 'Iza', 'Kowalska', 'IK@cos.com', '789456456'),
-(3, 'jacus', 'Jacu?', 'Kolo', 'ewqeqw@wp.pl', '123456987');
+(3, 'jacus', 'Jacu?', 'Kolo', 'ewqeqw@wp.pl', '123456987'),
+(4, 'admin', 'Krzysztof', 'Katek', 'eqeeq@wp.pl', '793695369'),
+(5, 'ewqeqwe', 'LDADA', 'dsad', 'DAsda@ww', '123456789'),
+(6, 'dasdassda', 'eqwew', 'eqweqw', 'eqweq@wp.pl', '123456789'),
+(7, 'dasdassda', 'dasdas', 'dasda', 'dasdadasdasdas', '123456789'),
+(8, 'dasdassda', 'dasdassda', 'dasdassda', 'dasdassda', '123456789'),
+(9, 'dasdassda', 'ewqeqwe', 'ewqeqwe', '12345678978', '123456789');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zapisy`
+--
+
+CREATE TABLE `zapisy` (
+  `idUser` int(11) NOT NULL,
+  `idTerminu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `zapisy`
+--
+
+INSERT INTO `zapisy` (`idUser`, `idTerminu`) VALUES
+(4, 1),
+(4, 2),
+(4, 3),
+(4, 4),
+(4, 5),
+(1, 2),
+(1, 2),
+(2, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
