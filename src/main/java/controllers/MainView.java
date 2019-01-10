@@ -22,7 +22,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 
-public class MainView  {
+public class MainView {
 
     public boolean isLoged = false;
 
@@ -94,17 +94,17 @@ public class MainView  {
     @FXML
     private Tab kartaTwojeTreningi = new Tab();
     @FXML
-    private  Tab kartaDostępneZajecia = new Tab();
+    private Tab kartaDostępneZajecia = new Tab();
 //    @FXML
 //    private TableColumn<DostępneTreningiTabele, Integer> Limit;
 
-    public static StatusKonta statusKonta=StatusKonta.BRAK_DANYCH;
+    public static StatusKonta statusKonta = StatusKonta.BRAK_DANYCH;
     Klient klient;
 
     public MainView() throws SQLException {
     }
 
-//  URZYTKOWNICY
+    //  URZYTKOWNICY
     public void setView() throws SQLException {
         klient = Driver.getInfoAboutUser();
         userImie.setText("Imię : " + klient.getImie());
@@ -114,19 +114,18 @@ public class MainView  {
         userTelefon.setText("Numer kontaktowy : " + String.valueOf(klient.getNumerKontaktowy()));
         userLogin.setText("Login : " + klient.getLogin());
         Driver.getStatus();
-        if(statusKonta!=StatusKonta.AKTYWNE)
-        {
+        if (statusKonta != StatusKonta.AKTYWNE) {
             kartaTwojeTreningi.setDisable(true);
             kartaDostępneZajecia.setDisable(true);
-        }
-        else{
+        } else {
             kartaTwojeTreningi.setDisable(false);
             kartaDostępneZajecia.setDisable(false);
         }
-        userStatus.setText("     Status : "+statusKonta.toString());
+        userStatus.setText("     Status : " + statusKonta.toString());
         setComboBoxyDlaKonta();
 
     }
+
     public void zmienDaneUzytkownika() throws SQLException {
 
         // POBIERZ DANE Z FORMULARZA
@@ -135,45 +134,55 @@ public class MainView  {
         String nowyEmail = userEdycjaNoweAdresEmail.getText().trim();
         String nowyNumerKontaktowy = userEdycjaNowyNumerKontaktowy.getText().trim();
 
-        Driver.editUser(noweImie,noweNazwisko,nowyNumerKontaktowy,nowyEmail);
+        Driver.editUser(noweImie, noweNazwisko, nowyNumerKontaktowy, nowyEmail);
     }
-    public void setComboBoxyDlaKonta(){
-        ObservableList<String> zawieszanieKonta = FXCollections.observableArrayList(Arrays.asList("1.  Zawieś na 1 miesiąc","2.  Zawieś na 2 miesiące","3.  Zawieś na 3 miesiące","4.  Zawieś na 6 miesiący","5.  Zawieś na 1 rok"));
+
+    public void setComboBoxyDlaKonta() {
+        ObservableList<String> zawieszanieKonta = FXCollections.observableArrayList(Arrays.asList("1.  Zawieś na 1 miesiąc", "2.  Zawieś na 2 miesiące", "3.  Zawieś na 3 miesiące", "4.  Zawieś na 6 miesiący", "5.  Zawieś na 1 rok"));
         //ObservableList<String> zawieszanieKonta = FXCollections.observableArrayList(new String("dsada"));
         userWybierzOkresZawieszeniaKonta.setItems(zawieszanieKonta);
 
     }
+
     public void zawiesKonto() throws SQLException {
-        if(userWybierzOkresZawieszeniaKonta.getSelectionModel().isEmpty()){
+        if (userWybierzOkresZawieszeniaKonta.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle(null);
             alert.setHeaderText(null);
             alert.setContentText("Nie wybrano okresu zawieszenia");
             alert.showAndWait();
-        }
-        else{
-            String termin="";
-            LocalDate now = LocalDate.now();
-            if(userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex()==0){
-                now = LocalDate.now().plus(1, ChronoUnit.MONTHS);
-            }else if (userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex()==1){
-                now = LocalDate.now().plus(2, ChronoUnit.MONTHS);
-            }else if(userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex()==2){
-                now = LocalDate.now().plus(3, ChronoUnit.MONTHS);
-            }else if(userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex()==3){
-                now = LocalDate.now().plus(4, ChronoUnit.MONTHS);
-            }else if(userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex()==4){
-                now = LocalDate.now().plus(1, ChronoUnit.YEARS);
-            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Usuwanie konta");
+            alert.setHeaderText(null);
+            alert.setContentText("Czy na pewno chcesz zawiesić  ?");
 
-            Driver.zmienStatusKonta(StatusKonta.ZAWIESZONE,now.toString());
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                String termin = "";
+                LocalDate now = LocalDate.now();
+                if (userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex() == 0) {
+                    now = LocalDate.now().plus(1, ChronoUnit.MONTHS);
+                } else if (userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex() == 1) {
+                    now = LocalDate.now().plus(2, ChronoUnit.MONTHS);
+                } else if (userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex() == 2) {
+                    now = LocalDate.now().plus(3, ChronoUnit.MONTHS);
+                } else if (userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex() == 3) {
+                    now = LocalDate.now().plus(6, ChronoUnit.MONTHS);
+                } else if (userWybierzOkresZawieszeniaKonta.getSelectionModel().getSelectedIndex() == 4) {
+                    now = LocalDate.now().plus(1, ChronoUnit.YEARS);
+                }
+
+                Driver.zmienStatusKonta(StatusKonta.ZAWIESZONE, now.toString());
+            }
         }
     }
-    public void  usunKonto() throws SQLException {
+
+    public void usunKonto() throws SQLException {
         Driver.usunKonto();
     }
 
-// TABLICA MOICH TRENINGOW
+    // TABLICA MOICH TRENINGOW
     public void setTableMojeTreningi() throws SQLException {
         ObservableList<DostępneTreningiTabele> listaMoichTreningow = FXCollections.observableArrayList(
                 DostępneTreningiTabele.generujMojeTreningi(Driver.getMojeZapisy(Driver.getCurrentID()), Driver.getCurrentID()));
@@ -186,21 +195,19 @@ public class MainView  {
         tableDostepne.setItems(listaMoichTreningow);
     }
 
-// TABLICA DOSTEPNYCH TRENINGOW
+    // TABLICA DOSTEPNYCH TRENINGOW
     public void setTableDostepneTreningi() throws SQLException {
-        ObservableList<DostępneTreningiTabele> listaDostepnychTreningow = FXCollections.observableArrayList(DostępneTreningiTabele.generujWszystkieTreningi() );
+        ObservableList<DostępneTreningiTabele> listaDostepnychTreningow = FXCollections.observableArrayList(DostępneTreningiTabele.generujWszystkieTreningi());
         Lp2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
         Nazwa2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Nazwa"));
         Termin2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Termin"));
         Trener2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Trener"));
         Czas2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Czas"));
-       // Limit.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Limit"));
+        // Limit.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Limit"));
 
 
         tableDostepne2.setItems(listaDostepnychTreningow);
     }
-
-
 
 
 }
