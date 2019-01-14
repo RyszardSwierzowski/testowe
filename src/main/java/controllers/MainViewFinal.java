@@ -4,29 +4,42 @@ package controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.paint.Color;
 
 import jdbcDriver.Driver;
 
-import platnosci.Platnosci;
 import treningi.DostępneTreningiTabele;
+import treningi.TabelaZapisane;
 import user.Klient;
 import user.StatusKonta;
-import utilities.ValidateUtilities;
 
-import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 
-public class MainView {
+public class MainViewFinal {
 
     public boolean isLoged = false;
+    public static ObservableList<TabelaZapisane> listaZapis;
+
+    @FXML private TableView<TabelaZapisane> talicaZapisu;
+    @FXML private TableColumn<TabelaZapisane,Integer> talicaZapisuLp;
+    @FXML private TableColumn<TabelaZapisane,String>  talicaZapisuNazwa;
+    @FXML private TableColumn<TabelaZapisane,String>  talicaZapisuTermin;
+    @FXML private TableColumn<TabelaZapisane,String>  talicaZapisuTrener;
+    @FXML private TableColumn<TabelaZapisane,String>  talicaZapisuCzas;
+    @FXML private TableColumn<TabelaZapisane,Button>  talicaZapisuZapisz;
+
+
+
+
+
+
+
+
 
     @FXML
     private Button userButtonOkresZawieszeniaKonta;
@@ -103,7 +116,7 @@ public class MainView {
     public static StatusKonta statusKonta = StatusKonta.BRAK_DANYCH;
     Klient klient;
 
-    public MainView() throws SQLException {
+    public MainViewFinal() throws SQLException {
     }
 
     //  URZYTKOWNICY
@@ -116,13 +129,24 @@ public class MainView {
         userTelefon.setText("Numer kontaktowy : " + String.valueOf(klient.getNumerKontaktowy()));
         userLogin.setText("Login : " + klient.getLogin());
         Driver.getStatus();
+
+
+
+
+
+
+        /*//todo odkomentować
         if (statusKonta != StatusKonta.AKTYWNE) {
             kartaTwojeTreningi.setDisable(true);
             kartaDostępneZajecia.setDisable(true);
         } else {
+
+
             kartaTwojeTreningi.setDisable(false);
             kartaDostępneZajecia.setDisable(false);
+
         }
+        */
         userStatus.setText("     Status : " + statusKonta.toString());
         setComboBoxyDlaKonta();
 
@@ -216,7 +240,33 @@ public class MainView {
 
         tableDostepne2.setItems(listaDostepnychTreningow);
     }
+// TABLICA ZAPIS
+public void initTableZapis(){
+    // todo init TabelaZapisane.listaZapisaneZBazy danymi z bazy danych
+    listaZapis = FXCollections.observableArrayList
+            (
+                    TabelaZapisane.listaZapisaneZBazy
+            );
 
+
+
+    talicaZapisuLp.setCellValueFactory(new PropertyValueFactory<>("lp"));
+    talicaZapisuNazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
+    talicaZapisuTermin.setCellValueFactory(new PropertyValueFactory<>("termin"));
+    talicaZapisuTrener.setCellValueFactory(new PropertyValueFactory<>("trener"));
+    talicaZapisuCzas.setCellValueFactory(new PropertyValueFactory<>("czas"));
+    talicaZapisuZapisz.setCellValueFactory(new PropertyValueFactory<>("button"));
+
+
+
+
+
+
+    talicaZapisu.setItems(listaZapis);
+}
+public void setTablicaZapisu(ObservableList list){
+    talicaZapisu.setItems(list);
+}
 
 // PLATNOSCI
 //    public void setPlatnosci() throws SQLException {

@@ -2,10 +2,9 @@ package jdbcDriver;
 
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.*;
 
-import controllers.MainView;
+import controllers.MainViewFinal;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import platnosci.PlatnoscStatus;
@@ -17,8 +16,6 @@ import treningi.Zapisy;
 import user.Klient;
 import user.StatusKonta;
 import utilities.ValidateUtilities;
-
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 public class Driver {
 
@@ -309,13 +306,13 @@ public class Driver {
             myRs = myStmt.executeQuery("select * from status where idUser='" + currentID + "' ");
             while (myRs.next()) {
                 if(myRs.getString("Status").equals("NIE_DODANO_KARTY"))
-                    MainView.statusKonta=StatusKonta.NIE_DODANO_KARTY;
+                    MainViewFinal.statusKonta=StatusKonta.NIE_DODANO_KARTY;
                 if(myRs.getString("Status").equals("ZAWIESZONE"))
-                    MainView.statusKonta=StatusKonta.ZAWIESZONE;
+                    MainViewFinal.statusKonta=StatusKonta.ZAWIESZONE;
                 if(myRs.getString("Status").equals("AKTYWNE"))
-                    MainView.statusKonta=StatusKonta.AKTYWNE;
+                    MainViewFinal.statusKonta=StatusKonta.AKTYWNE;
                 if(myRs.getString("Status").equals("ZADLUZONE"))
-                    MainView.statusKonta=StatusKonta.ZADLUZONE;
+                    MainViewFinal.statusKonta=StatusKonta.ZADLUZONE;
                 return "     Status : "+myRs.getString("Status");
             }
 
@@ -361,19 +358,19 @@ public class Driver {
                 alert.setHeaderText(null);
                 //alert.setContentText("I have a great message for you!");
                 if(status==StatusKonta.AKTYWNE){
-                    MainView.statusKonta=StatusKonta.AKTYWNE;
+                    MainViewFinal.statusKonta=StatusKonta.AKTYWNE;
                     info=" AKTYWNE ";
                 }
                 if(status==StatusKonta.NIE_DODANO_KARTY){
-                    MainView.statusKonta=StatusKonta.NIE_DODANO_KARTY;
+                    MainViewFinal.statusKonta=StatusKonta.NIE_DODANO_KARTY;
                     info=" NIE_DODANO_KARTY ";
                 }
                 if(status==StatusKonta.ZADLUZONE){
-                    MainView.statusKonta=StatusKonta.ZADLUZONE;
+                    MainViewFinal.statusKonta=StatusKonta.ZADLUZONE;
                     info=" ZADLUZONE ";
                 }
                 if(status==StatusKonta.ZAWIESZONE){
-                    MainView.statusKonta=StatusKonta.ZAWIESZONE;
+                    MainViewFinal.statusKonta=StatusKonta.ZAWIESZONE;
                     info=" ZAWIESZONE ";
                 }
                  alert.setContentText("Twoje konto ma status : "+info);

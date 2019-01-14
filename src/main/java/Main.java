@@ -1,4 +1,3 @@
-import controllers.MainView;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -84,7 +83,7 @@ public class Main extends Application {
                 if (Driver.tryToLogIn(loginLogowanie.getText(), passwordLogowanie.getText()) == true) {
                     System.out.println("Logowanie ok");
                     //currentUserID=Driver.getCurrentId(loginLogowanie.getText());
-                    //MainView.setView();
+                    //MainViewFinal.setView();
                     window.setScene(zalogowanoWidok);
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -253,7 +252,7 @@ public class Main extends Application {
         /*
                     POPRAWNE LOGOWANIE / REJESTRACJA
           */
-        Parent root = FXMLLoader.load(getClass().getResource("viewsFxml/mainView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("viewsFxml/mainViewFinal.fxml"));
         zalogowanoWidok = new Scene(root, 1200, 700);
 
         /*

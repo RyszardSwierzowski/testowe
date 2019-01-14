@@ -23,14 +23,7 @@ public class DostępneTreningiTabele {
         this.Limit=0;
     }
 
-    public DostępneTreningiTabele(int lp, String nazwa, String termin, String trener, int czas, int limit) {
-        Lp = lp;
-        Nazwa = nazwa;
-        Termin = termin;
-        Trener = trener;
-        Czas = czas;
-        Limit = limit;
-    }
+
 
     public static List<DostępneTreningiTabele> generujMojeTreningi(List<Zapisy> lista, int idUser) throws SQLException {
         List<DostępneTreningiTabele> resultList= new ArrayList<>();
