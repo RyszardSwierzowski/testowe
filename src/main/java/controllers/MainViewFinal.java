@@ -9,7 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import jdbcDriver.Driver;
 
-import treningi.DostępneTreningiTabele;
+import treningi.TabelaDostepne;
 import treningi.TabelaZapisane;
 import user.Klient;
 import user.StatusKonta;
@@ -23,21 +23,25 @@ import java.util.*;
 public class MainViewFinal {
 
     public boolean isLoged = false;
+
+
     public static ObservableList<TabelaZapisane> listaZapis;
-
     @FXML private TableView<TabelaZapisane> talicaZapisu;
-    @FXML private TableColumn<TabelaZapisane,Integer> talicaZapisuLp;
-    @FXML private TableColumn<TabelaZapisane,String>  talicaZapisuNazwa;
-    @FXML private TableColumn<TabelaZapisane,String>  talicaZapisuTermin;
-    @FXML private TableColumn<TabelaZapisane,String>  talicaZapisuTrener;
-    @FXML private TableColumn<TabelaZapisane,String>  talicaZapisuCzas;
-    @FXML private TableColumn<TabelaZapisane,Button>  talicaZapisuZapisz;
+    @FXML private TableColumn<TabelaZapisane,Integer> tablicaZapisanychLp;
+    @FXML private TableColumn<TabelaZapisane,String> tablicaZapisanychNazwa;
+    @FXML private TableColumn<TabelaZapisane,String> tablicaZapisanychTermin;
+    @FXML private TableColumn<TabelaZapisane,String> tablicaZapisanychTrener;
+    @FXML private TableColumn<TabelaZapisane,String> tablicaZapisanychCzas;
+    @FXML private TableColumn<TabelaZapisane,Button> tablicaZapisanychWypisz;
 
-
-
-
-
-
+    public static ObservableList<TabelaDostepne> listaDostepnych;
+    @FXML private TableView<TabelaDostepne> tablicaDostepne;
+    @FXML private TableColumn<TabelaZapisane,Integer> tablicaDostepneLp;
+    @FXML private TableColumn<TabelaZapisane,String> tablicaDostepneNazwa;
+    @FXML private TableColumn<TabelaZapisane,String> tablicaDostepneTermin;
+    @FXML private TableColumn<TabelaZapisane,String> tablicaDostepneTrener;
+    @FXML private TableColumn<TabelaZapisane,String> tablicaDostepneCzas;
+    @FXML private TableColumn<TabelaZapisane,Button> tablicaDostepneZapisz;
 
 
 
@@ -81,31 +85,9 @@ public class MainViewFinal {
     @FXML
     private Label userStatus;
 
-    @FXML
-    private TableView<DostępneTreningiTabele> tableDostepne;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, Integer> Lp;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, String> Nazwa;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, String> Termin;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, String> Trener;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, Integer> Czas;
 
-    @FXML
-    private TableView<DostępneTreningiTabele> tableDostepne2;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, Integer> Lp2;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, String> Nazwa2;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, String> Termin2;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, String> Trener2;
-    @FXML
-    private TableColumn<DostępneTreningiTabele, Integer> Czas2;
+
+
     @FXML
     private Tab kartaTwojeTreningi = new Tab();
     @FXML
@@ -215,31 +197,31 @@ public class MainViewFinal {
     }
 
 // TABLICA MOICH TRENINGOW
-    public void setTableMojeTreningi() throws SQLException {
-        ObservableList<DostępneTreningiTabele> listaMoichTreningow = FXCollections.observableArrayList(
-                DostępneTreningiTabele.generujMojeTreningi(Driver.getMojeZapisy(Driver.getCurrentID()), Driver.getCurrentID()));
-        Lp.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
-        Nazwa.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Nazwa"));
-        Termin.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Termin"));
-        Trener.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Trener"));
-        Czas.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Czas"));
-
-        tableDostepne.setItems(listaMoichTreningow);
-    }
+//    public void setTableMojeTreningi() throws SQLException {
+//        ObservableList<DostępneTreningiTabele> listaMoichTreningow = FXCollections.observableArrayList(
+//                DostępneTreningiTabele.generujMojeTreningi(Driver.getMojeZapisy(Driver.getCurrentID()), Driver.getCurrentID()));
+//        Lp.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
+//        Nazwa.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Nazwa"));
+//        Termin.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Termin"));
+//        Trener.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Trener"));
+//        Czas.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Czas"));
+//
+//        tableDostepne.setItems(listaMoichTreningow);
+//    }
 
 // TABLICA DOSTEPNYCH TRENINGOW
-    public void setTableDostepneTreningi() throws SQLException {
-        ObservableList<DostępneTreningiTabele> listaDostepnychTreningow = FXCollections.observableArrayList(DostępneTreningiTabele.generujWszystkieTreningi());
-        Lp2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
-        Nazwa2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Nazwa"));
-        Termin2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Termin"));
-        Trener2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Trener"));
-        Czas2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Czas"));
-        // Limit.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Limit"));
-
-
-        tableDostepne2.setItems(listaDostepnychTreningow);
-    }
+//    public void setTableDostepneTreningi() throws SQLException {
+//        ObservableList<DostępneTreningiTabele> listaDostepnychTreningow = FXCollections.observableArrayList(DostępneTreningiTabele.generujWszystkieTreningi());
+//        Lp2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
+//        Nazwa2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Nazwa"));
+//        Termin2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Termin"));
+//        Trener2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Trener"));
+//        Czas2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Czas"));
+//        // Limit.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Limit"));
+//
+//
+//        tableDostepne2.setItems(listaDostepnychTreningow);
+//    }
 // TABLICA ZAPIS
 public void initTableZapis(){
     // todo init TabelaZapisane.listaZapisaneZBazy danymi z bazy danych
@@ -250,20 +232,38 @@ public void initTableZapis(){
 
 
 
-    talicaZapisuLp.setCellValueFactory(new PropertyValueFactory<>("lp"));
-    talicaZapisuNazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
-    talicaZapisuTermin.setCellValueFactory(new PropertyValueFactory<>("termin"));
-    talicaZapisuTrener.setCellValueFactory(new PropertyValueFactory<>("trener"));
-    talicaZapisuCzas.setCellValueFactory(new PropertyValueFactory<>("czas"));
-    talicaZapisuZapisz.setCellValueFactory(new PropertyValueFactory<>("button"));
-
-
-
-
+    tablicaZapisanychLp.setCellValueFactory(new PropertyValueFactory<>("lp"));
+    tablicaZapisanychNazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
+    tablicaZapisanychTermin.setCellValueFactory(new PropertyValueFactory<>("termin"));
+    tablicaZapisanychTrener.setCellValueFactory(new PropertyValueFactory<>("trener"));
+    tablicaZapisanychCzas.setCellValueFactory(new PropertyValueFactory<>("czas"));
+    tablicaZapisanychWypisz.setCellValueFactory(new PropertyValueFactory<>("button"));
 
 
     talicaZapisu.setItems(listaZapis);
 }
+    // TABLICA DOSTEPNE
+    public void initTableDostepne(){
+        // todo init TabelaZapisane.listaZapisaneZBazy danymi z bazy danych
+        listaDostepnych = FXCollections.observableArrayList
+                (
+                        TabelaDostepne.listaDostepneZBazy
+                );
+
+
+
+        tablicaDostepneLp.setCellValueFactory(new PropertyValueFactory<>("lp"));
+        tablicaDostepneNazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
+        tablicaDostepneTermin.setCellValueFactory(new PropertyValueFactory<>("termin"));
+        tablicaDostepneTrener.setCellValueFactory(new PropertyValueFactory<>("trener"));
+        tablicaDostepneCzas.setCellValueFactory(new PropertyValueFactory<>("czas"));
+        tablicaDostepneZapisz.setCellValueFactory(new PropertyValueFactory<>("button"));
+
+
+        tablicaDostepne.setItems(listaDostepnych);
+    }
+
+
 public void setTablicaZapisu(ObservableList list){
     talicaZapisu.setItems(list);
 }

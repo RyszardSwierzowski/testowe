@@ -177,53 +177,61 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab fx:id="kartaTwojeTreningi" onSelectionChanged="#setTableMojeTreningi" text="Twoje treningi">
+                        <Tab fx:id="kartaTwojeTreningi" onSelectionChanged="#initTableZapis" text="Twoje treningi">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <TableView fx:id="tableDostepne" layoutX="110.0" layoutY="77.0" prefHeight="435.0" prefWidth="770.0" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="75.0">
-                                            <columns>
-                                                <TableColumn fx:id="Lp" prefWidth="75.0" text="Lp" />
-                                                <TableColumn fx:id="Nazwa" prefWidth="150.0" text="Nazwa" />
-                                                <TableColumn fx:id="Termin" prefWidth="130.0" text="Termin" />
-                                                <TableColumn fx:id="Trener" prefWidth="100.0" text="Trener" />
-                                                <TableColumn fx:id="Czas" prefWidth="130.0" text="Czas zajęć" />
-                                            </columns>
-                                        </TableView>
-                                        <Label alignment="CENTER" layoutX="44.0" layoutY="24.0" prefHeight="17.0" prefWidth="771.0" text="Lista Twoich zajęć">
-                                            <font>
-                                                <Font name="System Bold" size="23.0" />
-                                            </font>
-                                        </Label>
-                                        <Button layoutX="915.0" layoutY="214.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="Wypisz się z zajęć " />
+                              <VBox layoutX="149.0" layoutY="35.0" prefHeight="489.0" prefWidth="960.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="35.0">
+                                 <children>
+                                              <Label alignment="CENTER" prefHeight="34.0" prefWidth="960.0" text="Lista Twoich zajęć">
+                                                  <font>
+                                                      <Font name="System Bold" size="23.0" />
+                                                  </font>
+                                              </Label>
+                                    <TableView fx:id="talicaZapisu" prefHeight="424.0" prefWidth="960.0">
+                                       <columns>
+                                          <TableColumn fx:id="tablicaZapisanychLp" prefWidth="50.0" text="LP" />
+                                          <TableColumn fx:id="tablicaZapisanychNazwa" prefWidth="236.0" text="Nazwa" />
+                                          <TableColumn fx:id="tablicaZapisanychTermin" prefWidth="114.0" text="Termin" />
+                                          <TableColumn fx:id="tablicaZapisanychTrener" prefWidth="271.0" text="Trener" />
+                                          <TableColumn fx:id="tablicaZapisanychCzas" prefWidth="124.0" text="Czas" />
+                                          <TableColumn fx:id="tablicaZapisanychWypisz" prefWidth="164.0" text="Wypisz się " />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
                                     </children>
                                 </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab fx:id="kartaDostępneZajecia" onSelectionChanged="#setTableDostepneTreningi" text="Dostępne zajęcia">
+                        <Tab fx:id="kartaDostępneZajecia" onSelectionChanged="#initTableDostepne" text="Dostępne zajęcia">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <TableView fx:id="tableDostepne2" layoutX="110.0" layoutY="77.0" prefHeight="435.0" prefWidth="770.0" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="75.0">
-                                            <columns>
-                                                <TableColumn fx:id="Lp2" prefWidth="75.0" text="Lp" />
-                                                <TableColumn fx:id="Nazwa2" prefWidth="150.0" text="Nazwa" />
-                                                <TableColumn fx:id="Termin2" prefWidth="130.0" text="Termin" />
-                                                <TableColumn fx:id="Trener2" prefWidth="100.0" text="Trener" />
-                                                <TableColumn fx:id="Czas2" prefWidth="130.0" text="Czas zajęć" />
-                                            </columns>
-                                        </TableView>
-                                        <Label alignment="CENTER" layoutX="44.0" layoutY="24.0" prefHeight="17.0" prefWidth="771.0" text="Lista wszystkich zajęć">
-                                            <font>
-                                                <Font name="System Bold" size="23.0" />
-                                            </font>
-                                        </Label>
-                                        <Button layoutX="915.0" layoutY="214.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="Zapisz się na zajęcia" />
+                              <VBox layoutX="207.0" layoutY="102.0" prefHeight="417.0" prefWidth="940.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="35.0">
+                                 <children>
+                                              <Label alignment="CENTER" prefHeight="34.0" prefWidth="960.0" text="Lista wszystkich zajęć">
+                                                  <font>
+                                                      <Font name="System Bold" size="23.0" />
+                                                  </font>
+                                              </Label>
+                                    <TableView fx:id="tablicaDostepne" prefHeight="424.0" prefWidth="960.0">
+                                       <columns>
+                                          <TableColumn fx:id="tablicaDostepneLp" prefWidth="50.0" text="LP" />
+                                          <TableColumn fx:id="tablicaDostepneNazwa" prefWidth="236.0" text="Nazwa" />
+                                          <TableColumn fx:id="tablicaDostepneTermin" prefWidth="114.0" text="Termin" />
+                                          <TableColumn fx:id="tablicaDostepneTrener" prefWidth="271.0" text="Trener" />
+                                          <TableColumn fx:id="tablicaDostepneCzas" prefWidth="124.0" text="Czas" />
+                                          <TableColumn fx:id="tablicaDostepneZapisz" prefWidth="164.0" text="Wypisz" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
                                     </children>
                                 </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab onSelectionChanged="#initTableZapis" text="Test">
+                        <Tab text="Test">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="441.0" prefWidth="1200.0">
                                     <children>
@@ -235,30 +243,7 @@
                                                         <Label alignment="CENTER" prefWidth="590.0" text="Dostępne treningi" />
                                                     </children>
                                                 </HBox>
-                                                <HBox alignment="CENTER" prefHeight="391.0" prefWidth="1100.0" spacing="50.0">
-                                                    <children>
-                                                        <TableView fx:id="talicaZapisu" prefHeight="278.0" prefWidth="534.0">
-                                                            <columns>
-                                                                <TableColumn fx:id="talicaZapisuLp" prefWidth="30.0" text="LP" />
-                                                                <TableColumn fx:id="talicaZapisuNazwa" prefWidth="118.0" text="Nazwa" />
-                                                                <TableColumn fx:id="talicaZapisuTermin" prefWidth="76.0" text="Termin" />
-                                                                <TableColumn fx:id="talicaZapisuTrener" prefWidth="141.0" text="Trener" />
-                                                                <TableColumn fx:id="talicaZapisuCzas" prefWidth="82.0" text="Czas" />
-                                                                <TableColumn fx:id="talicaZapisuZapisz" prefWidth="86.0" text="Zapisz" />
-                                                            </columns>
-                                                        </TableView>
-                                                        <TableView fx:id="tablicaDostepne" prefHeight="278.0" prefWidth="534.0">
-                                                            <columns>
-                                                                <TableColumn fx:id="tablicaDostepneLp" prefWidth="30.0" text="LP" />
-                                                                <TableColumn fx:id="tablicaDostepneNazwa" prefWidth="118.0" text="Nazwa" />
-                                                                <TableColumn fx:id="tablicaDostepneTermin" prefWidth="76.0" text="Termin" />
-                                                                <TableColumn fx:id="tablicaDostepneTrener" prefWidth="141.0" text="Trener" />
-                                                                <TableColumn fx:id="tablicaDostepneCzas" prefWidth="82.0" text="Czas" />
-                                                                <TableColumn fx:id="tablicaDostepneWypisz" prefWidth="86.0" text="Wypisz" />
-                                                            </columns>
-                                                        </TableView>
-                                                    </children>
-                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="391.0" prefWidth="1100.0" spacing="50.0" />
                                                 <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: red;" text="Zapisz zmiany ??? czy od razu zmiana w bazie ?" />
                                             </children>
                                         </VBox>
