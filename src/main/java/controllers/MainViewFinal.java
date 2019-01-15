@@ -45,55 +45,32 @@ public class MainViewFinal {
 
 
 
-    @FXML
-    private Button userButtonOkresZawieszeniaKonta;
-    @FXML
-    private Label platnoscKarta;
-    @FXML
-    private Button userUsunKonto;
+    @FXML    private Button userButtonOkresZawieszeniaKonta;
+    @FXML    private Label platnoscKarta;
+    @FXML    private Button userUsunKonto;
 
-    @FXML
-    private Button platnoscZmienNrKarty;
-    @FXML
-    private Label userNazwisko;
-    @FXML
-    private TextField userEdycjaNoweNazwisko;
-    @FXML
-    private Label platnoscStatus;
-    @FXML
-    private Label userLogin;
-    @FXML
-    private TextField userEdycjaNowyNumerKontaktowy;
-    @FXML
-    private Label userImie;
-    @FXML
-    private Button userEdycjaButtonZmienDane;
-    @FXML
-    private Label platnoscTerminPlatnosci;
-    @FXML
-    private Label userEmail;
-    @FXML
-    private TextField userEdycjaNoweAdresEmail;
-    @FXML
-    private Button userButtonRezygnacjaZCzlonkostwa;
-    @FXML
-    private TextField userEdycjaNoweImie;
-    @FXML
-    private ComboBox<String> userWybierzOkresZawieszeniaKonta;
-    @FXML
-    private Label userTelefon;
-    @FXML
-    private Label userStatus;
+    @FXML    private Button platnoscZmienNrKarty;
+    @FXML    private Label userNazwisko;
+    @FXML    private TextField userEdycjaNoweNazwisko;
+    @FXML    private Label platnoscStatus;
+    @FXML    private Label userLogin;
+    @FXML    private TextField userEdycjaNowyNumerKontaktowy;
+    @FXML    private Label userImie;
+    @FXML    private Button userEdycjaButtonZmienDane;
+    @FXML    private Label platnoscTerminPlatnosci;
+    @FXML    private Label userEmail;
+    @FXML    private TextField userEdycjaNoweAdresEmail;
+    @FXML    private Button userButtonRezygnacjaZCzlonkostwa;
+    @FXML    private TextField userEdycjaNoweImie;
+    @FXML    private ComboBox<String> userWybierzOkresZawieszeniaKonta;
+    @FXML    private Label userTelefon;
+    @FXML    private Label userStatus;
 
 
 
 
-    @FXML
-    private Tab kartaTwojeTreningi = new Tab();
-    @FXML
-    private Tab kartaDostępneZajecia = new Tab();
-//    @FXML
-//    private TableColumn<DostępneTreningiTabele, Integer> Limit;
+    @FXML    private Tab kartaTwojeTreningi = new Tab();
+    @FXML    private Tab kartaDostępneZajecia = new Tab();
 
     public static StatusKonta statusKonta = StatusKonta.BRAK_DANYCH;
     Klient klient;
@@ -111,11 +88,6 @@ public class MainViewFinal {
         userTelefon.setText("Numer kontaktowy : " + String.valueOf(klient.getNumerKontaktowy()));
         userLogin.setText("Login : " + klient.getLogin());
         Driver.getStatus();
-
-
-
-
-
 
         /*//todo odkomentować
         if (statusKonta != StatusKonta.AKTYWNE) {
@@ -196,32 +168,7 @@ public class MainViewFinal {
         Driver.usunKonto();
     }
 
-// TABLICA MOICH TRENINGOW
-//    public void setTableMojeTreningi() throws SQLException {
-//        ObservableList<DostępneTreningiTabele> listaMoichTreningow = FXCollections.observableArrayList(
-//                DostępneTreningiTabele.generujMojeTreningi(Driver.getMojeZapisy(Driver.getCurrentID()), Driver.getCurrentID()));
-//        Lp.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
-//        Nazwa.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Nazwa"));
-//        Termin.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Termin"));
-//        Trener.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Trener"));
-//        Czas.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Czas"));
-//
-//        tableDostepne.setItems(listaMoichTreningow);
-//    }
 
-// TABLICA DOSTEPNYCH TRENINGOW
-//    public void setTableDostepneTreningi() throws SQLException {
-//        ObservableList<DostępneTreningiTabele> listaDostepnychTreningow = FXCollections.observableArrayList(DostępneTreningiTabele.generujWszystkieTreningi());
-//        Lp2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Lp"));
-//        Nazwa2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Nazwa"));
-//        Termin2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Termin"));
-//        Trener2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, String>("Trener"));
-//        Czas2.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Czas"));
-//        // Limit.setCellValueFactory(new PropertyValueFactory<DostępneTreningiTabele, Integer>("Limit"));
-//
-//
-//        tableDostepne2.setItems(listaDostepnychTreningow);
-//    }
 // TABLICA ZAPIS
 public void initTableZapis(){
     // todo init TabelaZapisane.listaZapisaneZBazy danymi z bazy danych
@@ -230,15 +177,12 @@ public void initTableZapis(){
                     TabelaZapisane.listaZapisaneZBazy
             );
 
-
-
     tablicaZapisanychLp.setCellValueFactory(new PropertyValueFactory<>("lp"));
     tablicaZapisanychNazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
     tablicaZapisanychTermin.setCellValueFactory(new PropertyValueFactory<>("termin"));
     tablicaZapisanychTrener.setCellValueFactory(new PropertyValueFactory<>("trener"));
     tablicaZapisanychCzas.setCellValueFactory(new PropertyValueFactory<>("czas"));
     tablicaZapisanychWypisz.setCellValueFactory(new PropertyValueFactory<>("button"));
-
 
     talicaZapisu.setItems(listaZapis);
 }
@@ -250,15 +194,12 @@ public void initTableZapis(){
                         TabelaDostepne.listaDostepneZBazy
                 );
 
-
-
         tablicaDostepneLp.setCellValueFactory(new PropertyValueFactory<>("lp"));
         tablicaDostepneNazwa.setCellValueFactory(new PropertyValueFactory<>("nazwa"));
         tablicaDostepneTermin.setCellValueFactory(new PropertyValueFactory<>("termin"));
         tablicaDostepneTrener.setCellValueFactory(new PropertyValueFactory<>("trener"));
         tablicaDostepneCzas.setCellValueFactory(new PropertyValueFactory<>("czas"));
         tablicaDostepneZapisz.setCellValueFactory(new PropertyValueFactory<>("button"));
-
 
         tablicaDostepne.setItems(listaDostepnych);
     }

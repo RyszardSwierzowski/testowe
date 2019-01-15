@@ -222,31 +222,11 @@
                                           <TableColumn fx:id="tablicaDostepneTermin" prefWidth="114.0" text="Termin" />
                                           <TableColumn fx:id="tablicaDostepneTrener" prefWidth="271.0" text="Trener" />
                                           <TableColumn fx:id="tablicaDostepneCzas" prefWidth="124.0" text="Czas" />
-                                          <TableColumn fx:id="tablicaDostepneZapisz" prefWidth="164.0" text="Wypisz" />
+                                          <TableColumn fx:id="tablicaDostepneZapisz" prefWidth="164.0" text="Zapisz się" />
                                        </columns>
                                     </TableView>
                                  </children>
                               </VBox>
-                                    </children>
-                                </AnchorPane>
-                            </content>
-                        </Tab>
-                        <Tab text="Test">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="441.0" prefWidth="1200.0">
-                                    <children>
-                                        <VBox alignment="CENTER" layoutX="299.0" layoutY="105.0" prefHeight="200.0" prefWidth="921.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
-                                            <children>
-                                                <HBox prefHeight="38.0" prefWidth="1100.0">
-                                                    <children>
-                                                        <Label alignment="CENTER" prefWidth="590.0" text="Twoje treningi" />
-                                                        <Label alignment="CENTER" prefWidth="590.0" text="Dostępne treningi" />
-                                                    </children>
-                                                </HBox>
-                                                <HBox alignment="CENTER" prefHeight="391.0" prefWidth="1100.0" spacing="50.0" />
-                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: red;" text="Zapisz zmiany ??? czy od razu zmiana w bazie ?" />
-                                            </children>
-                                        </VBox>
                                     </children>
                                 </AnchorPane>
                             </content>

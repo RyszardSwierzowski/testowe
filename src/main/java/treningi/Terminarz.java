@@ -1,5 +1,7 @@
 package treningi;
 
+import java.util.List;
+
 public class Terminarz {
     private int idTerminu;
     private int idTrenera;
@@ -16,7 +18,18 @@ public class Terminarz {
         this.limit = limit;
         this.czas = czas;
     }
+    public static Terminarz getInfoAboutTerminById(int id, List<Terminarz> terminarzList){
+        for(Terminarz t : terminarzList)
+        {
+            if(t.getIdTreningu()==id)
+                return t;
+        }
 
+        return new Terminarz((-1),(-1),(-1),"",(-1),(-1));
+
+
+
+    }
     public int getIdTerminu() {
         return idTerminu;
     }

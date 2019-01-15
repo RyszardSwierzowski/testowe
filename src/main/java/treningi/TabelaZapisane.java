@@ -2,7 +2,10 @@ package treningi;
 
 import controllers.MainViewFinal;
 import javafx.scene.control.Button;
+import jdbcDriver.Driver;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,11 +13,13 @@ public class TabelaZapisane {
     private final int lp;
     private final String nazwa,termin,trener,czas;
     private final Button button;
-    public static List listaZapisaneZBazy = Arrays.asList(// todo lista ma być na podstawie bazy danych
-                                                    new TabelaZapisane(1,"nazwaZapis","termin","trener","czas",new Button("Wypisz sie")),
-                                                    new TabelaZapisane(2,"nazwaZapis","termin","trener","czas",new Button("Wypisz sie")),
-                                                    new TabelaZapisane(3,"nazwaZapis","termin","trener","czas",new Button("Wypisz sie"))
-                                                );
+    public static List listaZapisaneZBazy;// zpis z bazy rzutowany na TabelaZapisane;
+
+    static {
+            try {listaZapisaneZBazy = setListOfTabelaZapisaneFromDataBase();}
+            catch (SQLException e) {e.printStackTrace();}
+            }
+                                                
 
     public TabelaZapisane(int lp, String nazwa, String termin, String trener, String czas, Button button) {
         this.lp = lp;
@@ -26,9 +31,6 @@ public class TabelaZapisane {
 
         button.setOnAction(e->
         {
-            //System.out.println(this.getLp());
-
-
 
             MainViewFinal.listaZapis.remove(this.getLp()-1);
             for(int i = this.lp-1; i< MainViewFinal.listaZapis.size(); i++)
@@ -42,6 +44,39 @@ public class TabelaZapisane {
 
 
         });
+    }
+    private static List setListOfTabelaZapisaneFromDataBase() throws SQLException {
+        List<Integer> mojeIdTerminow = new ArrayList<>();
+        List myTrainings = new ArrayList();
+        List terminarzFromDataBase = Driver.getTerminarz();
+        List<Zapisy> myTerminyFromDataBase   = Driver.getMojeZapisy(Driver.getCurrentID());
+
+        for( Zapisy x:  myTerminyFromDataBase ) // przepisanie z zapisanych juz treningow samych idTerminu
+        {
+            mojeIdTerminow.add(x.getIdTerminu());
+        }
+
+
+
+
+
+        for(int i=0;i<mojeIdTerminow.size();i++){
+            Terminarz tempTerminarz = Terminarz.getInfoAboutTerminById(mojeIdTerminow.get(i),terminarzFromDataBase);
+
+            String nazwa  = String.valueOf(tempTerminarz.getIdTerminu());
+            String termin = String.valueOf(tempTerminarz.getData());
+            String trener = String.valueOf(tempTerminarz.getIdTrenera());
+            String czas   = String.valueOf(tempTerminarz.getCzas());
+            myTrainings.add(
+                    new TabelaZapisane((i+1),nazwa,termin,trener,czas,new Button("Wypisz się"))
+            );
+        }
+
+
+
+
+
+        return myTrainings;
     }
 
     public int getLp() {
