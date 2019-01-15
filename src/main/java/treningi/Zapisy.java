@@ -9,6 +9,9 @@ public class Zapisy {
         this.idTerminu = idTerminu;
     }
 
+
+
+
     public int getIdUser() {
         return idUser;
     }

@@ -19,7 +19,7 @@ public class TabelaZapisane {
             try {listaZapisaneZBazy = setListOfTabelaZapisaneFromDataBase();}
             catch (SQLException e) {e.printStackTrace();}
             }
-                                                
+
 
     public TabelaZapisane(int lp, String nazwa, String termin, String trener, String czas, Button button) {
         this.lp = lp;
@@ -37,7 +37,7 @@ public class TabelaZapisane {
             {
 
                 TabelaZapisane curr = (TabelaZapisane)  MainViewFinal.listaZapis.get(i);
-                TabelaZapisane temp = new TabelaZapisane((i+1),curr.nazwa,curr.termin,curr.trener,curr.czas,new Button("Zapisz sie"));
+                TabelaZapisane temp = new TabelaZapisane((i+1),curr.nazwa,curr.termin,curr.trener,curr.czas,new Button("Wypisz się"));
                 MainViewFinal.listaZapis.set(i,temp);
 
             }
@@ -50,6 +50,7 @@ public class TabelaZapisane {
         List myTrainings = new ArrayList();
         List terminarzFromDataBase = Driver.getTerminarz();
         List<Zapisy> myTerminyFromDataBase   = Driver.getMojeZapisy(Driver.getCurrentID());
+        List<ListaTreningow> allTrainingsFromDataBase = Driver.getListaTreningow();
 
         for( Zapisy x:  myTerminyFromDataBase ) // przepisanie z zapisanych juz treningow samych idTerminu
         {
@@ -63,7 +64,7 @@ public class TabelaZapisane {
         for(int i=0;i<mojeIdTerminow.size();i++){
             Terminarz tempTerminarz = Terminarz.getInfoAboutTerminById(mojeIdTerminow.get(i),terminarzFromDataBase);
 
-            String nazwa  = String.valueOf(tempTerminarz.getIdTerminu());
+            String nazwa  = ListaTreningow.getNameById(tempTerminarz.getIdTerminu(),allTrainingsFromDataBase) + "[" + String.valueOf(tempTerminarz.getIdTerminu()) + "]";
             String termin = String.valueOf(tempTerminarz.getData());
             String trener = String.valueOf(tempTerminarz.getIdTrenera());
             String czas   = String.valueOf(tempTerminarz.getCzas());
