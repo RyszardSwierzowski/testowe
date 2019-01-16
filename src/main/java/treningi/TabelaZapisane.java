@@ -59,7 +59,7 @@ public class TabelaZapisane {
         for(int i=0;i<mojeIdTerminow.size();i++){
             Terminarz tempTerminarz = Terminarz.getInfoAboutTerminById(mojeIdTerminow.get(i),terminarzFromDataBase);
 
-            String nazwa  = ListaTreningow.getNameById(tempTerminarz.getIdTerminu(),allTrainingsFromDataBase) + "[" + String.valueOf(tempTerminarz.getIdTerminu()) + "]";
+            String nazwa  = ListaTreningow.getNameById(tempTerminarz.getIdTreningu(),allTrainingsFromDataBase) + "[" + String.valueOf(tempTerminarz.getIdTerminu()) + "]";
             String termin = String.valueOf(tempTerminarz.getData());
             String trener = Trenerzy.getFullNameById(tempTerminarz.getIdTrenera(),trainersListFromDataBase) + " " + String.valueOf(tempTerminarz.getIdTrenera());
             String czas   = String.valueOf(tempTerminarz.getCzas());
