@@ -13,7 +13,7 @@ public class TabelaDostepne {
     private final int lp;
     private final String nazwa,termin,trener,czas;
     private final Button button;
-    public static List listaDostepneZBazy;//new ArrayList();//Arrays.asList(// todo lista ma być na podstawie bazy danych
+    public static List listaDostepneZBazy;
 
     static {
         try {listaDostepneZBazy = convertTerminarzToTabelaDostepne(Driver.getTerminarz(),Driver.getMojeZapisy(Driver.getCurrentID()));}
@@ -45,6 +45,10 @@ public class TabelaDostepne {
     }
     public static List<TabelaDostepne> convertTerminarzToTabelaDostepne(List<Terminarz> terminarz, List<Zapisy> zapisane) throws SQLException {
         List<TabelaDostepne> result = new ArrayList<>();
+
+        boolean isReady=false; // czy idTerminu jest już zapisane
+        int licznikLp=1;
+
         List myTrainings = new ArrayList();
         List<Terminarz> terminarzFromDataBase = Driver.getTerminarz();
         List<Zapisy> myTerminyFromDataBase   = Driver.getMojeZapisy(Driver.getCurrentID());
@@ -53,36 +57,28 @@ public class TabelaDostepne {
 
         for(int t=0;t<terminarz.size();t++)
         {
+            isReady=false;
             Terminarz tempTerminarz = terminarz.get(t);
 
-            String nazwa  = ListaTreningow.getNameById(tempTerminarz.getIdTreningu(),allTrainingsFromDataBase) + "[" + String.valueOf(tempTerminarz.getIdTerminu()) + "]";
-            String termin = String.valueOf(tempTerminarz.getData());
-            String trener = Trenerzy.getFullNameById(tempTerminarz.getIdTrenera(),trainersListFromDataBase) + " " + String.valueOf(tempTerminarz.getIdTrenera());
-            String czas   = String.valueOf(tempTerminarz.getCzas());
-            result.add(new TabelaDostepne((t+1),nazwa,termin,trener,czas,new Button("Zapisz się")));
+            int idTerminu=terminarz.get(t).getIdTerminu();
+
+            for(Zapisy z : zapisane)
+            {
+                if(idTerminu==z.getIdTerminu())
+                {
+                    isReady=true;
+                }
+            }
+
+            if(isReady==false)
+            {
+                String nazwa  = ListaTreningow.getNameById(tempTerminarz.getIdTreningu(),allTrainingsFromDataBase) + "[" + String.valueOf(tempTerminarz.getIdTerminu()) + "]";
+                String termin = String.valueOf(tempTerminarz.getData());
+                String trener = Trenerzy.getFullNameById(tempTerminarz.getIdTrenera(),trainersListFromDataBase) + " " + String.valueOf(tempTerminarz.getIdTrenera());
+                String czas   = String.valueOf(tempTerminarz.getCzas());
+                result.add(new TabelaDostepne((licznikLp++),nazwa,termin,trener,czas,new Button("Zapisz się")));
+            }
         }
-
-
-//        boolean isReady = false; //czy trening jest juz zapisany
-//        int licznik=0;
-//        for(Terminarz t: terminarz)
-//        {
-//            isReady=false;
-//            for( int z=0;z<zapisane.size();z++ )
-//            {
-//                if(zapisane.get(z).getIdTerminu()==t.getIdTerminu())
-//                    isReady=true;
-//            }
-//
-//            if(isReady==false)
-//                result.add(
-//                        new TabelaDostepne((licznik++),String.valueOf(t.getIdTerminu()),t.getData(),String.valueOf(t.getIdTrenera()),String.valueOf(t.getCzas()),new Button("Zapisz się "))
-//                );
-//        }
-
-
-
-
         return result;
     }
 
