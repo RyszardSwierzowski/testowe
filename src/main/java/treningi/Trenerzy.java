@@ -1,10 +1,6 @@
 package treningi;
 
 
-
-import jdbcDriver.Driver;
-
-import java.sql.SQLException;
 import java.util.List;
 
 public class Trenerzy {
@@ -17,16 +13,7 @@ public class Trenerzy {
         this.imie = imie;
         this.nazwisko = nazwisko;
     }
-    public static String getTrenerNameAndSurname(int idTrenera) throws SQLException {
-        List<Trenerzy> listaTrenerow = Driver.getTrenerzy();
-        for(Trenerzy t:listaTrenerow){
-            if(idTrenera==t.idTrenera)
-            {
-                return t.imie+" "+t.nazwisko;
-            }
-        }
-        return " Brak danych";
-    }
+
 
     public static String getFullNameById(int id , List<Trenerzy> listaTrenerow)
     {
