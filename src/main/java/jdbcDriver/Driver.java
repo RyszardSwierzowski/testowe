@@ -9,10 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import platnosci.PlatnoscStatus;
 import platnosci.Platnosci;
-import treningi.ListaTreningow;
-import treningi.Terminarz;
-import treningi.Trenerzy;
-import treningi.Zapisy;
+import treningi.*;
 import user.Klient;
 import user.StatusKonta;
 import utilities.ValidateUtilities;
@@ -671,6 +668,50 @@ public class Driver {
             }
         }
         return resultList;
+    }
+
+    public static void addNewTraininigsForUser(int idTerminu) throws SQLException {
+
+        idTerminu = TabelaDostepne.listaIdTerminow.get(idTerminu);
+
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+
+//            myRs = myStmt.executeQuery("SELECT iduser FROM users ");
+//            while (myRs.next()) {
+//                currentId = Long.parseLong(myRs.getString("idUser"));
+//                if (currentId > nextID)
+//                    nextID = currentId;
+//            }
+//            if (nextID == -1) {
+//                nextID = 0;
+//            }
+
+            //myStmt.executeUpdate("INSERT INTO `zapisy`(`idUser`, `idTerminu`) VALUES (" + Driver.currentID + ",'" + idTerminu + "')");
+            System.out.println(idTerminu);
+
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+
+
+        }
     }
 
 }

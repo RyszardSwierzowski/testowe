@@ -42,7 +42,7 @@ public class TabelaZapisane {
             }
         });
     }
-    private static List setListOfTabelaZapisaneFromDataBase() throws SQLException {
+    public static List setListOfTabelaZapisaneFromDataBase() throws SQLException {
         List<Integer> mojeIdTerminow = new ArrayList<>();
         List myTrainings = new ArrayList();
         List<Terminarz> terminarzFromDataBase = Driver.getTerminarz();

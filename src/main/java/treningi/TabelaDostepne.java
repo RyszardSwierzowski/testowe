@@ -14,11 +14,14 @@ public class TabelaDostepne {
     private final String nazwa,termin,trener,czas;
     private final Button button;
     public static List listaDostepneZBazy;
+    public static List<Integer> listaIdTerminow= new ArrayList<>();
 
     static {
         try {listaDostepneZBazy = convertTerminarzToTabelaDostepne(Driver.getTerminarz(),Driver.getMojeZapisy(Driver.getCurrentID()));}
         catch (SQLException e) {e.printStackTrace();}
     }
+
+
 
 
     public TabelaDostepne(int lp, String nazwa, String termin, String trener, String czas, Button button) {
@@ -31,6 +34,17 @@ public class TabelaDostepne {
 
         button.setOnAction(e->
         {
+
+            try {
+                Driver.addNewTraininigsForUser(this.getLp()-1);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+
+
+            listaIdTerminow.remove(this.getLp()-1);
+
+
             MainViewFinal.listaDostepnych.remove(this.getLp()-1);
             for(int i = this.lp-1; i< MainViewFinal.listaDostepnych.size(); i++)
             {
@@ -77,6 +91,7 @@ public class TabelaDostepne {
                 String trener = Trenerzy.getFullNameById(tempTerminarz.getIdTrenera(),trainersListFromDataBase) + " " + String.valueOf(tempTerminarz.getIdTrenera());
                 String czas   = String.valueOf(tempTerminarz.getCzas());
                 result.add(new TabelaDostepne((licznikLp++),nazwa,termin,trener,czas,new Button("Zapisz się")));
+                listaIdTerminow.add(tempTerminarz.getIdTerminu());
             }
         }
         return result;
