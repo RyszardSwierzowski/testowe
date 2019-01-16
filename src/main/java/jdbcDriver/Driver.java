@@ -786,6 +786,44 @@ public class Driver {
 
 
     }
+    public static Platnosci getPlatnosciFromDataBase() throws SQLException {
+
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+
+
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+            myRs = myStmt.executeQuery("select * from platnosci where  idUser='" + Driver.currentID + "'");
+            while (myRs.next()) {
+                return new Platnosci( Integer.parseInt(myRs.getString("idUser")),
+                                      myRs.getString("status"),
+                                      Long.parseLong(myRs.getString("karta")),
+                                      myRs.getString("termin"));
+
+            }
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+        }
+        return null;
+
+    }
+
 
 
 }

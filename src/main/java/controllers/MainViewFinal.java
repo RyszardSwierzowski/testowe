@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import jdbcDriver.Driver;
 
+import platnosci.Platnosci;
 import treningi.TabelaDostepne;
 import treningi.TabelaZapisane;
 import user.Klient;
@@ -69,6 +70,7 @@ public class MainViewFinal {
 
 
 
+
     @FXML    private Tab kartaTwojeTreningi = new Tab();
     @FXML    private Tab kartaDostępneZajecia = new Tab();
 
@@ -88,6 +90,7 @@ public class MainViewFinal {
         userTelefon.setText("Numer kontaktowy : " + String.valueOf(klient.getNumerKontaktowy()));
         userLogin.setText("Login : " + klient.getLogin());
         Driver.getStatus();
+
 
         /*//todo odkomentować
         if (statusKonta != StatusKonta.AKTYWNE) {
@@ -172,11 +175,12 @@ public class MainViewFinal {
 // TABLICA ZAPIS
 public void initTableZapis(){
     {
+
         try {TabelaZapisane.listaZapisaneZBazy = TabelaZapisane.setListOfTabelaZapisaneFromDataBase();}
         catch (SQLException e) {e.printStackTrace();}
     }
 
-    // todo init TabelaZapisane.listaZapisaneZBazy danymi z bazy danych
+
     listaZapis = FXCollections.observableArrayList
             (
                     TabelaZapisane.listaZapisaneZBazy
@@ -222,12 +226,33 @@ public void initTableZapis(){
 
 
 // PLATNOSCI
-//    public void setPlatnosci() throws SQLException {
-//        Platnosci platnosci = Driver.getStatusPlatnosci();
-//        platnoscStatus.setText(platnosci.getStatus());
-//        platnoscKarta.setText(String.valueOf(platnosci.getKarta()));
-//        platnoscTerminPlatnosci.setText(platnosci.getTermin());
-//    }
+    public void setPlatnosci() throws SQLException {
+        Platnosci platnosci = Driver.getPlatnosciFromDataBase();
+
+        platnoscStatus.setText(platnosci.getStatus());
+        platnoscKarta.setText(String.valueOf(platnosci.getKarta()));
+        platnoscTerminPlatnosci.setText(platnosci.getTermin());
+
+    }
+
+    public void dodajKarte()
+    {
+        String nowyTermin = getNewDate().toString();
+
+        // dodaj nr karty , zmien status na OPLACONO
+         //pobierz nr karty
+        // ustaw termin
+
+        
+    }
+
+    public static  LocalDate getNewDate()
+    {
+        LocalDate now = LocalDate.now();
+
+        return now.plusMonths(1);
+    }
+
 
 }
 

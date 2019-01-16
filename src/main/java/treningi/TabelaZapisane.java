@@ -56,6 +56,8 @@ public class TabelaZapisane {
         List<ListaTreningow> allTrainingsFromDataBase = Driver.getListaTreningow();
         List<Trenerzy> trainersListFromDataBase = Driver.getTrenerzy();
 
+        listaIdTerminow.clear();
+
         for( Zapisy x:  myTerminyFromDataBase ) // przepisanie z zapisanych juz treningow samych idTerminu
         {
             mojeIdTerminow.add(x.getIdTerminu());

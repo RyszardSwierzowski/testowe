@@ -231,15 +231,15 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
-                        <Tab text="Płatności">
+                        <Tab disable="true" onSelectionChanged="#setPlatnosci">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <GridPane layoutX="22.0" layoutY="19.0" prefHeight="117.0" prefWidth="465.0">
+                                        <GridPane layoutX="22.0" layoutY="20.0" prefHeight="116.0" prefWidth="848.0">
                                             <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="103.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="132.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="163.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="260.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="83.0" />
                                             </columnConstraints>
                                             <rowConstraints>
                                                 <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
@@ -250,9 +250,9 @@
                                                 <Label prefHeight="17.0" prefWidth="134.0" text="Status" />
                                                 <Label prefHeight="17.0" prefWidth="134.0" text="Numer karty" GridPane.rowIndex="1" />
                                                 <Label prefHeight="17.0" prefWidth="134.0" text="Termin płatności" GridPane.rowIndex="2" />
-                                                <Label fx:id="platnoscStatus" prefHeight="17.0" prefWidth="88.0" text="brak danych" GridPane.columnIndex="1" />
-                                                <Label fx:id="platnoscKarta" prefHeight="17.0" prefWidth="88.0" text="brak danych" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                <Label fx:id="platnoscTerminPlatnosci" prefHeight="17.0" prefWidth="88.0" text="brak danych" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label fx:id="platnoscStatus" prefHeight="17.0" prefWidth="257.0" text="brak danych" GridPane.columnIndex="1" />
+                                                <Label fx:id="platnoscKarta" prefHeight="17.0" prefWidth="260.0" text="brak danych" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label fx:id="platnoscTerminPlatnosci" prefHeight="17.0" prefWidth="257.0" text="brak danych" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                                 <Button fx:id="platnoscZmienNrKarty" mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Zmień karte" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                             </children>
                                         </GridPane>
