@@ -243,7 +243,7 @@ public void initTableZapis(){
          //pobierz nr karty
         // ustaw termin
 
-        
+
     }
 
     public static  LocalDate getNewDate()
