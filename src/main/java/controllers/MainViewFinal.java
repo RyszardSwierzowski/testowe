@@ -171,6 +171,11 @@ public class MainViewFinal {
 
 // TABLICA ZAPIS
 public void initTableZapis(){
+    {
+        try {TabelaZapisane.listaZapisaneZBazy = TabelaZapisane.setListOfTabelaZapisaneFromDataBase();}
+        catch (SQLException e) {e.printStackTrace();}
+    }
+
     // todo init TabelaZapisane.listaZapisaneZBazy danymi z bazy danych
     listaZapis = FXCollections.observableArrayList
             (
@@ -188,7 +193,13 @@ public void initTableZapis(){
 }
     // TABLICA DOSTEPNE
     public void initTableDostepne(){
-        // todo init TabelaZapisane.listaZapisaneZBazy danymi z bazy danych
+
+
+         {
+            try {TabelaDostepne.listaDostepneZBazy = TabelaDostepne.convertTerminarzToTabelaDostepne(Driver.getTerminarz(),Driver.getMojeZapisy(Driver.getCurrentID()));}
+            catch (SQLException e) {e.printStackTrace();}
+        }
+
         listaDostepnych = FXCollections.observableArrayList
                 (
                         TabelaDostepne.listaDostepneZBazy
@@ -202,12 +213,13 @@ public void initTableZapis(){
         tablicaDostepneZapisz.setCellValueFactory(new PropertyValueFactory<>("button"));
 
         tablicaDostepne.setItems(listaDostepnych);
+
+
+        //System.out.println("initTableDostepne");
     }
 
 
-public void setTablicaZapisu(ObservableList list){
-    talicaZapisu.setItems(list);
-}
+
 
 // PLATNOSCI
 //    public void setPlatnosci() throws SQLException {

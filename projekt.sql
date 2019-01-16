@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Sty 2019, 08:14
+-- Czas generowania: 16 Sty 2019, 18:08
 -- Wersja serwera: 10.1.37-MariaDB
 -- Wersja PHP: 7.3.0
 
@@ -68,7 +68,8 @@ INSERT INTO `logindata` (`login`, `password`, `idUser`) VALUES
 ('dasdassda', 'dasdassda', '6'),
 ('dasdassda', '123456789', '7'),
 ('dasdassda', 'dasdassda', '8'),
-('dasdassda', 'ewqeqweaa', '9');
+('dasdassda', 'ewqeqweaa', '9'),
+('wqerptl1', 'Qwerty123!', '10');
 
 -- --------------------------------------------------------
 
@@ -133,7 +134,8 @@ INSERT INTO `terminarz` (`idTerminu`, `idTrenera`, `czasTrwania`, `LimitMiejsc`,
 (2, 1, 70, 15, '04.02.2019', 4),
 (3, 2, 45, 15, '05.02.2019', 3),
 (4, 2, 25, 15, '09.02.2019', 2),
-(5, 2, 75, 15, '15.02.2019', 1);
+(5, 2, 75, 15, '15.02.2019', 1),
+(6, 1, 95, 10, '22.09.2019', 2);
 
 -- --------------------------------------------------------
 
@@ -184,7 +186,8 @@ INSERT INTO `users` (`IDuser`, `login`, `imie`, `nazwisko`, `email`, `telefon`) 
 (6, 'dasdassda', 'eqwew', 'eqweqw', 'eqweq@wp.pl', '123456789'),
 (7, 'dasdassda', 'dasdas', 'dasda', 'dasdadasdasdas', '123456789'),
 (8, 'dasdassda', 'dasdassda', 'dasdassda', 'dasdassda', '123456789'),
-(9, 'dasdassda', 'ewqeqwe', 'ewqeqwe', '12345678978', '123456789');
+(9, 'dasdassda', 'ewqeqwe', 'ewqeqwe', '12345678978', '123456789'),
+(10, 'wqerptl1', 'tomasz', 'nowak', 'qwer@wp.pl', '123456789');
 
 -- --------------------------------------------------------
 
@@ -196,20 +199,6 @@ CREATE TABLE `zapisy` (
   `idUser` int(11) NOT NULL,
   `idTerminu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Zrzut danych tabeli `zapisy`
---
-
-INSERT INTO `zapisy` (`idUser`, `idTerminu`) VALUES
-(4, 1),
-(4, 2),
-(4, 3),
-(4, 4),
-(4, 5),
-(1, 2),
-(1, 2),
-(2, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

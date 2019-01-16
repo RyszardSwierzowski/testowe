@@ -21,7 +21,7 @@ public class Terminarz {
     public static Terminarz getInfoAboutTerminById(int id, List<Terminarz> terminarzList){
         for(Terminarz t : terminarzList)
         {
-            if(t.getIdTreningu()==id)
+            if(t.getIdTerminu()==id)
                 return t;
         }
 

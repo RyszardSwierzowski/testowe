@@ -713,6 +713,7 @@ public class Driver {
             myStmt = myConn.createStatement();
 
             myStmt.executeUpdate("DELETE FROM `zapisy` WHERE idTerminu='"+ idTerminu +"' AND idUser='"+ Driver.currentID +"' ");
+            System.out.println("u"+Driver.currentID+" t"+idTerminu);
 
         } catch (Exception exc) {
             exc.printStackTrace();

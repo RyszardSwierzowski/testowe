@@ -13,7 +13,7 @@ public class TabelaZapisane {
     private final String nazwa,termin,trener,czas;
     private final Button button;
     public static List listaZapisaneZBazy;// zpis z bazy rzutowany na TabelaZapisane;
-    //public static List<Integer> listaIdTerminow= new ArrayList<>();
+    public static List<Integer> listaIdTerminow= new ArrayList<>();
 
     static {
             try {listaZapisaneZBazy = setListOfTabelaZapisaneFromDataBase();}
@@ -32,7 +32,8 @@ public class TabelaZapisane {
         button.setOnAction(e->
         {
             try {
-                Driver.deleteTrainingForUser(this.getLp()-1);
+                Driver.deleteTrainingForUser(listaIdTerminow.get(this.lp-1 ));
+                listaIdTerminow.remove(this.getLp()-1);
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
@@ -58,8 +59,9 @@ public class TabelaZapisane {
         for( Zapisy x:  myTerminyFromDataBase ) // przepisanie z zapisanych juz treningow samych idTerminu
         {
             mojeIdTerminow.add(x.getIdTerminu());
-//            listaIdTerminow.add(x.getIdTerminu());
+            listaIdTerminow.add(x.getIdTerminu());
         }
+
 
 
         for(int i=0;i<mojeIdTerminow.size();i++){
@@ -67,7 +69,7 @@ public class TabelaZapisane {
 
             String nazwa  = ListaTreningow.getNameById(tempTerminarz.getIdTreningu(),allTrainingsFromDataBase) + "[" + String.valueOf(tempTerminarz.getIdTerminu()) + "]";
             String termin = String.valueOf(tempTerminarz.getData());
-            String trener = Trenerzy.getFullNameById(tempTerminarz.getIdTrenera(),trainersListFromDataBase) + " " + String.valueOf(tempTerminarz.getIdTrenera());
+            String trener = Trenerzy.getFullNameById(tempTerminarz.getIdTrenera(),trainersListFromDataBase) ;
             String czas   = String.valueOf(tempTerminarz.getCzas());
             myTrainings.add(
                     new TabelaZapisane((i+1),nazwa,termin,trener,czas,new Button("Wypisz się"))
