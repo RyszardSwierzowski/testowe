@@ -681,19 +681,38 @@ public class Driver {
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
             myStmt = myConn.createStatement();
 
-//            myRs = myStmt.executeQuery("SELECT iduser FROM users ");
-//            while (myRs.next()) {
-//                currentId = Long.parseLong(myRs.getString("idUser"));
-//                if (currentId > nextID)
-//                    nextID = currentId;
-//            }
-//            if (nextID == -1) {
-//                nextID = 0;
-//            }
+            myStmt.executeUpdate("INSERT INTO `zapisy`(`idUser`, `idTerminu`) VALUES (" + Driver.currentID + ",'" + idTerminu + "')");
 
-            //myStmt.executeUpdate("INSERT INTO `zapisy`(`idUser`, `idTerminu`) VALUES (" + Driver.currentID + ",'" + idTerminu + "')");
-            System.out.println(idTerminu);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
 
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+
+        }
+    }
+
+    public static void deleteTrainingForUser(int idTerminu) throws SQLException {
+
+        //idTerminu = TabelaDostepne.listaIdTerminow.get(idTerminu);
+
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+
+            myStmt.executeUpdate("DELETE FROM `zapisy` WHERE idTerminu='"+ idTerminu +"' AND idUser='"+ Driver.currentID +"' ");
 
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -713,6 +732,7 @@ public class Driver {
 
         }
     }
+
 
 }
 

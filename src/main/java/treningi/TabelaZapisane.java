@@ -13,6 +13,7 @@ public class TabelaZapisane {
     private final String nazwa,termin,trener,czas;
     private final Button button;
     public static List listaZapisaneZBazy;// zpis z bazy rzutowany na TabelaZapisane;
+    //public static List<Integer> listaIdTerminow= new ArrayList<>();
 
     static {
             try {listaZapisaneZBazy = setListOfTabelaZapisaneFromDataBase();}
@@ -30,7 +31,11 @@ public class TabelaZapisane {
 
         button.setOnAction(e->
         {
-
+            try {
+                Driver.deleteTrainingForUser(this.getLp()-1);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
             MainViewFinal.listaZapis.remove(this.getLp()-1);
             for(int i = this.lp-1; i< MainViewFinal.listaZapis.size(); i++)
             {
@@ -53,6 +58,7 @@ public class TabelaZapisane {
         for( Zapisy x:  myTerminyFromDataBase ) // przepisanie z zapisanych juz treningow samych idTerminu
         {
             mojeIdTerminow.add(x.getIdTerminu());
+//            listaIdTerminow.add(x.getIdTerminu());
         }
 
 
