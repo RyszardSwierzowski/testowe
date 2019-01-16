@@ -53,4 +53,16 @@ public class Terminarz {
     public int getCzas() {
         return czas;
     }
+
+    @Override
+    public String toString() {
+        return "Terminarz{" +
+                "idTerminu=" + idTerminu +
+                ", idTrenera=" + idTrenera +
+                ", idTreningu=" + idTreningu +
+                ", data='" + data + '\'' +
+                ", limit=" + limit +
+                ", czas=" + czas +
+                '}';
+    }
 }
