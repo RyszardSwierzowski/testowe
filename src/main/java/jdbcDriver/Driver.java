@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.*;
 
 import controllers.MainViewFinal;
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import platnosci.PlatnoscStatus;
@@ -117,6 +118,7 @@ public class Driver {
 
             myStmt.executeUpdate("INSERT INTO `logindata`(`IDuser`, `login`, `password`) VALUES (" + (++nextID) + ",'" + login + "','" + haslo + "')");
             myStmt.executeUpdate("INSERT INTO `users`(`IDuser`, `login`, `imie`, `nazwisko`, `email`, `telefon`) VALUES (" + (nextID) + ",'" + login + "','" + imie + "','" + nazwisko + "','" + email + "','" + telefon + "')");
+            initStatusPlatnosci(nextID);
             // myStmt.executeUpdate("INSERT INTO `test`(`t`) VALUES (2)");
 
 
@@ -215,19 +217,28 @@ public class Driver {
         if (email.trim().length() > 0)
             isEmail = true;
 
-        if (isImie) {
-            if (imie.trim().length() < 3)
+        if (isImie)
+        {
+            if (imie.trim().length() < 3){
                 errorMessage += (++errorNumber) + ". za krótkie imię!\n";
-            if (!ValidateUtilities.isText(imie.trim())) {
+            }
+
+
+
+            if (!ValidateUtilities.isText(imie.trim()))
+            {
                 errorMessage += (++errorNumber) + ". imię może zawierać tylko litery!\n";
             }
+
         }
-        if (isNazwisko) {
+        if (isNazwisko)
+        {
             if (nazwisko.trim().length() < 3)
                 errorMessage += (++errorNumber) + ". za krótkie nazwisko!\n";
             if (!ValidateUtilities.isText(nazwisko.trim())) {
                 errorMessage += (++errorNumber) + ". nazwisko może zawierać tylko litery!\n";
             }
+        }
             if (isTelefon) {
                 if (!ValidateUtilities.isMobilePhoneNumber(telefon.trim()))
                     errorMessage += (++errorNumber) + ". nr tel ma zawierać tylko 9 cyfr!\n";
@@ -289,7 +300,7 @@ public class Driver {
 
 
         }
-    }
+
     public static String getStatus() throws SQLException {
 
         Connection myConn = null;
@@ -410,6 +421,9 @@ public class Driver {
                 myStmt.executeUpdate("DELETE FROM `logindata` WHERE idUser='"+Driver.getCurrentID()+"'");
 
                 Driver.currentID=-1;
+                Platform.exit();
+
+
 
             } catch (Exception exc) {
                 exc.printStackTrace();
@@ -732,6 +746,45 @@ public class Driver {
 
 
         }
+    }
+
+    // PLATNOSCI
+    public static void initStatusPlatnosci(long idUser) throws SQLException {
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+        long nextID = -1;
+        long currentId;
+        try {
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projekt", "root", "");
+            myStmt = myConn.createStatement();
+
+            myStmt.executeUpdate("INSERT INTO `platnosci`(`idUser`, `status`, `karta`, `termin`) VALUES (" + idUser + ",'" + PlatnoscStatus.NIE_DODANO_KARTY + "',0,'-')");
+
+
+
+            currentId = ++nextID;
+
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (myRs != null) {
+                myRs.close();
+            }
+
+            if (myStmt != null) {
+                myStmt.close();
+            }
+
+            if (myConn != null) {
+                myConn.close();
+            }
+
+
+        }
+
+
     }
 
 
