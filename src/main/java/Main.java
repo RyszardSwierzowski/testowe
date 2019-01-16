@@ -178,8 +178,8 @@ public class Main extends Application {
                 isCorrectTelefon=true;
             }
         //LOGIN
-            if(login.length()<=7 || ValidateUtilities.validateNewLogin(login) == false ){
-                listaBledowWFormularzuRejestracji.add("Login powinien zawierać min. 7 oraz skałdadać się tylko z cyfr i liter");
+            if(login.length()<5 || ValidateUtilities.validateNewLogin(login) == false ){
+                listaBledowWFormularzuRejestracji.add("Login powinien zawierać min. 5 oraz skałdadać się tylko z cyfr i liter");
             }else {
                 isCorrectLogin=true;
             }
@@ -198,9 +198,17 @@ public class Main extends Application {
                     if (Driver.tryToAddANewUser(loginRejestracja.getText(), adresEmailRejestracja.getText()) == true) {
                         System.out.println("Rejestracjaok ok");
                         Driver.addNewUserToDataBase(imieRejestracja.getText(),nazwiskoRejestracja.getText(),loginRejestracja.getText(),passwordRejestracja.getText(),telefonRejestracja.getText(),adresEmailRejestracja.getText());
+                        Driver.tryToLogIn(loginRejestracja.getText(),passwordRejestracja.getText());
+
+
+
                         window.setScene(zalogowanoWidok);
                     } else {
-                        System.out.println("Blad");
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle(null);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Login już w użyciu");
+                        alert.showAndWait();
                     }
                 } catch (SQLException e1) {
                     e1.printStackTrace();
@@ -208,12 +216,19 @@ public class Main extends Application {
                 }
                 else
                 {
-                    // BŁĄD W WALIDACJI
-                    String resultWarrning="";
-                    for(String i:listaBledowWFormularzuRejestracji){
-                        resultWarrning+=i+"\n";
+                    String mess="";
+
+                    for(String x :listaBledowWFormularzuRejestracji)
+                    {
+                        mess+=x+"\n";
                     }
-                    System.out.println(resultWarrning);
+
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle(null);
+                    alert.setHeaderText(null);
+                    alert.setContentText(mess);
+                    alert.showAndWait();
 
                 }
 
