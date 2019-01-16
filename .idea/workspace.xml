@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6e2218f0-51ee-4ae8-a916-9df30eb1f026" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/treningi/TabelaZapisane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/treningi/TabelaZapisane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/treningi/Trenerzy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/treningi/Trenerzy.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -16,42 +18,47 @@
     <session id="12978944">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="3" />
-          <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.open.time.7" value="3" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="2" />
-          <entry key="java" value="66" />
+          <entry key="JavaScript-modules-diagram/C:/Users/rysza/Desktop/projekt/testowe/src;C:/Users/rysza/Desktop/projekt/testowe/src/main;C:/Users/rysza/Desktop/projekt/testowe/src/main/java;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/controllers;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/controllers/doSkasowaniaChyba;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/jdbcDriver;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/platnosci;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/treningi;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/user;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/utilities;" value="1" />
+          <entry key="MODULES/mdl-projekt" value="2" />
+          <entry key="fxml" value="7" />
+          <entry key="java" value="81" />
+          <entry key="uml" value="2" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="66" />
-          <entry key="XML" value="4" />
+          <entry key="JAVA" value="81" />
+          <entry key="UML" value="5" />
+          <entry key="XML" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="29" />
-          <entry key="fxml" value="8" />
-          <entry key="java" value="17026" />
+          <entry key="dummy" value="45" />
+          <entry key="fxml" value="54" />
+          <entry key="java" value="20554" />
           <entry key="xml" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="17021" />
-          <entry key="PLAIN_TEXT" value="29" />
+          <entry key="JAVA" value="20549" />
+          <entry key="PLAIN_TEXT" value="45" />
           <entry key="SQL" value="5" />
-          <entry key="XML" value="22" />
+          <entry key="XML" value="68" />
         </counts>
       </usages-collector>
     </session>
@@ -59,42 +66,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainViewFinal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="97" column="71" selection-start-line="97" selection-start-column="71" selection-end-line="97" selection-end-column="71" />
+            <state relative-caret-position="187">
+              <caret line="27" column="59" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="59" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#main#0;class#Main#0" />
+                <element signature="e#4542#5013#0" />
+                <element signature="e#5479#7287#0" />
+                <element signature="e#10661#10662#0" expanded="true" />
+                <element signature="e#10696#10697#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3349">
-              <caret line="218" selection-start-line="218" selection-end-line="218" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2791#2836#0" />
-                <element signature="e#4037#4508#0" />
-                <element signature="e#7759#8701#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state relative-caret-position="238">
+              <caret line="30" column="81" lean-forward="true" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="81" />
               <folding>
                 <element signature="method#tryToLogIn#0;class#Driver#0" />
                 <element signature="method#tryToAddANewUser#0;class#Driver#0" />
-                <element signature="e#2359#2411#0" />
                 <element signature="method#addNewUserToDataBase#0;class#Driver#0" />
                 <element signature="method#getInfoAboutUser#0;class#Driver#0" />
                 <element signature="method#editUser#0;class#Driver#0" />
@@ -112,15 +105,99 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/treningi/TabelaZapisane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="591">
+              <caret line="63" column="106" selection-start-line="63" selection-start-column="106" selection-end-line="63" selection-end-column="106" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#toString#0;class#TabelaZapisane#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/treningi/Trenerzy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+              <folding>
+                <element signature="e#754#755#0" expanded="true" />
+                <element signature="e#786#787#0" expanded="true" />
+                <element signature="e#832#833#0" expanded="true" />
+                <element signature="e#858#859#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/treningi/DostępneTreningiTabele.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/treningi/Terminarz.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/treningi/Zapisy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="e#240#241#0" expanded="true" />
+                <element signature="e#269#270#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/treningi/TabelaDostepne.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="44" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/treningi/ListaTreningow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="36" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="36" />
+              <folding>
+                <element signature="e#266#267#0" expanded="true" />
+                <element signature="e#299#300#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -137,6 +214,13 @@
       <find>login</find>
       <find>userButtonOkresZawieszeniaKonta</find>
       <find>platnoscStatus</find>
+      <find>false</find>
+      <find>init</find>
+      <find>setTableDost</find>
+      <find>tab</find>
+      <find>setTableMojeTreningi</find>
+      <find>TEst</find>
+      <find>talica</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,7 +242,6 @@
         <option value="$PROJECT_DIR$/src/main/java/controllers/Hello.java" />
         <option value="$PROJECT_DIR$/src/main/resources/viewsFxml/testowyWidok.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/TestowyWidok.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/viewsFxml/mainView.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/doSkasowaniaChyba/Hello.java" />
         <option value="$PROJECT_DIR$/src/test/java/controllers/LogowanieTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/User.java" />
@@ -171,19 +254,27 @@
         <option value="$PROJECT_DIR$/src/main/java/controllers/doSkasowaniaChyba/Rejestracja.java" />
         <option value="$PROJECT_DIR$/src/main/java/utilities/ValidateUtilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/treningi/DostępneTreningi.java" />
-        <option value="$PROJECT_DIR$/src/main/java/treningi/Zapisy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/treningi/Terminarz.java" />
-        <option value="$PROJECT_DIR$/src/main/java/treningi/ListaTreningow.java" />
         <option value="$PROJECT_DIR$/src/main/java/treningi/DostępneTreningiTabele2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/treningi/Trenerzy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/treningi/DostępneTreningiTabele.java" />
         <option value="$PROJECT_DIR$/src/main/java/user/Klient.java" />
         <option value="$PROJECT_DIR$/src/main/java/user/StatusKonta.java" />
         <option value="$PROJECT_DIR$/src/main/java/platnosci/Platnosci.java" />
         <option value="$PROJECT_DIR$/src/main/java/platnosci/PlatnoscStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/MainView.java" />
         <option value="$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/treningi/DostępneTreningiTabele.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sanbox.java" />
+        <option value="$PROJECT_DIR$/src/main/java/treningi/TabelaZapis.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/MainView.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/viewsFxml/test.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/viewsFxml/mainView.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/viewsFxml/temp.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/treningi/TabelaDostepne.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/MainViewFinal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/treningi/Terminarz.java" />
+        <option value="$PROJECT_DIR$/src/main/java/treningi/Zapisy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/treningi/ListaTreningow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/treningi/TabelaZapisane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/treningi/Trenerzy.java" />
       </list>
     </option>
   </component>
@@ -201,9 +292,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="453" />
-    <option name="y" value="8" />
-    <option name="width" value="1466" />
+    <option name="x" value="55" />
+    <option name="width" value="943" />
     <option name="height" value="1087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -253,7 +343,39 @@
               <item name="testowe" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jdbcDriver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testowe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testowe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="treningi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testowe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testowe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testowe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testowe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testowe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testowe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="viewsFxml" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -266,14 +388,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547089668753" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547622794615" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../testprojekt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -322,6 +444,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sanbox" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sanbox" />
+      <module name="projekt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LogowanieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="projekt" />
       <extension name="coverage">
@@ -357,10 +486,12 @@
       <item itemvalue="JUnit.LogowanieTest.shouldReturnTrueIfLoginIsCorrect" />
       <item itemvalue="JUnit.LogowanieTest" />
       <item itemvalue="Application.Sandbox" />
+      <item itemvalue="Application.sanbox" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.sanbox" />
         <item itemvalue="Application.Sandbox" />
         <item itemvalue="JUnit.LogowanieTest" />
         <item itemvalue="JUnit.LogowanieTest.shouldReturnTrueIfLoginIsCorrect" />
@@ -388,6 +519,11 @@
       <workItem from="1546595749600" duration="16368000" />
       <workItem from="1547056948785" duration="32165000" />
       <workItem from="1547129175436" duration="56000" />
+      <workItem from="1547492410435" duration="11092000" />
+      <workItem from="1547504371328" duration="893000" />
+      <workItem from="1547567897654" duration="1530000" />
+      <workItem from="1547574136692" duration="179000" />
+      <workItem from="1547576059801" duration="12432000" />
     </task>
     <servers />
   </component>
@@ -418,7 +554,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101621000" />
+    <option name="totallyTimeSpent" value="127747000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -433,7 +569,7 @@
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13175303" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1427784" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -464,7 +600,7 @@
       <window_info anchor="right" id="Maven" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20231533" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17089306" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -473,7 +609,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4261954" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4261954" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -512,36 +648,36 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/logowanie.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/viewsFxml/helloView.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/viewsFxml/rejestracja.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/viewsFxml/hello.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/viewsFxml/logowanie.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="135" selection-start-line="10" selection-start-column="135" selection-end-line="10" selection-end-column="135" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/viewsFxml/testowyWidok.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="146" selection-start-line="8" selection-start-column="146" selection-end-line="8" selection-end-column="146" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Sandbox.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/application/Application.java">
@@ -594,14 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/viewsFxml/mainView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/User.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Treningi.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/utilities/WindowInitial.java" />
@@ -612,35 +740,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utilities/ValidateUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/Terminarz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/Zapisy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/treningi/DostępneTreningiTabele2.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/ListaTreningow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/user/Admin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -652,34 +752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/DostępneTreningiTabele.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#generujMojeTreningi#0;class#DostępneTreningiTabele#0" />
-            <element signature="e#3542#3543#0" expanded="true" />
-            <element signature="e#3567#3568#0" expanded="true" />
-            <element signature="e#3599#3600#0" expanded="true" />
-            <element signature="e#3627#3628#0" expanded="true" />
-            <element signature="e#3660#3661#0" expanded="true" />
-            <element signature="e#3689#3690#0" expanded="true" />
-            <element signature="e#3722#3723#0" expanded="true" />
-            <element signature="e#3751#3752#0" expanded="true" />
-            <element signature="e#3779#3780#0" expanded="true" />
-            <element signature="e#3806#3807#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/Trenerzy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -711,10 +783,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sanbox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/viewsFxml/test.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/viewsFxml/mainView.fxml" />
+    <entry file="file://$PROJECT_DIR$/../../uml.uml" />
+    <entry file="uml://JavaScript-modules-diagram/C:/Users/rysza/Desktop/projekt/testowe/src;C:/Users/rysza/Desktop/projekt/testowe/src/main;C:/Users/rysza/Desktop/projekt/testowe/src/main/java;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/controllers;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/controllers/doSkasowaniaChyba;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/jdbcDriver;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/platnosci;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/treningi;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/user;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/utilities;">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src;C:/Users/rysza/Desktop/projekt/testowe/src/main;C:/Users/rysza/Desktop/projekt/testowe/src/main/java;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/controllers;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/controllers/doSkasowaniaChyba;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/jdbcDriver;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/platnosci;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/treningi;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/user;C:/Users/rysza/Desktop/projekt/testowe/src/main/java/utilities;</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="749.0" y="456.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/modules.uml" />
+    <entry file="uml://MODULES/mdl-projekt">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement>mdl-projekt</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="60.0" y="15.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="97" column="71" selection-start-line="97" selection-start-column="71" selection-end-line="97" selection-end-column="71" />
+        <state relative-caret-position="3740">
+          <caret line="236" selection-start-line="236" selection-end-line="236" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Main#0" />
@@ -722,27 +838,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainView.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/viewsFxml/mainViewFinal.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3349">
-          <caret line="218" selection-start-line="218" selection-end-line="218" />
+        <state relative-caret-position="441">
+          <caret line="306" selection-start-line="306" selection-end-line="306" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utilities/ValidateUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+          <folding>
+            <element signature="method#validateNewLogin#0;class#ValidateUtilities#0" />
+            <element signature="method#validateNewPassword#0;class#ValidateUtilities#0" />
+            <element signature="method#isText#0;class#ValidateUtilities#0" />
+            <element signature="method#isNumber#0;class#ValidateUtilities#0" />
+            <element signature="method#validateEmail#0;class#ValidateUtilities#0" />
+            <element signature="e#2985#3088#0" />
+            <element signature="method#isMobilePhoneNumber#0;class#ValidateUtilities#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/TabelaDostepne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="44" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2791#2836#0" />
-            <element signature="e#4037#4508#0" />
-            <element signature="e#7759#8701#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainViewFinal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="27" column="59" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="59" />
+          <folding>
+            <element signature="e#4542#5013#0" />
+            <element signature="e#5479#7287#0" />
+            <element signature="e#10661#10662#0" expanded="true" />
+            <element signature="e#10696#10697#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/jdbcDriver/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="30" column="81" lean-forward="true" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="81" />
           <folding>
             <element signature="method#tryToLogIn#0;class#Driver#0" />
             <element signature="method#tryToAddANewUser#0;class#Driver#0" />
-            <element signature="e#2359#2411#0" />
             <element signature="method#addNewUserToDataBase#0;class#Driver#0" />
             <element signature="method#getInfoAboutUser#0;class#Driver#0" />
             <element signature="method#editUser#0;class#Driver#0" />
@@ -755,6 +904,66 @@
             <element signature="method#getTrenerzy#0;class#Driver#0" />
             <element signature="method#getTerminarz#0;class#Driver#0" />
             <element signature="method#getListaTreningow#0;class#Driver#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/Terminarz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/Zapisy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#240#241#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/ListaTreningow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="36" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="36" />
+          <folding>
+            <element signature="e#266#267#0" expanded="true" />
+            <element signature="e#299#300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/TabelaZapisane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="63" column="106" selection-start-line="63" selection-start-column="106" selection-end-line="63" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#toString#0;class#TabelaZapisane#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/DostępneTreningiTabele.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/treningi/Trenerzy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+          <folding>
+            <element signature="e#754#755#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#832#833#0" expanded="true" />
+            <element signature="e#858#859#0" expanded="true" />
           </folding>
         </state>
       </provider>

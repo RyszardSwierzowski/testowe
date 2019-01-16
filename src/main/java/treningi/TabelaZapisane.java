@@ -6,7 +6,6 @@ import jdbcDriver.Driver;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class TabelaZapisane {
@@ -41,16 +40,15 @@ public class TabelaZapisane {
                 MainViewFinal.listaZapis.set(i,temp);
 
             }
-
-
         });
     }
     private static List setListOfTabelaZapisaneFromDataBase() throws SQLException {
         List<Integer> mojeIdTerminow = new ArrayList<>();
         List myTrainings = new ArrayList();
-        List terminarzFromDataBase = Driver.getTerminarz();
+        List<Terminarz> terminarzFromDataBase = Driver.getTerminarz();
         List<Zapisy> myTerminyFromDataBase   = Driver.getMojeZapisy(Driver.getCurrentID());
         List<ListaTreningow> allTrainingsFromDataBase = Driver.getListaTreningow();
+        List<Trenerzy> trainersListFromDataBase = Driver.getTrenerzy();
 
         for( Zapisy x:  myTerminyFromDataBase ) // przepisanie z zapisanych juz treningow samych idTerminu
         {
@@ -58,24 +56,17 @@ public class TabelaZapisane {
         }
 
 
-
-
-
         for(int i=0;i<mojeIdTerminow.size();i++){
             Terminarz tempTerminarz = Terminarz.getInfoAboutTerminById(mojeIdTerminow.get(i),terminarzFromDataBase);
 
             String nazwa  = ListaTreningow.getNameById(tempTerminarz.getIdTerminu(),allTrainingsFromDataBase) + "[" + String.valueOf(tempTerminarz.getIdTerminu()) + "]";
             String termin = String.valueOf(tempTerminarz.getData());
-            String trener = String.valueOf(tempTerminarz.getIdTrenera());
+            String trener = Trenerzy.getFullNameById(tempTerminarz.getIdTrenera(),trainersListFromDataBase) + " " + String.valueOf(tempTerminarz.getIdTrenera());
             String czas   = String.valueOf(tempTerminarz.getCzas());
             myTrainings.add(
                     new TabelaZapisane((i+1),nazwa,termin,trener,czas,new Button("Wypisz się"))
             );
         }
-
-
-
-
 
         return myTrainings;
     }
